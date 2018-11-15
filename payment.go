@@ -14,32 +14,32 @@ type CreditCardInfo struct {
 }
 
 // CreditCard will generate a struct full of credit card information
-func CreditCard() *CreditCardInfo {
+func (f *Faker) CreditCard() *CreditCardInfo {
 	return &CreditCardInfo{
-		Type:   CreditCardType(),
-		Number: CreditCardNumber(),
-		Exp:    CreditCardExp(),
-		Cvv:    CreditCardCvv(),
+		Type:   f.CreditCardType(),
+		Number: f.CreditCardNumber(),
+		Exp:    f.CreditCardExp(),
+		Cvv:    f.CreditCardCvv(),
 	}
 }
 
 // CreditCardType will generate a random credit card type string
-func CreditCardType() string {
-	return getRandValue([]string{"payment", "card_type"})
+func (f *Faker) CreditCardType() string {
+	return f.getRandValue([]string{"payment", "card_type"})
 }
 
 // CreditCardNumber will generate a random credit card number int
-func CreditCardNumber() int {
-	integer, _ := strconv.Atoi(replaceWithNumbers(getRandValue([]string{"payment", "number"})))
+func (f *Faker) CreditCardNumber() int {
+	integer, _ := strconv.Atoi(f.replaceWithNumbers(f.getRandValue([]string{"payment", "number"})))
 	return integer
 }
 
 // CreditCardNumberLuhn will generate a random credit card number int that passes luhn test
-func CreditCardNumberLuhn() int {
+func (f *Faker) CreditCardNumberLuhn() int {
 	cc := ""
 	for i := 0; i < 100000; i++ {
-		cc = replaceWithNumbers(getRandValue([]string{"payment", "number"}))
-		if luhn(cc) {
+		cc = f.replaceWithNumbers(f.getRandValue([]string{"payment", "number"}))
+		if f.luhn(cc) {
 			break
 		}
 	}
@@ -49,21 +49,21 @@ func CreditCardNumberLuhn() int {
 
 // CreditCardExp will generate a random credit card expiration date string
 // Exp date will always be a future date
-func CreditCardExp() string {
-	month := strconv.Itoa(randIntRange(1, 12))
+func (f *Faker) CreditCardExp() string {
+	month := strconv.Itoa(f.randIntRange(1, 12))
 	if len(month) == 1 {
 		month = "0" + month
 	}
-	return month + "/" + strconv.Itoa(randIntRange(currentYear+1, currentYear+10))
+	return month + "/" + strconv.Itoa(f.randIntRange(currentYear+1, currentYear+10))
 }
 
 // CreditCardCvv will generate a random CVV number - Its a string because you could have 017 as an exp date
-func CreditCardCvv() string {
-	return Numerify("###")
+func (f *Faker) CreditCardCvv() string {
+	return f.Numerify("###")
 }
 
 // luhn check is used for checking if credit card is valid
-func luhn(s string) bool {
+func (f *Faker) luhn(s string) bool {
 	var t = [...]int{0, 2, 4, 6, 8, 1, 3, 5, 7, 9}
 	odd := len(s) & 1
 	var sum int

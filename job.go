@@ -9,26 +9,26 @@ type JobInfo struct {
 }
 
 // Job will generate a struct with random job information
-func Job() *JobInfo {
+func (f *Faker) Job() *JobInfo {
 	return &JobInfo{
-		Company:    Company(),
-		Title:      JobTitle(),
-		Descriptor: JobDescriptor(),
-		Level:      JobLevel(),
+		Company:    f.Company(),
+		Title:      f.JobTitle(),
+		Descriptor: f.JobDescriptor(),
+		Level:      f.JobLevel(),
 	}
 }
 
 // JobTitle will generate a random job title string
-func JobTitle() string {
-	return getRandValue([]string{"job", "title"})
+func (f *Faker) JobTitle() string {
+	return f.getRandValue([]string{"job", "title"})
 }
 
 // JobDescriptor will generate a random job descriptor string
-func JobDescriptor() string {
-	return getRandValue([]string{"job", "descriptor"})
+func (f *Faker) JobDescriptor() string {
+	return f.getRandValue([]string{"job", "descriptor"})
 }
 
 // JobLevel will generate a random job level string
-func JobLevel() string {
-	return getRandValue([]string{"job", "level"})
+func (f *Faker) JobLevel() string {
+	return f.getRandValue([]string{"job", "level"})
 }

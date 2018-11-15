@@ -5,98 +5,98 @@ import (
 	"testing"
 )
 
-func ExampleBeerName() {
-	Seed(11)
-	fmt.Println(BeerName())
+func ExampleFaker_BeerName() {
+	Global.Seed(11)
+	fmt.Println(Global.BeerName())
 	// Output: Duvel
 }
 
 func BenchmarkBeerName(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		BeerName()
+		Global.BeerName()
 	}
 }
 
-func ExampleBeerStyle() {
-	Seed(11)
-	fmt.Println(BeerStyle())
+func ExampleFaker_BeerStyle() {
+	Global.Seed(11)
+	fmt.Println(Global.BeerStyle())
 	// Output: European Amber Lager
 }
 
 func BenchmarkBeerStyle(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		BeerStyle()
+		Global.BeerStyle()
 	}
 }
 
-func ExampleBeerHop() {
-	Seed(11)
-	fmt.Println(BeerHop())
+func ExampleFaker_BeerHop() {
+	Global.Seed(11)
+	fmt.Println(Global.BeerHop())
 	// Output: Glacier
 }
 
 func BenchmarkBeerHop(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		BeerHop()
+		Global.BeerHop()
 	}
 }
 
-func ExampleBeerYeast() {
-	Seed(11)
-	fmt.Println(BeerYeast())
+func ExampleFaker_BeerYeast() {
+	Global.Seed(11)
+	fmt.Println(Global.BeerYeast())
 	// Output: 1388 - Belgian Strong Ale
 }
 
 func BenchmarkBeerYeast(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		BeerYeast()
+		Global.BeerYeast()
 	}
 }
 
-func ExampleBeerMalt() {
-	Seed(11)
-	fmt.Println(BeerMalt())
+func ExampleFaker_BeerMalt() {
+	Global.Seed(11)
+	fmt.Println(Global.BeerMalt())
 	// Output: Munich
 }
 
 func BenchmarkBeerMalt(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		BeerMalt()
+		Global.BeerMalt()
 	}
 }
 
-func ExampleBeerIbu() {
-	Seed(11)
-	fmt.Println(BeerIbu())
+func ExampleFaker_BeerIbu() {
+	Global.Seed(11)
+	fmt.Println(Global.BeerIbu())
 	// Output: 29 IBU
 }
 
 func BenchmarkBeerIbu(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		BeerIbu()
+		Global.BeerIbu()
 	}
 }
 
-func ExampleBeerAlcohol() {
-	Seed(11)
-	fmt.Println(BeerAlcohol())
+func ExampleFaker_BeerAlcohol() {
+	Global.Seed(11)
+	fmt.Println(Global.BeerAlcohol())
 	// Output: 2.7%
 }
 
 func BenchmarkBeerAlcohol(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		BeerAlcohol()
+		Global.BeerAlcohol()
 	}
 }
 
-func ExampleBeerBlg() {
-	Seed(11)
-	fmt.Println(BeerBlg())
+func ExampleFaker_BeerBlg() {
+	Global.Seed(11)
+	fmt.Println(Global.BeerBlg())
 	// Output: 6.4°Blg
 }
 
 func BenchmarkBeerBlg(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		BeerBlg()
+		Global.BeerBlg()
 	}
 }

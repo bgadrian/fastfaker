@@ -1,26 +1,24 @@
 package gofakeit
 
-import "math/rand"
-
 // Color will generate a random color string
-func Color() string {
-	return getRandValue([]string{"color", "full"})
+func (f *Faker) Color() string {
+	return f.getRandValue([]string{"color", "full"})
 }
 
 // SafeColor will generate a random safe color string
-func SafeColor() string {
-	return getRandValue([]string{"color", "safe"})
+func (f *Faker) SafeColor() string {
+	return f.getRandValue([]string{"color", "safe"})
 }
 
 // HexColor will generate a random hexadecimal color string
-func HexColor() string {
+func (f *Faker) HexColor() string {
 	color := make([]byte, 6)
 	hashQuestion := []byte("?#")
 	for i := 0; i < 6; i++ {
-		color[i] = hashQuestion[rand.Intn(2)]
+		color[i] = hashQuestion[f.Intn(2)]
 	}
 
-	return "#" + replaceWithLetters(replaceWithNumbers(string(color)))
+	return "#" + f.replaceWithLetters(f.replaceWithNumbers(string(color)))
 
 	// color := ""
 	// for i := 1; i <= 6; i++ {
@@ -39,6 +37,6 @@ func HexColor() string {
 }
 
 // RGBColor will generate a random int slice color
-func RGBColor() []int {
-	return []int{randIntRange(0, 255), randIntRange(0, 255), randIntRange(0, 255)}
+func (f *Faker) RGBColor() []int {
+	return []int{f.randIntRange(0, 255), f.randIntRange(0, 255), f.randIntRange(0, 255)}
 }

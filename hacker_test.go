@@ -5,74 +5,74 @@ import (
 	"testing"
 )
 
-func ExampleHackerPhrase() {
-	Seed(20)
-	fmt.Println(HackerPhrase())
+func ExampleFaker_HackerPhrase() {
+	Global.Seed(20)
+	fmt.Println(Global.HackerPhrase())
 	// Output: Connecting the array won't do anything, we need to generate the haptic COM driver!
 }
 
 func BenchmarkHackerPhrase(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		HackerPhrase()
+		Global.HackerPhrase()
 	}
 }
 
-func ExampleHackerAbbreviation() {
-	Seed(20)
-	fmt.Println(HackerAbbreviation())
+func ExampleFaker_HackerAbbreviation() {
+	Global.Seed(20)
+	fmt.Println(Global.HackerAbbreviation())
 	// Output: AGP
 }
 
 func BenchmarkHackerAbbreviation(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		HackerAbbreviation()
+		Global.HackerAbbreviation()
 	}
 }
 
-func ExampleHackerAdjective() {
-	Seed(20)
-	fmt.Println(HackerAdjective())
+func ExampleFaker_HackerAdjective() {
+	Global.Seed(20)
+	fmt.Println(Global.HackerAdjective())
 	// Output: online
 }
 
 func BenchmarkHackerAdjective(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		HackerAdjective()
+		Global.HackerAdjective()
 	}
 }
 
-func ExampleHackerNoun() {
-	Seed(20)
-	fmt.Println(HackerNoun())
+func ExampleFaker_HackerNoun() {
+	Global.Seed(20)
+	fmt.Println(Global.HackerNoun())
 	// Output: pixel
 }
 
 func BenchmarkHackerNoun(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		HackerNoun()
+		Global.HackerNoun()
 	}
 }
 
-func ExampleHackerVerb() {
-	Seed(20)
-	fmt.Println(HackerVerb())
+func ExampleFaker_HackerVerb() {
+	Global.Seed(20)
+	fmt.Println(Global.HackerVerb())
 	// Output: connect
 }
 
 func BenchmarkHackerVerb(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		HackerVerb()
+		Global.HackerVerb()
 	}
 }
 
-func ExampleHackerIngverb() {
-	Seed(20)
-	fmt.Println(HackerIngverb())
+func ExampleFaker_HackerIngverb() {
+	Global.Seed(20)
+	fmt.Println(Global.HackerIngverb())
 	// Output: navigating
 }
 
 func BenchmarkHackerIngverb(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		HackerIngverb()
+		Global.HackerIngverb()
 	}
 }

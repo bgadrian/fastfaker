@@ -9,14 +9,14 @@ import (
 )
 
 func TestRandIntRange(t *testing.T) {
-	if randIntRange(5, 5) != 5 {
+	if Global.randIntRange(5, 5) != 5 {
 		t.Error("You should have gotten 5 back")
 	}
 }
 
 func TestGetRandValueFail(t *testing.T) {
 	for _, test := range [][]string{nil, {}, {"not", "found"}, {"person", "notfound"}} {
-		if getRandValue(test) != "" {
+		if Global.getRandValue(test) != "" {
 			t.Error("You should have gotten no value back")
 		}
 	}
@@ -24,26 +24,26 @@ func TestGetRandValueFail(t *testing.T) {
 
 func TestGetRandIntValueFail(t *testing.T) {
 	for _, test := range [][]string{nil, {}, {"not", "found"}, {"status_code", "notfound"}} {
-		if getRandIntValue(test) != 0 {
+		if Global.getRandIntValue(test) != 0 {
 			t.Error("You should have gotten no value back")
 		}
 	}
 }
 
 func TestRandFloat32RangeSame(t *testing.T) {
-	if randFloat32Range(5.0, 5.0) != 5.0 {
+	if Global.Float32Range(5.0, 5.0) != 5.0 {
 		t.Error("You should have gotten 5.0 back")
 	}
 }
 
 func TestRandFloat64RangeSame(t *testing.T) {
-	if randFloat64Range(5.0, 5.0) != 5.0 {
+	if Global.Float64Range(5.0, 5.0) != 5.0 {
 		t.Error("You should have gotten 5.0 back")
 	}
 }
 
 func TestReplaceWithNumbers(t *testing.T) {
-	if "" != replaceWithNumbers("") {
+	if "" != Global.replaceWithNumbers("") {
 		t.Error("You should have gotten an empty string")
 	}
 }
@@ -54,8 +54,8 @@ func TestReplaceWithNumbersUnicode(t *testing.T) {
 		{"☺#☻☹#", "☺8☻☹8"},
 		{"\x80#¼#語", "\x808¼8語"},
 	} {
-		Seed(42)
-		got := replaceWithNumbers(test.in)
+		Global.Seed(42)
+		got := Global.replaceWithNumbers(test.in)
 		if got == test.should {
 			continue
 		}
@@ -65,7 +65,7 @@ func TestReplaceWithNumbersUnicode(t *testing.T) {
 }
 
 func TestReplaceWithLetters(t *testing.T) {
-	if "" != replaceWithLetters("") {
+	if "" != Global.replaceWithLetters("") {
 		t.Error("You should have gotten an empty string")
 	}
 }
@@ -88,10 +88,10 @@ func TestCategories(t *testing.T) {
 func BenchmarkReplaceWithNumbers(b *testing.B) {
 	b.StopTimer()
 	for i := 0; i < b.N; i++ {
-		Seed(42)
+		Global.Seed(42)
 
 		b.StartTimer()
-		replaceWithNumbers("###☺#☻##☹##")
+		Global.replaceWithNumbers("###☺#☻##☹##")
 		b.StopTimer()
 	}
 }

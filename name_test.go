@@ -5,62 +5,62 @@ import (
 	"testing"
 )
 
-func ExampleName() {
-	Seed(11)
-	fmt.Println(Name())
+func ExampleFaker_Name() {
+	Global.Seed(11)
+	fmt.Println(Global.Name())
 	// Output: Markus Moen
 }
 
 func BenchmarkName(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		Name()
+		Global.Name()
 	}
 }
 
-func ExampleFirstName() {
-	Seed(11)
-	fmt.Println(FirstName())
+func ExampleFaker_FirstName() {
+	Global.Seed(11)
+	fmt.Println(Global.FirstName())
 	// Output: Markus
 }
 
 func BenchmarkFirstName(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		FirstName()
+		Global.FirstName()
 	}
 }
 
-func ExampleLastName() {
-	Seed(11)
-	fmt.Println(LastName())
+func ExampleFaker_LastName() {
+	Global.Seed(11)
+	fmt.Println(Global.LastName())
 	// Output: Daniel
 }
 
 func BenchmarkLastName(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		LastName()
+		Global.LastName()
 	}
 }
 
-func ExampleNamePrefix() {
-	Seed(11)
-	fmt.Println(NamePrefix())
+func ExampleFaker_NamePrefix() {
+	Global.Seed(11)
+	fmt.Println(Global.NamePrefix())
 	// Output: Mr.
 }
 
 func BenchmarkNamePrefix(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		NamePrefix()
+		Global.NamePrefix()
 	}
 }
 
-func ExampleNameSuffix() {
-	Seed(11)
-	fmt.Println(NameSuffix())
+func ExampleFaker_NameSuffix() {
+	Global.Seed(11)
+	fmt.Println(Global.NameSuffix())
 	// Output: Jr.
 }
 
 func BenchmarkNameSuffix(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		NameSuffix()
+		Global.NameSuffix()
 	}
 }

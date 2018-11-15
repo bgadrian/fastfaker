@@ -1,30 +1,30 @@
 package gofakeit
 
 // Company will generate a random company name string
-func Company() (company string) {
-	switch randInt := randIntRange(1, 3); randInt {
+func (f *Faker) Company() (company string) {
+	switch randInt := f.randIntRange(1, 3); randInt {
 	case 1:
-		company = LastName() + ", " + LastName() + " and " + LastName()
+		company = f.LastName() + ", " + f.LastName() + " and " + f.LastName()
 	case 2:
-		company = LastName() + "-" + LastName()
+		company = f.LastName() + "-" + f.LastName()
 	case 3:
-		company = LastName() + " " + CompanySuffix()
+		company = f.LastName() + " " + f.CompanySuffix()
 	}
 
 	return
 }
 
 // CompanySuffix will generate a random company suffix string
-func CompanySuffix() string {
-	return getRandValue([]string{"company", "suffix"})
+func (f *Faker) CompanySuffix() string {
+	return f.getRandValue([]string{"company", "suffix"})
 }
 
 // BuzzWord will generate a random company buzz word string
-func BuzzWord() string {
-	return getRandValue([]string{"company", "buzzwords"})
+func (f *Faker) BuzzWord() string {
+	return f.getRandValue([]string{"company", "buzzwords"})
 }
 
 // BS will generate a random company bs string
-func BS() string {
-	return getRandValue([]string{"company", "bs"})
+func (f *Faker) BS() string {
+	return f.getRandValue([]string{"company", "bs"})
 }

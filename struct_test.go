@@ -38,7 +38,7 @@ type Template struct {
 
 func TestStructBasic(t *testing.T) {
 	var basic Basic
-	Struct(&basic)
+	Global.Struct(&basic)
 	if basic.s != "" {
 		t.Error("unexported field is not populated")
 	}
@@ -49,7 +49,7 @@ func TestStructBasic(t *testing.T) {
 
 func TestStructNested(t *testing.T) {
 	var nested Nested
-	Struct(&nested)
+	Global.Struct(&nested)
 	if nested.A == "" {
 		t.Error("exported string field is populated")
 	}
@@ -66,7 +66,7 @@ func TestStructNested(t *testing.T) {
 
 func TestStructBuiltInTypes(t *testing.T) {
 	var builtIn BuiltIn
-	Struct(&builtIn)
+	Global.Struct(&builtIn)
 	if builtIn.Uint8 == nil {
 		t.Error("builtIn Uint8 was not set")
 	}
@@ -107,7 +107,7 @@ func TestStructBuiltInTypes(t *testing.T) {
 
 func TestStructWithTemplate(t *testing.T) {
 	var template Template
-	Struct(&template)
+	Global.Struct(&template)
 	if *template.Number == "" {
 		t.Error("template number should set to number value")
 	}
@@ -116,8 +116,8 @@ func TestStructWithTemplate(t *testing.T) {
 	}
 }
 
-func ExampleStruct() {
-	Seed(11)
+func ExampleFaker_Struct() {
+	Global.Seed(11)
 	type Foo struct {
 		Bar     string
 		Baz     string
@@ -126,7 +126,7 @@ func ExampleStruct() {
 		Skip    *string `fake:"skip"`
 	}
 	var f Foo
-	Struct(&f)
+	Global.Struct(&f)
 	fmt.Printf("%s\n", f.Bar)
 	fmt.Printf("%s\n", f.Baz)
 	fmt.Printf("%d\n", f.Int)

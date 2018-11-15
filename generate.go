@@ -15,7 +15,7 @@ import (
 // Ex: ??? - fda - random letters
 //
 // For a complete list possible categories use the Categories() function.
-func Generate(dataVal string) string {
+func (f *Faker) Generate(dataVal string) string {
 	// Identify items between brackets: {person.first}
 	for strings.Count(dataVal, "{") > 0 && strings.Count(dataVal, "}") > 0 {
 		catValue := ""
@@ -25,17 +25,17 @@ func Generate(dataVal string) string {
 		categories := strings.Split(replace, ".")
 
 		if len(categories) >= 2 && dataCheck([]string{categories[0], categories[1]}) {
-			catValue = getRandValue([]string{categories[0], categories[1]})
+			catValue = f.getRandValue([]string{categories[0], categories[1]})
 		}
 
 		dataVal = strings.Replace(dataVal, "{"+replace+"}", catValue, 1)
 	}
 
 	// Replace # with numbers
-	dataVal = replaceWithNumbers(dataVal)
+	dataVal = f.replaceWithNumbers(dataVal)
 
 	// Replace ? with letters
-	dataVal = replaceWithLetters(dataVal)
+	dataVal = f.replaceWithLetters(dataVal)
 
 	return dataVal
 }

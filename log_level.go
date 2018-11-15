@@ -6,10 +6,10 @@ import (
 
 // LogLevel will generate a random log level
 // See data/LogLevels for list of available levels
-func LogLevel(logType string) string {
+func (f *Faker) LogLevel(logType string) string {
 	if _, ok := data.LogLevels[logType]; ok {
-		return getRandValue([]string{"log_level", logType})
+		return f.getRandValue([]string{"log_level", logType})
 	}
 
-	return getRandValue([]string{"log_level", "general"})
+	return f.getRandValue([]string{"log_level", "general"})
 }

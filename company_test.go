@@ -5,56 +5,56 @@ import (
 	"testing"
 )
 
-func ExampleCompany() {
-	Seed(11)
-	fmt.Println(Company())
+func ExampleFaker_Company() {
+	Global.Seed(11)
+	fmt.Println(Global.Company())
 	// Output: Moen, Pagac and Wuckert
 }
 
 func BenchmarkCompany(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		Company()
+		Global.Company()
 	}
 }
 
 func TestCompany(t *testing.T) {
 	for i := 0; i < 100; i++ {
-		Company()
+		Global.Company()
 	}
 }
 
-func ExampleCompanySuffix() {
-	Seed(11)
-	fmt.Println(CompanySuffix())
+func ExampleFaker_CompanySuffix() {
+	Global.Seed(11)
+	fmt.Println(Global.CompanySuffix())
 	// Output: Inc
 }
 
 func BenchmarkCompanySuffix(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		CompanySuffix()
+		Global.CompanySuffix()
 	}
 }
 
-func ExampleBuzzWord() {
-	Seed(11)
-	fmt.Println(BuzzWord())
+func ExampleFaker_BuzzWord() {
+	Global.Seed(11)
+	fmt.Println(Global.BuzzWord())
 	// Output: disintermediate
 }
 
 func BenchmarkBuzzWord(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		BuzzWord()
+		Global.BuzzWord()
 	}
 }
 
-func ExampleBS() {
-	Seed(11)
-	fmt.Println(BS())
+func ExampleFaker_BS() {
+	Global.Seed(11)
+	fmt.Println(Global.BS())
 	// Output: front-end
 }
 
 func BenchmarkBS(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		BS()
+		Global.BS()
 	}
 }

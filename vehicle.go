@@ -1,5 +1,6 @@
 package gofakeit
 
+// VehicleInfo contains all the major features of a motorized vehicle
 type VehicleInfo struct {
 	// Vehicle type
 	VehicleType string
@@ -16,35 +17,39 @@ type VehicleInfo struct {
 }
 
 // Vehicle will generate a struct with vehicle information
-func Vehicle() *VehicleInfo {
+func (f *Faker) Vehicle() *VehicleInfo {
 	return &VehicleInfo{
-		VehicleType:      VehicleType(),
-		Fuel:             FuelType(),
-		TransmissionGear: TransmissionGearType(),
-		Brand:            CarMaker(),
-		Model:            CarModel(),
-		Year:             Year(),
+		VehicleType:      f.VehicleType(),
+		Fuel:             f.FuelType(),
+		TransmissionGear: f.TransmissionGearType(),
+		Brand:            f.CarMaker(),
+		Model:            f.CarModel(),
+		Year:             f.Year(),
 	}
 
 }
 
 // VehicleType will generate a random vehicle type string
-func VehicleType() string {
-	return getRandValue([]string{"vehicle", "vehicle_type"})
+func (f *Faker) VehicleType() string {
+	return f.getRandValue([]string{"vehicle", "vehicle_type"})
 }
 
-func FuelType() string {
-	return getRandValue([]string{"vehicle", "fuel_type"})
+// FuelType will generate a random fuel type
+func (f *Faker) FuelType() string {
+	return f.getRandValue([]string{"vehicle", "fuel_type"})
 }
 
-func TransmissionGearType() string {
-	return getRandValue([]string{"vehicle", "transmission_type"})
+// TransmissionGearType will generate a random transmission type
+func (f *Faker) TransmissionGearType() string {
+	return f.getRandValue([]string{"vehicle", "transmission_type"})
 }
 
-func CarMaker() string {
-	return getRandValue([]string{"vehicle", "maker"})
+// CarMaker will generate a random car manufacturer
+func (f *Faker) CarMaker() string {
+	return f.getRandValue([]string{"vehicle", "maker"})
 }
 
-func CarModel() string {
-	return getRandValue([]string{"vehicle", "model"})
+// CarModel will generate a random car model
+func (f *Faker) CarModel() string {
+	return f.getRandValue([]string{"vehicle", "model"})
 }

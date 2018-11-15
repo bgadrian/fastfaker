@@ -18,13 +18,13 @@ type sentenceGenerator func(wordCount int) string
 type wordGenerator func() string
 
 // Word will generate a random word
-func Word() string {
-	return getRandValue([]string{"lorem", "word"})
+func (f *Faker) Word() string {
+	return f.getRandValue([]string{"lorem", "word"})
 }
 
 // Sentence will generate a random sentence
-func Sentence(wordCount int) string {
-	return sentence(wordCount, Word)
+func (f *Faker) Sentence(wordCount int) string {
+	return f.sentence(wordCount, f.Word)
 }
 
 // Paragraph will generate a random paragraphGenerator
@@ -32,13 +32,13 @@ func Sentence(wordCount int) string {
 // Set Sentence Count
 // Set Word Count
 // Set Paragraph Separator
-func Paragraph(paragraphCount int, sentenceCount int, wordCount int, separator string) string {
-	return paragraphGenerator(
+func (f *Faker) Paragraph(paragraphCount int, sentenceCount int, wordCount int, separator string) string {
+	return f.paragraphGenerator(
 		paragrapOptions{paragraphCount, sentenceCount, wordCount, separator},
-		Sentence)
+		f.Sentence)
 }
 
-func sentence(wordCount int, word wordGenerator) string {
+func (f *Faker) sentence(wordCount int, word wordGenerator) string {
 	if wordCount <= 0 {
 		return ""
 	}
@@ -63,7 +63,7 @@ func sentence(wordCount int, word wordGenerator) string {
 	return sentence.String()
 }
 
-func paragraphGenerator(opts paragrapOptions, sentecer sentenceGenerator) string {
+func (f *Faker) paragraphGenerator(opts paragrapOptions, sentecer sentenceGenerator) string {
 	if opts.paragraphCount <= 0 || opts.sentenceCount <= 0 || opts.wordCount <= 0 {
 		return ""
 	}

@@ -2,7 +2,6 @@ package gofakeit
 
 import (
 	"math"
-	"math/rand"
 
 	"github.com/brianvoe/gofakeit/data"
 )
@@ -14,8 +13,8 @@ type CurrencyInfo struct {
 }
 
 // Currency will generate a struct with random currency information
-func Currency() *CurrencyInfo {
-	index := rand.Intn(len(data.Data["currency"]["short"]))
+func (f *Faker) Currency() *CurrencyInfo {
+	index := f.Intn(len(data.Data["currency"]["short"]))
 	return &CurrencyInfo{
 		Short: data.Data["currency"]["short"][index],
 		Long:  data.Data["currency"]["long"][index],
@@ -23,16 +22,16 @@ func Currency() *CurrencyInfo {
 }
 
 // CurrencyShort will generate a random short currency value
-func CurrencyShort() string {
-	return getRandValue([]string{"currency", "short"})
+func (f *Faker) CurrencyShort() string {
+	return f.getRandValue([]string{"currency", "short"})
 }
 
 // CurrencyLong will generate a random long currency name
-func CurrencyLong() string {
-	return getRandValue([]string{"currency", "long"})
+func (f *Faker) CurrencyLong() string {
+	return f.getRandValue([]string{"currency", "long"})
 }
 
 // Price will take in a min and max value and return a formatted price
-func Price(min, max float64) float64 {
-	return math.Floor(randFloat64Range(min, max)*100) / 100
+func (f *Faker) Price(min, max float64) float64 {
+	return math.Floor(f.Float64Range(min, max)*100) / 100
 }

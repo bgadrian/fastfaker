@@ -6,9 +6,9 @@ import (
 	"testing"
 )
 
-func ExampleCreditCard() {
-	Seed(11)
-	ccInfo := CreditCard()
+func ExampleFaker_CreditCard() {
+	Global.Seed(11)
+	ccInfo := Global.CreditCard()
 	fmt.Println(ccInfo.Type)
 	fmt.Println(ccInfo.Number)
 	fmt.Println(ccInfo.Exp)
@@ -21,51 +21,51 @@ func ExampleCreditCard() {
 
 func BenchmarkCreditCard(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		CreditCard()
+		Global.CreditCard()
 	}
 }
 
-func ExampleCreditCardType() {
-	Seed(11)
-	fmt.Println(CreditCardType())
+func ExampleFaker_CreditCardType() {
+	Global.Seed(11)
+	fmt.Println(Global.CreditCardType())
 	// Output: Visa
 }
 
 func BenchmarkCreditCardType(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		CreditCardType()
+		Global.CreditCardType()
 	}
 }
 
-func ExampleCreditCardNumber() {
-	Seed(11)
-	fmt.Println(CreditCardNumber())
+func ExampleFaker_CreditCardNumber() {
+	Global.Seed(11)
+	fmt.Println(Global.CreditCardNumber())
 	// Output: 4287271570245748
 }
 
 func BenchmarkCreditCardNumber(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		CreditCardNumber()
+		Global.CreditCardNumber()
 	}
 }
 
-func ExampleCreditCardNumberLuhn() {
-	Seed(11)
-	fmt.Println(CreditCardNumberLuhn())
+func ExampleFaker_CreditCardNumberLuhn() {
+	Global.Seed(11)
+	fmt.Println(Global.CreditCardNumberLuhn())
 	// Output: 4007208855354357
 }
 
 func BenchmarkCreditCardNumberLuhn(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		CreditCardNumberLuhn()
+		Global.CreditCardNumberLuhn()
 	}
 }
 
 func TestCreditCardNumberLuhn(t *testing.T) {
-	Seed(0)
+	Global.Seed(0)
 	for i := 0; i < 100; i++ {
-		cc := strconv.Itoa(CreditCardNumberLuhn())
-		if !luhn(cc) {
+		cc := strconv.Itoa(Global.CreditCardNumberLuhn())
+		if !Global.luhn(cc) {
 			t.Errorf("not luhn valid: %s", cc)
 		}
 	}
@@ -73,31 +73,31 @@ func TestCreditCardNumberLuhn(t *testing.T) {
 
 func TestLuhn(t *testing.T) {
 	// Lets make sure this card is invalid
-	if luhn("867gfsd5309") {
+	if Global.luhn("867gfsd5309") {
 		t.Error("card should have failed")
 	}
 }
 
-func ExampleCreditCardExp() {
-	Seed(11)
-	fmt.Println(CreditCardExp())
+func ExampleFaker_CreditCardExp() {
+	Global.Seed(11)
+	fmt.Println(Global.CreditCardExp())
 	// Output: 01/20
 }
 
 func BenchmarkCreditCardExp(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		CreditCardExp()
+		Global.CreditCardExp()
 	}
 }
 
-func ExampleCreditCardCvv() {
-	Seed(11)
-	fmt.Println(CreditCardCvv())
+func ExampleFaker_CreditCardCvv() {
+	Global.Seed(11)
+	fmt.Println(Global.CreditCardCvv())
 	// Output: 328
 }
 
 func BenchmarkCreditCardCvv(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		CreditCardCvv()
+		Global.CreditCardCvv()
 	}
 }

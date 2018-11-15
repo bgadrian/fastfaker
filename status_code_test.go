@@ -5,26 +5,26 @@ import (
 	"testing"
 )
 
-func ExampleSimpleStatusCode() {
-	Seed(11)
-	fmt.Println(SimpleStatusCode())
+func ExampleFaker_SimpleStatusCode() {
+	Global.Seed(11)
+	fmt.Println(Global.SimpleStatusCode())
 	// Output: 200
 }
 
 func BenchmarkSimpleStatusCode(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		SimpleStatusCode()
+		Global.SimpleStatusCode()
 	}
 }
 
-func ExampleStatusCode() {
-	Seed(11)
-	fmt.Println(StatusCode())
+func ExampleFaker_StatusCode() {
+	Global.Seed(11)
+	fmt.Println(Global.StatusCode())
 	// Output: 404
 }
 
 func BenchmarkStatusCode(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		StatusCode()
+		Global.StatusCode()
 	}
 }

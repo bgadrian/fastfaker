@@ -1,13 +1,13 @@
 package gofakeit
 
 // HipsterWord will return a single hipster word
-func HipsterWord() string {
-	return getRandValue([]string{"hipster", "word"})
+func (f *Faker) HipsterWord() string {
+	return f.getRandValue([]string{"hipster", "word"})
 }
 
 // HipsterSentence will generate a random sentence
-func HipsterSentence(wordCount int) string {
-	return sentence(wordCount, HipsterWord)
+func (f *Faker) HipsterSentence(wordCount int) string {
+	return f.sentence(wordCount, f.HipsterWord)
 }
 
 // HipsterParagraph will generate a random paragraphGenerator
@@ -15,8 +15,8 @@ func HipsterSentence(wordCount int) string {
 // Set Sentence Count
 // Set Word Count
 // Set Paragraph Separator
-func HipsterParagraph(paragraphCount int, sentenceCount int, wordCount int, separator string) string {
-	return paragraphGenerator(
+func (f *Faker) HipsterParagraph(paragraphCount int, sentenceCount int, wordCount int, separator string) string {
+	return f.paragraphGenerator(
 		paragrapOptions{paragraphCount, sentenceCount, wordCount, separator},
-		HipsterSentence)
+		f.HipsterSentence)
 }

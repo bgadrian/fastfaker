@@ -5,33 +5,33 @@ import (
 	"testing"
 )
 
-func ExampleSSN() {
-	Seed(11)
-	fmt.Println(SSN())
+func ExampleFaker_SSN() {
+	Global.Seed(11)
+	fmt.Println(Global.SSN())
 	// Output: 296446360
 }
 
 func BenchmarkSSN(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		SSN()
+		Global.SSN()
 	}
 }
 
-func ExampleGender() {
-	Seed(11)
-	fmt.Println(Gender())
+func ExampleFaker_Gender() {
+	Global.Seed(11)
+	fmt.Println(Global.Gender())
 	// Output: female
 }
 
 func BenchmarkGender(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		Gender()
+		Global.Gender()
 	}
 }
 
-func ExamplePerson() {
-	Seed(11)
-	person := Person()
+func ExampleFaker_Person() {
+	Global.Seed(11)
+	person := Global.Person()
 	job := person.Job
 	address := person.Address
 	contact := person.Contact
@@ -92,6 +92,6 @@ func ExamplePerson() {
 
 func BenchmarkPerson(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		Person()
+		Global.Person()
 	}
 }

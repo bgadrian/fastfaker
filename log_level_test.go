@@ -5,11 +5,11 @@ import (
 	"testing"
 )
 
-func ExampleLogLevel() {
-	Seed(11)
-	fmt.Println(LogLevel("")) // This will also use general
-	fmt.Println(LogLevel("syslog"))
-	fmt.Println(LogLevel("apache"))
+func ExampleFaker_LogLevel() {
+	Global.Seed(11)
+	fmt.Println(Global.LogLevel("")) // This will also use general
+	fmt.Println(Global.LogLevel("syslog"))
+	fmt.Println(Global.LogLevel("apache"))
 	// Output: error
 	// debug
 	// trace1-8
@@ -17,6 +17,6 @@ func ExampleLogLevel() {
 
 func BenchmarkLogLevel(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		LogLevel("general")
+		Global.LogLevel("general")
 	}
 }

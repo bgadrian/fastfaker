@@ -2,15 +2,19 @@ package gofakeit
 
 import (
 	"encoding/hex"
-	"math/rand"
 )
 
-// UUID (version 4) will generate a random unique identifier based upon random nunbers
+// UUID (version 4) will generate a random unique identifier based upon random numbers
 // Format: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-func UUID() string {
+func (f *Faker) UUID() string {
 	version := byte(4)
 	uuid := make([]byte, 16)
-	rand.Read(uuid)
+
+	if f.safe {
+		f.mutex.Lock()
+		defer f.mutex.Unlock()
+	}
+	f.src.Read(uuid)
 
 	// Set version
 	uuid[6] = (uuid[6] & 0x0f) | (version << 4)

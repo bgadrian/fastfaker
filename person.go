@@ -3,13 +3,13 @@ package gofakeit
 import "strconv"
 
 // SSN will generate a random Social Security Number
-func SSN() string {
-	return strconv.Itoa(randIntRange(100000000, 999999999))
+func (f *Faker) SSN() string {
+	return strconv.Itoa(f.randIntRange(100000000, 999999999))
 }
 
-// Gender will generate a random gender string
-func Gender() string {
-	if Bool() == true {
+// Gender will generate a random gender string "male" or "female"
+func (f *Faker) Gender() string {
+	if f.Bool() == true {
 		return "male"
 	}
 
@@ -30,16 +30,16 @@ type PersonInfo struct {
 }
 
 // Person will generate a struct with person information
-func Person() *PersonInfo {
+func (f *Faker) Person() *PersonInfo {
 	return &PersonInfo{
-		FirstName:  FirstName(),
-		LastName:   LastName(),
-		Gender:     Gender(),
-		SSN:        SSN(),
-		Image:      ImageURL(300, 300) + "/people",
-		Job:        Job(),
-		Address:    Address(),
-		Contact:    Contact(),
-		CreditCard: CreditCard(),
+		FirstName:  f.FirstName(),
+		LastName:   f.LastName(),
+		Gender:     f.Gender(),
+		SSN:        f.SSN(),
+		Image:      f.ImageURL(300, 300) + "/people",
+		Job:        f.Job(),
+		Address:    f.Address(),
+		Contact:    f.Contact(),
+		CreditCard: f.CreditCard(),
 	}
 }

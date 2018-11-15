@@ -8,27 +8,27 @@ import (
 func TestPassword(t *testing.T) {
 	length := 10
 
-	pass := Password(true, true, true, true, true, length)
+	pass := Global.Password(true, true, true, true, true, length)
 
 	if len(pass) != length {
 		t.Error("Password length does not equal requested length")
 	}
 
 	// Test fully empty
-	pass = Password(false, false, false, false, false, length)
+	pass = Global.Password(false, false, false, false, false, length)
 	if pass == "" {
 		t.Error("Password should not be empty")
 	}
 }
 
-func ExamplePassword() {
-	Seed(11)
-	fmt.Println(Password(true, false, false, false, false, 32))
-	fmt.Println(Password(false, true, false, false, false, 32))
-	fmt.Println(Password(false, false, true, false, false, 32))
-	fmt.Println(Password(false, false, false, true, false, 32))
-	fmt.Println(Password(true, true, true, true, true, 32))
-	fmt.Println(Password(true, true, true, true, true, 4))
+func ExampleFaker_Password() {
+	Global.Seed(11)
+	fmt.Println(Global.Password(true, false, false, false, false, 32))
+	fmt.Println(Global.Password(false, true, false, false, false, 32))
+	fmt.Println(Global.Password(false, false, true, false, false, 32))
+	fmt.Println(Global.Password(false, false, false, true, false, 32))
+	fmt.Println(Global.Password(true, true, true, true, true, 32))
+	fmt.Println(Global.Password(true, true, true, true, true, 4))
 	// Output: vodnqxzsuptgehrzylximvylxzoywexw
 	// ZSRQWJFJWCSTVGXKYKWMLIAFGFELFJRG
 	// 61718615932495608398906260648432
@@ -39,6 +39,6 @@ func ExamplePassword() {
 
 func BenchmarkPassword(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		Password(true, true, true, true, true, 8)
+		Global.Password(true, true, true, true, true, 8)
 	}
 }

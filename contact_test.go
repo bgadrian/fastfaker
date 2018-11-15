@@ -5,9 +5,9 @@ import (
 	"testing"
 )
 
-func ExampleContact() {
-	Seed(11)
-	contact := Contact()
+func ExampleFaker_Contact() {
+	Global.Seed(11)
+	contact := Global.Contact()
 	fmt.Println(contact.Phone)
 	fmt.Println(contact.Email)
 	// Output: 3287271570
@@ -16,42 +16,42 @@ func ExampleContact() {
 
 func BenchmarkContact(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		Contact()
+		Global.Contact()
 	}
 }
 
-func ExamplePhone() {
-	Seed(11)
-	fmt.Println(Phone())
+func ExampleFaker_Phone() {
+	Global.Seed(11)
+	fmt.Println(Global.Phone())
 	// Output: 3287271570
 }
 
 func BenchmarkPhone(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		Phone()
+		Global.Phone()
 	}
 }
 
-func ExamplePhoneFormatted() {
-	Seed(11)
-	fmt.Println(PhoneFormatted())
+func ExampleFaker_PhoneFormatted() {
+	Global.Seed(11)
+	fmt.Println(Global.PhoneFormatted())
 	// Output: 287-271-5702
 }
 
 func BenchmarkPhoneFormatted(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		PhoneFormatted()
+		Global.PhoneFormatted()
 	}
 }
 
-func ExampleEmail() {
-	Seed(11)
-	fmt.Println(Email())
+func ExampleFaker_Email() {
+	Global.Seed(11)
+	fmt.Println(Global.Email())
 	// Output: markusmoen@pagac.net
 }
 
 func BenchmarkEmail(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		Email()
+		Global.Email()
 	}
 }

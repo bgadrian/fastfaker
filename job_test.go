@@ -5,9 +5,9 @@ import (
 	"testing"
 )
 
-func ExampleJob() {
-	Seed(11)
-	jobInfo := Job()
+func ExampleFaker_Job() {
+	Global.Seed(11)
+	jobInfo := Global.Job()
 	fmt.Println(jobInfo.Company)
 	fmt.Println(jobInfo.Title)
 	fmt.Println(jobInfo.Descriptor)
@@ -20,42 +20,42 @@ func ExampleJob() {
 
 func BenchmarkJob(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		Job()
+		Global.Job()
 	}
 }
 
-func ExampleJobTitle() {
-	Seed(11)
-	fmt.Println(JobTitle())
+func ExampleFaker_JobTitle() {
+	Global.Seed(11)
+	fmt.Println(Global.JobTitle())
 	// Output: Director
 }
 
 func BenchmarkJobTitle(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		JobTitle()
+		Global.JobTitle()
 	}
 }
 
-func ExampleJobDescriptor() {
-	Seed(11)
-	fmt.Println(JobDescriptor())
+func ExampleFaker_JobDescriptor() {
+	Global.Seed(11)
+	fmt.Println(Global.JobDescriptor())
 	// Output: Central
 }
 
 func BenchmarkJobDescriptor(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		JobDescriptor()
+		Global.JobDescriptor()
 	}
 }
 
-func ExampleJobLevel() {
-	Seed(11)
-	fmt.Println(JobLevel())
+func ExampleFaker_JobLevel() {
+	Global.Seed(11)
+	fmt.Println(Global.JobLevel())
 	// Output: Assurance
 }
 
 func BenchmarkJobLevel(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		JobLevel()
+		Global.JobLevel()
 	}
 }
