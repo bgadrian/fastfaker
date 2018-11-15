@@ -95,6 +95,11 @@ For a heavy usage in a 4 CPU env, the performance benefits of the FastFaker can 
 BenchmarkNewSafeFaker_Parallel-4           50000             30893 ns/op               0 B/op          0 allocs/op
 BenchmarkNewFastFaker_Parallel-4          300000              3829 ns/op               0 B/op          0 allocs/op
 ```
+## Thanks
+This library started as a fork of [gofakeit](https://github.com/brianvoe/gofakeit/), but I had different requirements from such a library, in particular performance and extensibility.
+
+Because it has braking changes and it was published under a new name/repo the version started from 1 (fastfaker v1 is gofakeit v3.x)
+
 
 ## Benchmarks
 For a quick overview see [BENCHMARKS.md](./BENCHMARKS.md).
@@ -102,12 +107,6 @@ For a quick overview see [BENCHMARKS.md](./BENCHMARKS.md).
 ## Contributing
 For more info see the [contributing readme](./CONTRIBUTING.md)
 
-## TODO Next
-* move files to subfolders
-* add more examples
-* add Unicode and other language support (now everything is ASCII/english)
-* add more data types
+## TODO
+See [issues](https://github.com/bgadrian/fastfaker/issues)
 
-## Thanks
-This library started as a fork of [gofakeit](https://github.com/brianvoe/gofakeit/), but I had different requirements from such a library, in particular performance and extensibility.
-Because it has braking changes and it was published under a new name/repo the version started from 1 (fastfaker v1 is gofakeit v3.x)
