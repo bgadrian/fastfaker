@@ -1,4 +1,4 @@
-package gofakeit
+package fastfaker
 
 import (
 	"reflect"
@@ -9,6 +9,7 @@ import (
 // Use `fake:"skip"` to explicitly skip an element.
 // All built-in types are supported, with templating support
 // for string types.
+// Attention: Because it uses reflection it has a performance penalty!
 func (f *Faker) Struct(v interface{}) {
 	f.r(reflect.TypeOf(v), reflect.ValueOf(v), "")
 }

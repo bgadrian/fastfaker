@@ -1,9 +1,9 @@
-package gofakeit
+package fastfaker
 
 import (
 	"math"
 
-	"github.com/brianvoe/gofakeit/data"
+	"github.com/bgadrian/fastfaker/data"
 )
 
 // CurrencyInfo is a struct of currency information

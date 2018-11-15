@@ -1,4 +1,4 @@
-package gofakeit
+package fastfaker
 
 const lowerStr = "abcdefghijklmnopqrstuvwxyz"
 const upperStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"

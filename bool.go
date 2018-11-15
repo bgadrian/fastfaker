@@ -1,4 +1,4 @@
-package gofakeit
+package fastfaker
 
 // Bool will generate a random boolean value
 func (f *Faker) Bool() bool {

@@ -1,74 +1,87 @@
-![alt text](https://raw.githubusercontent.com/brianvoe/gofakeit/master/logo.png)
+# Fast Faker [![Go Report Card](https://goreportcard.com/badge/github.com/bgadrian/fastfaker)](https://goreportcard.com/report/github.com/bgadrian/fastfaker) [![GoDoc](https://godoc.org/github.com/bgadrian/fastfaker?status.svg)](https://godoc.org/github.com/bgadrian/fastfaker) [![Build Status](https://travis-ci.com/bgadrian/fastfaker.svg?branch=master)](https://travis-ci.com/bgadrian/fastfaker) [![codecov](https://codecov.io/gh/bgadrian/fastfaker/branch/master/graph/badge.svg)](https://codecov.io/gh/bgadrian/fastfaker)
 
-# gofakeit [![Go Report Card](https://goreportcard.com/badge/github.com/brianvoe/gofakeit)](https://goreportcard.com/report/github.com/brianvoe/gofakeit) [![Build Status](https://travis-ci.org/brianvoe/gofakeit.svg?branch=master)](https://travis-ci.org/brianvoe/gofakeit) [![codecov.io](https://codecov.io/github/brianvoe/gofakeit/branch/master/graph/badge.svg)](https://codecov.io/github/brianvoe/gofakeit) [![GoDoc](https://godoc.org/github.com/brianvoe/gofakeit?status.svg)](https://godoc.org/github.com/brianvoe/gofakeit) [![license](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/brianvoe/gofakeit/master/LICENSE.txt)
-Random data generator written in go
+FastFaker is a data generator written in go. It can generate over 100 data types and has 2 modes of operation: fast or (concurrent) safe.
 
-<a href="https://www.buymeacoffee.com/brianvoe" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
-
-### Features
+### Library Features
 - Every function has an example and a benchmark,
-[see benchmarks](https://github.com/brianvoe/gofakeit/blob/master/BENCHMARKS.md)
-- Zero dependencies
+[see benchmarks](https://github.com/bgadrian/fastfaker/blob/master/BENCHMARKS.md)
+- Zero dependencies (no vendor, dep or modules required)
 - Randomizes user defined structs
 - Numerous functions for regular use
 - Extensible
+- Concurrent safe
+- Go 1.x compatibility
+- Performance
+- Idiomatic Go
 
-### 80+ Functions!!!
-If there is something that is generic enough missing from this package [add an issue](https://github.com/brianvoe/gofakeit/issues) and let me know what you need.
-Most of the time i'll add it!
+### 130+ Functions!!!
+If there is something that is generic enough missing from this package [let me know!](./CONTRIBUTING.md)
+
+### As a service
+If you do not want to spend time implementing this library you can use the [Pseudoservice](https://github.com/bgadrian/pseudoservice) microservice. You can build it yourself or use the docker image
+```bash
+docker run --name pseudoservice -p 8080:8080 -d -e APIKEY=MYSECRET bgadrian/pseudoservice
+curl "http://localhost:8080/users/1?token=MYSECRET&seed=42"
+```
 
 ## Documentation
-[![GoDoc](https://godoc.org/github.com/brianvoe/gofakeit?status.svg)](https://godoc.org/github.com/brianvoe/gofakeit)
+All the public functions have godocs and Examples: https://godoc.org/github.com/bgadrian/fastfaker
 
 ## Example
 ```go
 package main
 import "fmt"
-import "github.com/brianvoe/gofakeit"
+import "github.com/bgadrian/fastfaker"
 
 func main(){
-    gofakeit.Global.Name() // Markus Moen
-    gofakeit.Global.Email() // alaynawuckert@kozey.biz
-    gofakeit.Global.Phone() // (570)245-7485
-    gofakeit.Global.BS() // front-end
-    gofakeit.Global.BeerName() // Duvel
-    gofakeit.Global.Color() // MediumOrchid
-    gofakeit.Global.Company() // Moen, Pagac and Wuckert
-    gofakeit.Global.CreditCardNumber() // 4287271570245748
-    gofakeit.Global.HackerPhrase() // Connecting the array won't do anything, we need to generate the haptic COM driver!
-    gofakeit.Global.JobTitle() // Director
-    gofakeit.Global.Password(true, true, true, true, true, 32) // WV10MzLxq2DX79w1omH97_0ga59j8!kj
-    gofakeit.Global.CurrencyShort() // USD
-    // 80+ more!!!
+    fastfaker.Global.Name() // Markus Moen
+    fastfaker.Global.Email() // alaynawuckert@kozey.biz
+    fastfaker.Global.Phone() // (570)245-7485
+    fastfaker.Global.BS() // front-end
+    fastfaker.Global.BeerName() // Duvel
+    fastfaker.Global.Color() // MediumOrchid
+    fastfaker.Global.Company() // Moen, Pagac and Wuckert
+    fastfaker.Global.CreditCardNumber() // 4287271570245748
+    fastfaker.Global.HackerPhrase() // Connecting the array won't do anything, we need to generate the haptic COM driver!
+    fastfaker.Global.JobTitle() // Director
+    fastfaker.Global.Password(true, true, true, true, true, 32) // WV10MzLxq2DX79w1omH97_0ga59j8!kj
+    fastfaker.Global.CurrencyShort() // USD
+    // 100+ more!!!
     
     // Create structs with random injected data
     type Foo struct {
-        Bar     string
-        Baz     string
+        Browser string `fake:"{internet.browser}"`
+        Name    string `fake:"{beer.name}"`
         Int     int
+        Dice    uint8
         Pointer *int
-        Skip    *string `fake:"skip"` // Set to "skip" to not generate data for
+        Skip    *string `fake:"skip"`
     }
     var f Foo
-    gofakeit.Global.Struct(&f)
-    fmt.Printf("f.Bar:%s\n", f.Bar) // f.Bar:hrukpttuezptneuvunh
-    fmt.Printf("f.Baz:%s\n", f.Baz) // f.Baz:uksqvgzadxlgghejkmv
-    fmt.Printf("f.Int:%d\n", f.Int) // f.Int:-7825289004089916589
-    fmt.Printf("f.Pointer:%d\n", *f.Pointer) // f.Pointer:-343806609094473732
-    fmt.Printf("f.Skip:%v\n", f.Skip) // f.Skip:<nil>
+    fastfaker.Global.Seed(42)
+    fastfaker.Global.Struct(&f)
+    fmt.Printf("%s\n", f.Browser) //firefox
+    fmt.Printf("%s\n", f.Name) //Samuel Smith’s Oatmeal Stout
+    fmt.Printf("%d\n", f.Int) //-3651589698752897048
+    fmt.Printf("%d\n", f.Dice) //62
+    fmt.Printf("%d\n", *f.Pointer) //-8819218091111228151
+    fmt.Printf("%v\n", f.Skip) //<nil>
 }
 ```
 
-## Faker types and concurrency
-
-`gofakeit.Global` and instances of `NewSafeFaker()` are safe to be used from multiple goroutines, but has a small overhead. Similar with [rand.* global functions](https://golang.org/src/math/rand/rand.go?#L288) it uses a mutex.
+## Faker types, concurrency and performance
+Fast Faker has 2 modes of operating: safe or fast. 
+    
+##### Safe
+`fastfaker.Global` and instances of `NewSafeFaker()` are safe to be used from multiple goroutines, but has a small overhead. Similar with [rand.* global functions](https://golang.org/src/math/rand/rand.go?#L288) it uses a mutex.
 
 > Advantage: easy to use, safe.
 
-Another way of using `gofakeit` is having one `Faker` instance for each goroutine. 
+##### Fast
+Another way of using `fastfaker` is having one `Faker` instance for each goroutine. 
 ```go
 go func(){
-    myOwnFaker := gofakeit.NewFastFaker()
+    myOwnFaker := fastfaker.NewFastFaker()
     
     myOwnFaker.Name() // Markus Moen
     myOwnFaker.Email() // alaynawuckert@kozey.biz
@@ -85,3 +98,16 @@ BenchmarkNewFastFaker_Parallel-4          300000              3829 ns/op        
 
 ## Benchmarks
 For a quick overview see [BENCHMARKS.md](./BENCHMARKS.md).
+
+## Contributing
+For more info see the [contributing readme](./CONTRIBUTING.md)
+
+## TODO Next
+* move files to subfolders
+* add more examples
+* add Unicode and other language support (now everything is ASCII/english)
+* add more data types
+
+## Thanks
+This library started as a fork of [gofakeit](https://github.com/brianvoe/gofakeit/), but I had different requirements from such a library, in particular performance and extensibility.
+Because it has braking changes and it was published under a new name/repo the version started from 1 (fastfaker v1 is gofakeit v3.x)

@@ -1,4 +1,4 @@
-package gofakeit
+package fastfaker
 
 // JobInfo is a struct of job information
 type JobInfo struct {

@@ -1,4 +1,4 @@
-package gofakeit
+package fastfaker
 
 // HipsterWord will return a single hipster word
 func (f *Faker) HipsterWord() string {

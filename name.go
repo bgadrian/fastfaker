@@ -1,4 +1,4 @@
-package gofakeit
+package fastfaker
 
 // Name will generate a random First and Last Name
 func (f *Faker) Name() string {

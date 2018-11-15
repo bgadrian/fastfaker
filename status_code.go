@@ -1,4 +1,4 @@
-package gofakeit
+package fastfaker
 
 // SimpleStatusCode will generate a random simple status code
 func (f *Faker) SimpleStatusCode() int {

@@ -1,4 +1,4 @@
-package gofakeit
+package fastfaker
 
 import (
 	"fmt"
@@ -117,24 +117,27 @@ func TestStructWithTemplate(t *testing.T) {
 }
 
 func ExampleFaker_Struct() {
-	Global.Seed(11)
+	Global.Seed(42)
 	type Foo struct {
-		Bar     string
-		Baz     string
+		Browser string `fake:"{internet.browser}"`
+		Name    string `fake:"{beer.name}"`
 		Int     int
+		Dice    uint8
 		Pointer *int
 		Skip    *string `fake:"skip"`
 	}
 	var f Foo
 	Global.Struct(&f)
-	fmt.Printf("%s\n", f.Bar)
-	fmt.Printf("%s\n", f.Baz)
+	fmt.Printf("%s\n", f.Browser)
+	fmt.Printf("%s\n", f.Name)
 	fmt.Printf("%d\n", f.Int)
+	fmt.Printf("%d\n", f.Dice)
 	fmt.Printf("%d\n", *f.Pointer)
 	fmt.Printf("%v\n", f.Skip)
-	// Output: gbrmarxhkijbptapwyj
-	// dnsmkgtlxwnqhqclayk
-	// -5858358572185296359
-	// -8038678955577270446
-	// <nil>
+	// Output: firefox
+	//Samuel Smith’s Oatmeal Stout
+	//-3651589698752897048
+	//62
+	//-8819218091111228151
+	//<nil>
 }

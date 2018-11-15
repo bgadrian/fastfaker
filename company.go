@@ -1,4 +1,4 @@
-package gofakeit
+package fastfaker
 
 // Company will generate a random company name string
 func (f *Faker) Company() (company string) {

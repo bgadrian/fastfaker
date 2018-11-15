@@ -1,4 +1,4 @@
-package gofakeit
+package fastfaker
 
 // MimeType will generate a random mime file type
 func (f *Faker) MimeType() string {

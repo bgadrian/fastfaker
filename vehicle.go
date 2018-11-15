@@ -1,4 +1,4 @@
-package gofakeit
+package fastfaker
 
 // VehicleInfo contains all the major features of a motorized vehicle
 type VehicleInfo struct {

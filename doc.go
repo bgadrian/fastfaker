@@ -1,10 +1,6 @@
 /*
-Package gofakeit is a random data generator written in go
+Package fastfaker is a random data generator written in go
 
-Every function has an example and a benchmark
-
-See the full list here https://godoc.org/github.com/brianvoe/gofakeit
-
-80+ Functions!!!
+FastFaker is a data generator written in go. It can generate over 100 types and has 2 modes of operation: fast or (concurrent) safe.
 */
-package gofakeit
+package fastfaker

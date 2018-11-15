@@ -1,4 +1,4 @@
-package gofakeit
+package fastfaker
 
 // Letter will generate a single random lower case ASCII letter
 func (f *Faker) Letter() string {

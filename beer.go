@@ -1,4 +1,4 @@
-package gofakeit
+package fastfaker
 
 import "strconv"
 

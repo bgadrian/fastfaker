@@ -1,11 +1,11 @@
-package gofakeit
+package fastfaker
 
 import (
 	"reflect"
 	"sort"
 	"testing"
 
-	"github.com/brianvoe/gofakeit/data"
+	"github.com/bgadrian/fastfaker/data"
 )
 
 func TestRandIntRange(t *testing.T) {

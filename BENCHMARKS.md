@@ -1,7 +1,7 @@
 go test -bench=. -benchmem
 goos: darwin  
 goarch: amd64  
-pkg: github.com/brianvoe/gofakeit  
+pkg: github.com/bgadrian/fastfaker  
 Table generated with tablesgenerator.com/markdown_tables 
 
 | Benchmark              | Ops   | CPU  | MEM   | MEM alloc  |

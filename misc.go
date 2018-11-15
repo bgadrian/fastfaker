@@ -1,7 +1,7 @@
-package gofakeit
+package fastfaker
 
 import (
-	"github.com/brianvoe/gofakeit/data"
+	"github.com/bgadrian/fastfaker/data"
 )
 
 const hashtag = '#'

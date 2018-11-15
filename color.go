@@ -1,4 +1,4 @@
-package gofakeit
+package fastfaker
 
 // Color will generate a random color string
 func (f *Faker) Color() string {
