@@ -5,14 +5,15 @@ FastFaker is a data generator written in go. It can generate over 100 data types
 ### Library Features
 - Every function has an example and a benchmark,
 [see benchmarks](https://github.com/bgadrian/fastfaker/blob/master/BENCHMARKS.md)
-- Zero dependencies (no vendor, dep or modules required)
+- Zero dependencies (no external calls, no vendor, dep or modules required)
 - Randomizes user defined structs
-- Numerous functions for regular use
+- Over 100 functions for regular use
 - Extensible
 - Concurrent safe
 - Go 1.x compatibility
 - Performance
 - Idiomatic Go
+- predefined popular structures (Address, Person ...)
 
 ### 130+ Functions!!!
 If there is something that is generic enough missing from this package [let me know!](./CONTRIBUTING.md)
@@ -95,11 +96,18 @@ For a heavy usage in a 4 CPU env, the performance benefits of the FastFaker can 
 BenchmarkNewSafeFaker_Parallel-4           50000             30893 ns/op               0 B/op          0 allocs/op
 BenchmarkNewFastFaker_Parallel-4          300000              3829 ns/op               0 B/op          0 allocs/op
 ```
-## Thanks
-This library started as a fork of [gofakeit](https://github.com/brianvoe/gofakeit/), but I had different requirements from such a library, in particular performance and extensibility.
+## gofakeit
+This library started as a fork of [gofakeit](https://github.com/brianvoe/gofakeit/), but I had different requirements from such a library, in particular performance and extensibility and could not guarantee [backward compatibility](https://github.com/brianvoe/gofakeit/issues/32). Future sync **will** be performed between the projects.
 
-Because it has braking changes and it was published under a new name/repo the version started from 1 (fastfaker v1 is gofakeit v3.x)
-
+Differences between `gofakeit` and `fastfaker`
+* import path, name
+* version `gofakeit` 3.x is `fastfaker` 1.x
+* different documentation, new examples and tests
+* non deterministic (using the same `Seed` on `fastfaker` may lead to different results, eg Name(), than the same seed with `gofakeit`)
+* usage, instead of `gofakeit.Name()` the calls are `fastfaker.Global.Name()` or `fastfaker.NewFastFaker().Name()`
+* versioning, `fastfaker` uses the semantic versioning, making it compatible with go modules
+* `fastfaker` generates Unicode strings (multi-byte runes)
+* `fastfaker` may return non-english data and non-US addresses
 
 ## Benchmarks
 For a quick overview see [BENCHMARKS.md](./BENCHMARKS.md).
