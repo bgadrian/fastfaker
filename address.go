@@ -50,7 +50,7 @@ func (f *Faker) Street() (street string) {
 
 // StreetNumber will generate a random address street number string
 func (f *Faker) StreetNumber() string {
-	return strings.TrimLeft(f.replaceWithNumbers(f.getRandValue([]string{"address", "number"})), "0")
+	return strings.TrimLeft(f.Numerify(f.getRandValue([]string{"address", "number"})), "0")
 }
 
 // StreetPrefix will generate a random address street prefix string
@@ -94,7 +94,7 @@ func (f *Faker) StateAbr() string {
 
 // Zip will generate a random Zip code string
 func (f *Faker) Zip() string {
-	return f.replaceWithNumbers(f.getRandValue([]string{"address", "zip"}))
+	return f.Numerify(f.getRandValue([]string{"address", "zip"}))
 }
 
 // Country will generate a random country string

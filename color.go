@@ -18,7 +18,7 @@ func (f *Faker) HexColor() string {
 		color[i] = hashQuestion[f.Intn(2)]
 	}
 
-	return "#" + f.replaceWithLetters(f.replaceWithNumbers(string(color)))
+	return "#" + f.Lexify(f.Numerify(string(color)))
 
 	// color := ""
 	// for i := 1; i <= 6; i++ {
@@ -26,7 +26,7 @@ func (f *Faker) HexColor() string {
 	// }
 
 	// // Replace # with number
-	// color = replaceWithNumbers(color)
+	// color = Numerify(color)
 
 	// // Replace ? with letter
 	// for strings.Count(color, "?") > 0 {

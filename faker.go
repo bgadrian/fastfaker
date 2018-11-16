@@ -1,6 +1,9 @@
 package fastfaker
 
-import "github.com/bgadrian/fastfaker/randomizer"
+import (
+	"github.com/bgadrian/fastfaker/randomizer"
+	"github.com/bgadrian/fastfaker/subtext"
+)
 
 // Global is a singleton, safe for concurrency instance of a Faker.
 var Global *Faker
@@ -8,6 +11,7 @@ var Global *Faker
 // Faker is the main strut that encapsulate all the package functionality.
 type Faker struct {
 	*randomizer.RandWrapper
+	*subtext.FakerText
 }
 
 // NewSafeFaker creates a new Faker instance that can be used in a concurrent/parallel env.
@@ -16,6 +20,7 @@ type Faker struct {
 func NewSafeFaker() *Faker {
 	result := &Faker{}
 	result.RandWrapper = randomizer.NewRandWrapper(true, nil).(*randomizer.RandWrapper)
+	result.FakerText = subtext.New(result.RandWrapper)
 	return result
 }
 

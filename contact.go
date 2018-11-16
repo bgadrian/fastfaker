@@ -20,12 +20,12 @@ func (f *Faker) Contact() *ContactInfo {
 
 // Phone will generate a random phone number string
 func (f *Faker) Phone() string {
-	return f.replaceWithNumbers("##########")
+	return f.Numerify("##########")
 }
 
 // PhoneFormatted will generate a random phone number string
 func (f *Faker) PhoneFormatted() string {
-	return f.replaceWithNumbers(f.getRandValue([]string{"contact", "phone"}))
+	return f.Numerify(f.getRandValue([]string{"contact", "phone"}))
 }
 
 // Email will generate a random email string

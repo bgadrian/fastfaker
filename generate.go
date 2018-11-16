@@ -34,10 +34,10 @@ func (f *Faker) Generate(dataVal string) string {
 	}
 
 	// Replace # with numbers
-	dataVal = f.replaceWithNumbers(dataVal)
+	dataVal = f.Numerify(dataVal)
 
 	// Replace ? with letters
-	dataVal = f.replaceWithLetters(dataVal)
+	dataVal = f.Lexify(dataVal)
 
 	return dataVal
 }

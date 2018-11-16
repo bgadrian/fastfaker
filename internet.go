@@ -50,5 +50,5 @@ func (f *Faker) IPv6Address() string {
 
 // Username will genrate a random username based upon picking a random lastname and random numbers at the end
 func (f *Faker) Username() string {
-	return f.getRandValue([]string{"person", "last"}) + f.replaceWithNumbers("####")
+	return f.getRandValue([]string{"person", "last"}) + f.Numerify("####")
 }

@@ -1,4 +1,4 @@
-package fastfaker
+package subtext
 
 const lowerStr = "abcdefghijklmnopqrstuvwxyz"
 const upperStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -8,13 +8,13 @@ const spaceStr = "   "
 
 // PasswordFull will generate a random password of length 10 that contains at least
 // 1 digit, 1 special character, 1 Lower and 1 Upper case letters.
-func (f *Faker) PasswordFull() string {
+func (f *FakerText) PasswordFull() string {
 	return f.Password(true, true, true, true, false, 10)
 }
 
 // Password will generate a random password
 // Minimum number length of 5 if less than
-func (f *Faker) Password(lower bool, upper bool, numeric bool, special bool, space bool, num int) string {
+func (f *FakerText) Password(lower bool, upper bool, numeric bool, special bool, space bool, num int) string {
 	// Make sure the num minimum is at least 5
 	if num < 5 {
 		num = 5
@@ -25,7 +25,7 @@ func (f *Faker) Password(lower bool, upper bool, numeric bool, special bool, spa
 
 	//it is NOT unicode safe! only works for ASCII
 	randomByte := func(source string) byte {
-		return source[f.Int64Positive()%int64(len(source))]
+		return source[f.textRand.Int64Positive()%int64(len(source))]
 	}
 
 	if lower {
@@ -67,7 +67,7 @@ func (f *Faker) Password(lower bool, upper bool, numeric bool, special bool, spa
 
 	// Shuffle bytes
 	for i := range b {
-		j := f.Intn(i + 1)
+		j := f.textRand.Intn(i + 1)
 		b[i], b[j] = b[j], b[i]
 	}
 
