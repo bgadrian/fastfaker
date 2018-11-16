@@ -278,3 +278,21 @@ func TestFaker_Float64Range(t *testing.T) {
 			min, max, v)
 	}
 }
+
+func TestFaker_RandIntRange(t *testing.T) {
+	if Global.randIntRange(5, 5) != 5 {
+		t.Error("You should have gotten 5 back")
+	}
+}
+
+func TestRandFloat32RangeSame(t *testing.T) {
+	if Global.Float32Range(5.0, 5.0) != 5.0 {
+		t.Error("You should have gotten 5.0 back")
+	}
+}
+
+func TestRandFloat64RangeSame(t *testing.T) {
+	if Global.Float64Range(5.0, 5.0) != 5.0 {
+		t.Error("You should have gotten 5.0 back")
+	}
+}

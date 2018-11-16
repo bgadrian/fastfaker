@@ -1,46 +1,8 @@
 package fastfaker
 
 import (
-	"reflect"
-	"sort"
 	"testing"
-
-	"github.com/bgadrian/fastfaker/data"
 )
-
-func TestRandIntRange(t *testing.T) {
-	if Global.randIntRange(5, 5) != 5 {
-		t.Error("You should have gotten 5 back")
-	}
-}
-
-func TestGetRandValueFail(t *testing.T) {
-	for _, test := range [][]string{nil, {}, {"not", "found"}, {"person", "notfound"}} {
-		if Global.getRandValue(test) != "" {
-			t.Error("You should have gotten no value back")
-		}
-	}
-}
-
-func TestGetRandIntValueFail(t *testing.T) {
-	for _, test := range [][]string{nil, {}, {"not", "found"}, {"status_code", "notfound"}} {
-		if Global.getRandIntValue(test) != 0 {
-			t.Error("You should have gotten no value back")
-		}
-	}
-}
-
-func TestRandFloat32RangeSame(t *testing.T) {
-	if Global.Float32Range(5.0, 5.0) != 5.0 {
-		t.Error("You should have gotten 5.0 back")
-	}
-}
-
-func TestRandFloat64RangeSame(t *testing.T) {
-	if Global.Float64Range(5.0, 5.0) != 5.0 {
-		t.Error("You should have gotten 5.0 back")
-	}
-}
 
 func TestReplaceWithNumbers(t *testing.T) {
 	if "" != Global.replaceWithNumbers("") {
@@ -67,21 +29,6 @@ func TestReplaceWithNumbersUnicode(t *testing.T) {
 func TestReplaceWithLetters(t *testing.T) {
 	if "" != Global.replaceWithLetters("") {
 		t.Error("You should have gotten an empty string")
-	}
-}
-
-func TestCategories(t *testing.T) {
-	var got, expected []string
-	for k := range Categories() {
-		got = append(got, k)
-	}
-	for k := range data.Data {
-		expected = append(expected, k)
-	}
-	sort.Strings(got)
-	sort.Strings(expected)
-	if !reflect.DeepEqual(got, expected) {
-		t.Error("Type arrays are not the same.\nExpected: ", expected, "\nGot: ", got)
 	}
 }
 

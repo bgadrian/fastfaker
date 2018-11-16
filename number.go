@@ -145,3 +145,11 @@ func (f *Faker) Float32() float32 {
 func (f *Faker) Float64() float64 {
 	return f.Float64Range(math.SmallestNonzeroFloat64, math.MaxFloat64)
 }
+
+// Generate random integer between min and max
+func (f *Faker) randIntRange(min, max int) int {
+	if min == max {
+		return min
+	}
+	return f.Intn((max+1)-min) + min
+}
