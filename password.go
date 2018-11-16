@@ -6,6 +6,12 @@ const numericStr = "0123456789"
 const specialStr = "!@#$%&*+-=?"
 const spaceStr = "   "
 
+// PasswordFull will generate a random password of length 10 that contains at least
+// 1 digit, 1 special character, 1 Lower and 1 Upper case letters.
+func (f *Faker) PasswordFull() string {
+	return f.Password(true, true, true, true, false, 10)
+}
+
 // Password will generate a random password
 // Minimum number length of 5 if less than
 func (f *Faker) Password(lower bool, upper bool, numeric bool, special bool, space bool, num int) string {

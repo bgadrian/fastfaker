@@ -5,9 +5,26 @@ import (
 	"time"
 )
 
-// Date will generate a random time.Time struct
+// Date will generate a random time.Time struct between 1900-Now
 func (f *Faker) Date() time.Time {
 	return time.Date(f.Year(), time.Month(f.Number(0, 12)), f.Day(), f.Hour(), f.Minute(), f.Second(), f.NanoSecond(), time.UTC)
+}
+
+// DateStr will generate a random date-time between 1900-Now
+// the format is: "2006-01-02 15:04:05.999999999 -0700 MST"
+func (f *Faker) DateStr() string {
+	return f.Date().String()
+}
+
+// DateCurrentYear will generate a random time.Time within the current year (UTC)
+func (f *Faker) DateCurrentYear() time.Time {
+	return time.Date(time.Now().UTC().Year(), time.Month(f.Number(0, 12)), f.Day(), f.Hour(), f.Minute(), f.Second(), f.NanoSecond(), time.UTC)
+}
+
+// DateCurrentYearStr will generate a random date-time within the current year (UTC)
+// the format is: "2019-01-02 15:04:05.999999999 -0700 MST"
+func (f *Faker) DateCurrentYearStr() string {
+	return f.DateCurrentYear().String()
 }
 
 // DateRange will generate a random time.Time struct between a start and end date
@@ -15,7 +32,7 @@ func (f *Faker) DateRange(start, end time.Time) time.Time {
 	return time.Unix(0, int64(f.Number(int(start.UnixNano()), int(end.UnixNano())))).UTC()
 }
 
-// Month will generate a random month string
+// Month will generate a random month string in English (January, February ...)
 func (f *Faker) Month() string {
 	return time.Month(f.Number(1, 12)).String()
 }

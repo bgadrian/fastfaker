@@ -22,12 +22,23 @@ func (f *Faker) Word() string {
 	return f.getRandValue([]string{"lorem", "word"})
 }
 
-// Sentence will generate a random sentence
+// Sentence will generate a random sentence, similar with Lorem Lipsum.
 func (f *Faker) Sentence(wordCount int) string {
 	return f.sentence(wordCount, f.Word)
 }
 
-// Paragraph will generate a random paragraphGenerator
+// SentenceAvg will generate a 18 word sentence, similar with Lorem Lipsum.
+func (f *Faker) SentenceAvg() string {
+	return f.Sentence(18)
+}
+
+// ParagraphAvg will generate a 4 paragraph separated by Unix new line \n text,
+// each containing 32 words, similar with Lorem Lipsum.
+func (f *Faker) ParagraphAvg() string {
+	return f.Paragraph(4, 2, 18, "\n")
+}
+
+// Paragraph will generate a random paragraph, similar with Lorem Lipsum.
 // Set Paragraph Count
 // Set Sentence Count
 // Set Word Count

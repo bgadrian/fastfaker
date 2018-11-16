@@ -8,13 +8,35 @@ import (
 
 func ExampleFaker_Date() {
 	Global.Seed(11)
-	fmt.Println(Global.Date())
+	fmt.Println(Global.Date().String())
+	// Output: 1989-01-07 04:14:25.685339029 +0000 UTC
+}
+func ExampleFaker_DateStr() {
+	Global.Seed(11)
+	fmt.Println(Global.DateStr())
 	// Output: 1989-01-07 04:14:25.685339029 +0000 UTC
 }
 
 func BenchmarkDate(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		Global.Date()
+	}
+}
+
+func ExampleFaker_DateCurrentYear() {
+	Global.Seed(11)
+	fmt.Println(Global.DateCurrentYear().String())
+	// Output: 2018-06-25 05:16:14.244961305 +0000 UTC
+}
+func ExampleFaker_DateCurrentYearStr() {
+	Global.Seed(11)
+	fmt.Println(Global.DateCurrentYearStr())
+	// Output: 2018-06-25 05:16:14.244961305 +0000 UTC
+}
+
+func BenchmarkDateCurrentYear(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		Global.DateCurrentYear()
 	}
 }
 

@@ -68,3 +68,13 @@ func (f *Faker) randDigit() rune {
 func (f *Faker) Numerify(str string) string {
 	return f.replaceWithNumbers(str)
 }
+
+func clampInt(val, min, max int) int {
+	if val < min {
+		return min
+	}
+	if val > max {
+		return max
+	}
+	return val
+}

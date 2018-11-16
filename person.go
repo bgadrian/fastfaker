@@ -36,7 +36,7 @@ func (f *Faker) Person() *PersonInfo {
 		LastName:   f.LastName(),
 		Gender:     f.Gender(),
 		SSN:        f.SSN(),
-		Image:      f.ImageURL(300, 300) + "/people",
+		Image:      f.AvatarURL(),
 		Job:        f.Job(),
 		Address:    f.Address(),
 		Contact:    f.Contact(),

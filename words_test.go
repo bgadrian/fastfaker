@@ -29,6 +29,12 @@ func BenchmarkSentence(b *testing.B) {
 	}
 }
 
+func ExampleFaker_SentenceAvg() {
+	Global.Seed(42)
+	fmt.Println(Global.SentenceAvg())
+	// Output: At illum ut est sit soluta nulla numquam nobis sunt quaerat ea dolores facere deleniti culpa numquam ut.
+}
+
 func ExampleFaker_Paragraph() {
 	Global.Seed(11)
 	fmt.Println(Global.Paragraph(3, 5, 12, "\n"))
@@ -41,6 +47,15 @@ func BenchmarkParagraph(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		Global.Paragraph(3, 5, 12, "\n")
 	}
+}
+
+func ExampleFaker_ParagraphAvg() {
+	Global.Seed(42)
+	fmt.Println(Global.ParagraphAvg())
+	// Output: At illum ut est sit soluta nulla numquam nobis sunt quaerat ea dolores facere deleniti culpa numquam ut. Distinctio maxime consequatur est qui corporis sunt officia odit et quia odit molestias voluptas porro repellendus magnam ipsa.
+	//Corporis eos rem non hic esse optio quisquam hic natus earum molestias iste architecto porro et blanditiis iste. Eum repellendus nostrum qui eius suscipit fugit quia quo et nesciunt quod fuga ut vel pariatur libero sequi.
+	//Rerum omnis soluta facilis voluptatem possimus et voluptas eaque possimus harum voluptatibus aperiam voluptatibus qui autem quam veniam. Ea voluptas facilis est autem illum esse amet in id doloribus ab architecto hic at aut aliquam impedit.
+	//Id unde et porro est repudiandae omnis beatae iusto pariatur quia sed laboriosam voluptate earum dolores facilis aspernatur. Quam aperiam et nihil explicabo voluptates officia ad porro animi officiis et quam in voluptatem eveniet temporibus fuga.
 }
 
 func TestSentence(t *testing.T) {

@@ -17,6 +17,12 @@ func BenchmarkHipsterWord(b *testing.B) {
 	}
 }
 
+func ExampleFaker_HipsterSentenceAvg() {
+	Global.Seed(42)
+	fmt.Println(Global.HipsterSentenceAvg())
+	// Output: Gastropub five dollar toast mumblecore kinfolk loko bushwick semiotics pickled tote bag neutra loko tote bag +1 salvia organic umami polaroid synth.
+}
+
 func ExampleFaker_HipsterSentence() {
 	Global.Seed(11)
 	fmt.Println(Global.HipsterSentence(5))
@@ -28,6 +34,15 @@ func BenchmarkHipsterSentence(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		Global.HipsterSentence(10)
 	}
+}
+
+func ExampleFaker_HipsterParagraphAvg() {
+	Global.Seed(42)
+	fmt.Println(Global.HipsterParagraphAvg())
+	// Output: Gastropub five dollar toast mumblecore kinfolk loko bushwick semiotics pickled tote bag neutra loko tote bag +1 salvia organic umami polaroid synth. Wolf roof PBR&B asymmetrical craft beer taxidermy everyday venmo shabby chic art party marfa flexitarian intelligentsia mumblecore lumbersexual occupy roof you probably haven't heard of them.
+	//Kitsch wayfarers hashtag pitchfork shabby chic echo cronut gentrify wolf jean shorts pabst normcore XOXO DIY 3 wolf moon plaid roof fanny pack. Thundercats typewriter deep v literally lo-fi cardigan hammock umami keytar polaroid schlitz yr YOLO sriracha small batch neutra truffaut sustainable.
+	//Slow-carb fanny pack neutra wayfarers helvetica polaroid vinegar biodiesel chambray street meh cleanse drinking cliche blog pickled kale chips meggings. Selvage tattooed squid Wes Anderson fanny pack hoodie tofu yr sustainable chillwave slow-carb beard gluten-free carry stumptown hoodie actually williamsburg.
+	//Fanny pack austin ethical portland church-key narwhal next level cleanse distillery mixtape deep v humblebrag umami gentrify kogi distillery art party Yuccie. Gentrify tumblr Yuccie VHS humblebrag swag franzen direct trade squid venmo post-ironic chillwave direct trade ethical meh vice post-ironic gentrify.
 }
 
 func ExampleFaker_HipsterParagraph() {

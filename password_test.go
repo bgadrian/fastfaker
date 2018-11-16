@@ -21,6 +21,12 @@ func TestPassword(t *testing.T) {
 	}
 }
 
+func ExampleFaker_PasswordFull() {
+	Global.Seed(42)
+	fmt.Println(Global.PasswordFull())
+	// Output: +eHQa02X9n
+}
+
 func ExampleFaker_Password() {
 	Global.Seed(11)
 	fmt.Println(Global.Password(true, false, false, false, false, 32))

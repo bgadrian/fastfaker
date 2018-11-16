@@ -69,7 +69,7 @@ func ExampleFaker_Person() {
 	// Moen
 	// male
 	// 420776036
-	// http://lorempixel.com/300/300/people
+	// http://pipsum.com/80x80.jpg
 	// Lockman and Sons
 	// Developer
 	// Global
