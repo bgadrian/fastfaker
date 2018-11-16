@@ -38,7 +38,7 @@ func (f *Faker) Address() *AddressInfo {
 
 // Street will generate a random address street string
 func (f *Faker) Street() (street string) {
-	switch randInt := f.randIntRange(1, 2); randInt {
+	switch randInt := f.Number(1, 2); randInt {
 	case 1:
 		street = f.StreetNumber() + " " + f.StreetPrefix() + " " + f.StreetName() + f.StreetSuffix()
 	case 2:
@@ -70,7 +70,7 @@ func (f *Faker) StreetSuffix() string {
 
 // City will generate a random city string
 func (f *Faker) City() (city string) {
-	switch randInt := f.randIntRange(1, 3); randInt {
+	switch randInt := f.Number(1, 3); randInt {
 	case 1:
 		city = f.FirstName() + f.StreetSuffix()
 	case 2:
@@ -109,12 +109,7 @@ func (f *Faker) CountryAbr() string {
 
 // Latitude will generate a random latitude float64
 func (f *Faker) Latitude() float64 {
-	if f.safe {
-		f.mutex.Lock()
-		defer f.mutex.Unlock()
-	}
-
-	return (f.src.Float64() * 180) - 90
+	return (f.Float64Unary() * 180) - 90
 }
 
 // LatitudeInRange will generate a random latitude within the input range
@@ -127,12 +122,7 @@ func (f *Faker) LatitudeInRange(min, max float64) (float64, error) {
 
 // Longitude will generate a random longitude float64
 func (f *Faker) Longitude() float64 {
-	if f.safe {
-		f.mutex.Lock()
-		defer f.mutex.Unlock()
-	}
-
-	return (f.src.Float64() * 360) - 180
+	return (f.Float64Unary() * 360) - 180
 }
 
 // LongitudeInRange will generate a random longitude within the input range

@@ -26,7 +26,7 @@ func (f *Faker) Generate(dataVal string) string {
 		replace := dataVal[(startIndex + 1):endIndex]
 		categories := strings.Split(replace, ".")
 
-		if len(categories) >= 2 && data.DataCheck([]string{categories[0], categories[1]}) {
+		if len(categories) >= 2 && data.Check([]string{categories[0], categories[1]}) {
 			catValue = f.getRandValue([]string{categories[0], categories[1]})
 		}
 

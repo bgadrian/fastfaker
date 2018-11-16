@@ -31,7 +31,7 @@ func (f *Faker) BeerMalt() string {
 
 // BeerIbu will return a random beer ibu value between 10 and 100
 func (f *Faker) BeerIbu() string {
-	return strconv.Itoa(f.randIntRange(10, 100)) + " IBU"
+	return strconv.Itoa(f.Number(10, 100)) + " IBU"
 }
 
 // BeerAlcohol will return a random beer alcohol level between 2.0 and 10.0

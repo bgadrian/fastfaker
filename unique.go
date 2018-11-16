@@ -10,11 +10,7 @@ func (f *Faker) UUID() string {
 	version := byte(4)
 	uuid := make([]byte, 16)
 
-	if f.safe {
-		f.mutex.Lock()
-		defer f.mutex.Unlock()
-	}
-	f.src.Read(uuid)
+	f.Read(uuid)
 
 	// Set version
 	uuid[6] = (uuid[6] & 0x0f) | (version << 4)

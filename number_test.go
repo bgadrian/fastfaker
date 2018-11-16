@@ -163,18 +163,6 @@ func BenchmarkFloat64Range(b *testing.B) {
 	}
 }
 
-func ExampleFaker_Numerify() {
-	Global.Seed(11)
-	fmt.Println(Global.Numerify("###-###-####"))
-	// Output: 328-727-1570
-}
-
-func BenchmarkNumerify(b *testing.B) {
-	for i := 0; i < b.N; i++ {
-		Global.Numerify("###-###-####")
-	}
-}
-
 func ExampleFaker_ShuffleInts() {
 	Global.Seed(11)
 
@@ -280,7 +268,7 @@ func TestFaker_Float64Range(t *testing.T) {
 }
 
 func TestFaker_RandIntRange(t *testing.T) {
-	if Global.randIntRange(5, 5) != 5 {
+	if Global.Number(5, 5) != 5 {
 		t.Error("You should have gotten 5 back")
 	}
 }

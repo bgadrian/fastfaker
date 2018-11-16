@@ -19,12 +19,7 @@ func (f *Faker) Password(lower bool, upper bool, numeric bool, special bool, spa
 
 	//it is NOT unicode safe! only works for ASCII
 	randomByte := func(source string) byte {
-		return source[f.src.Int63()%int64(len(source))]
-	}
-
-	if f.safe {
-		f.mutex.Lock()
-		defer f.mutex.Unlock()
+		return source[f.Int64Positive()%int64(len(source))]
 	}
 
 	if lower {
@@ -66,7 +61,7 @@ func (f *Faker) Password(lower bool, upper bool, numeric bool, special bool, spa
 
 	// Shuffle bytes
 	for i := range b {
-		j := f.src.Intn(i + 1)
+		j := f.Intn(i + 1)
 		b[i], b[j] = b[j], b[i]
 	}
 

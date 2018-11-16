@@ -1,6 +1,7 @@
 package fastfaker
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -40,5 +41,17 @@ func BenchmarkReplaceWithNumbers(b *testing.B) {
 		b.StartTimer()
 		Global.replaceWithNumbers("###☺#☻##☹##")
 		b.StopTimer()
+	}
+}
+
+func ExampleFaker_Numerify() {
+	Global.Seed(11)
+	fmt.Println(Global.Numerify("###-###-####"))
+	// Output: 328-727-1570
+}
+
+func BenchmarkNumerify(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		Global.Numerify("###-###-####")
 	}
 }

@@ -63,3 +63,8 @@ func (f *Faker) randLetter() rune {
 func (f *Faker) randDigit() rune {
 	return rune(byte(f.Intn(9)) + '0')
 }
+
+// Numerify will replace # with random numerical values (0-9 digits)
+func (f *Faker) Numerify(str string) string {
+	return f.replaceWithNumbers(str)
+}

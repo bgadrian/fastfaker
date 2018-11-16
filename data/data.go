@@ -6,8 +6,10 @@ package data
 
 import "github.com/pkg/errors"
 
+// NotFound is triggered when a category of Data is not found
 const NotFound = "not found"
 
+// Intn is a part of the randomizer package. It is used to select an item from the database.
 type Intn interface {
 	Intn(n int) int
 }
@@ -39,8 +41,8 @@ var IntData = map[string]map[string][]int{
 	"status_code": StatusCodes,
 }
 
-// Check if in lib
-func DataCheck(dataVal []string) bool {
+// Check is used to see if a [category, subcategory] exists in Data.
+func Check(dataVal []string) bool {
 	var checkOk bool
 
 	if len(dataVal) == 2 {
@@ -67,15 +69,15 @@ func intDataCheck(dataVal []string) bool {
 	return checkOk
 }
 
-// Get Random Value from a [category, subcategory]. Returns error if not found.
+// GetRandValue from a [category, subcategory]. Returns error if not found.
 func GetRandValue(f Intn, dataVal []string) (string, error) {
-	if !DataCheck(dataVal) {
+	if !Check(dataVal) {
 		return "", errors.New(NotFound)
 	}
 	return Data[dataVal[0]][dataVal[1]][f.Intn(len(Data[dataVal[0]][dataVal[1]]))], nil
 }
 
-// Get Random Integer Value from a [category, subcategory]. Returns error if not found.
+// GetRandIntValue Value from a [category, subcategory]. Returns error if not found.
 func GetRandIntValue(f Intn, dataVal []string) (int, error) {
 	if !intDataCheck(dataVal) {
 		return 0, errors.New(NotFound)

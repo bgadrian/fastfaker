@@ -2,7 +2,7 @@ package fastfaker
 
 // Company will generate a random company name string
 func (f *Faker) Company() (company string) {
-	switch randInt := f.randIntRange(1, 3); randInt {
+	switch randInt := f.Number(1, 3); randInt {
 	case 1:
 		company = f.LastName() + ", " + f.LastName() + " and " + f.LastName()
 	case 2:

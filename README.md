@@ -97,8 +97,11 @@ BenchmarkNewSafeFaker_Parallel-4           50000             30893 ns/op        
 BenchmarkNewFastFaker_Parallel-4          300000              3829 ns/op               0 B/op          0 allocs/op
 ```
 
-## Data
-If you want to use the raw data that the Faker uses internally (like Names, Streets, Countries and Companies) you can import the [Data package](./data) directly,see its documentation: [![godoc](https://godoc.org/github.com/bgadrian/fastfaker?status.svg)](https://godoc.org/github.com/bgadrian/fastfaker/data).
+### /Data [![godoc](https://godoc.org/github.com/bgadrian/fastfaker?status.svg)](https://godoc.org/github.com/bgadrian/fastfaker/data)
+If you want to use the raw data that the Faker uses internally (like Names, Streets, Countries and Companies) you can import the [Data package](./data) directly,see its documentation.
+
+### /Randomizer [![godoc](https://godoc.org/github.com/bgadrian/fastfaker?status.svg)](https://godoc.org/github.com/bgadrian/fastfaker/randomizer)
+The pseudo-data generator has its [own package](./randomizer) so it can be easily replaced. You can use it directl. As its core it is a `rand.*` wrapper with more functions. 
 
 ## gofakeit
 This library started as a fork of [gofakeit](https://github.com/brianvoe/gofakeit/), but I had different requirements from such a library, in particular performance and extensibility and could not guarantee [backward compatibility](https://github.com/brianvoe/gofakeit/issues/32). Future sync **will** be performed between the projects.

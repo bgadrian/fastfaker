@@ -4,7 +4,7 @@ import "strconv"
 
 // SSN will generate a random Social Security Number
 func (f *Faker) SSN() string {
-	return strconv.Itoa(f.randIntRange(100000000, 999999999))
+	return strconv.Itoa(f.Number(100000000, 999999999))
 }
 
 // Gender will generate a random gender string "male" or "female"

@@ -38,5 +38,5 @@ func (f *Faker) HexColor() string {
 
 // RGBColor will generate a random int slice color
 func (f *Faker) RGBColor() []int {
-	return []int{f.randIntRange(0, 255), f.randIntRange(0, 255), f.randIntRange(0, 255)}
+	return []int{f.Number(0, 255), f.Number(0, 255), f.Number(0, 255)}
 }
