@@ -1,6 +1,3 @@
-/* Package data contains all the raw data used by the Faker.
-You can use it directly if you have your own selection criteria or a different random generator.
-*/
 package data
 
 import (
