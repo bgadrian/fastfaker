@@ -1,5 +1,5 @@
 /*
-Package randomizer contains pseudo-random data generators, used by the SafeFaker main package.
+Package randomizer contains pseudo-random data generators, used by the Faker main package.
 It is concurrent safe, has 100% test coverage, benchmarks and examples.
 Can be used as a rand.* replacement.
 
