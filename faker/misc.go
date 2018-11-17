@@ -29,11 +29,11 @@ func (f *Faker) replaceWithNumbers(str string) string {
 	bytestr := []byte(str)
 	for i := 0; i < len(bytestr); i++ {
 		if bytestr[i] == hashtag {
-			bytestr[i] = byte(f.randDigit())
+			bytestr[i] = f.randDigit()
 		}
 	}
 	if bytestr[0] == '0' {
-		bytestr[0] = byte(f.Intn(8)+1) + '0'
+		bytestr[0] += byte(f.Intn(8) + 1)
 	}
 
 	return string(bytestr)
@@ -60,8 +60,11 @@ func (f *Faker) randLetter() rune {
 }
 
 // Generate random ASCII digit
-func (f *Faker) randDigit() rune {
-	return rune(byte(f.Intn(9)) + '0')
+var numerifyDictonary = []byte{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'}
+
+// randDigit will generate a random ASCII digit, returning its byte/rune value
+func (f *Faker) randDigit() byte {
+	return numerifyDictonary[f.Intn(9)]
 }
 
 // Numerify will replace # with random numerical values (0-9 digits)

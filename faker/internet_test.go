@@ -2,6 +2,7 @@ package faker
 
 import (
 	"fmt"
+	"strings"
 	"testing"
 )
 
@@ -26,6 +27,17 @@ func ExampleFaker_DomainSuffix() {
 func BenchmarkDomainSuffix(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		Global.DomainSuffix()
+	}
+}
+func TestFaker_URL(t *testing.T) {
+	Global.Seed(13)
+	if strings.Contains(Global.URL(), "https") == false {
+		t.Errorf("some URLs must be https too")
+	}
+
+	Global.Seed(12)
+	if strings.Contains(Global.URL(), "http") == false {
+		t.Errorf("some URLs must be http too")
 	}
 }
 

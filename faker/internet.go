@@ -1,6 +1,7 @@
 package faker
 
 import (
+	"bytes"
 	"fmt"
 	"strings"
 )
@@ -17,18 +18,24 @@ func (f *Faker) DomainSuffix() string {
 
 // URL will generate a random url string
 func (f *Faker) URL() string {
-	url := "http" + f.RandString([]string{"s", ""}) + "://www."
-	url += f.DomainName()
+	buffer := bytes.Buffer{}
+	buffer.Grow(70)
+	if f.Bool() {
+		buffer.WriteString("http")
+	} else {
+		buffer.WriteString("https")
+	}
+	buffer.WriteString("://www.")
+	buffer.WriteString(f.DomainName())
 
 	// Slugs
 	num := f.Number(1, 4)
-	slug := make([]string, num)
 	for i := 0; i < num; i++ {
-		slug[i] = f.BS()
+		buffer.WriteRune('/')
+		buffer.WriteString(strings.ToLower(f.BS()))
 	}
-	url += "/" + strings.ToLower(strings.Join(slug, "/"))
 
-	return url
+	return buffer.String()
 }
 
 // HTTPMethod will generate a random http method
