@@ -1,7 +1,8 @@
 # Makefile
 
 pre:
-	env go test -race ./...
+	go get -t -v ./...
+	go test -race ./...
 	#TODO test for compilation errors examples/*/*
 
 doc: pre

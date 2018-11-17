@@ -3,3 +3,4 @@ codecov: true
 
 go:
   - "1.0"
+  - master
