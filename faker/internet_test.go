@@ -92,7 +92,7 @@ func BenchmarkIPv6Address(b *testing.B) {
 func ExampleFaker_Username() {
 	Global.Seed(11)
 	fmt.Println(Global.Username())
-	// Output: Daniel2872
+	// Output: Daniel1364
 }
 
 func BenchmarkUsername(b *testing.B) {

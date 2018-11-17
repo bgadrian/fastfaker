@@ -16,7 +16,7 @@ func TestGenerate(t *testing.T) {
 func ExampleFaker_Generate() {
 	Global.Seed(11)
 	fmt.Println(Global.Generate("{person.first} {person.last} lives at {address.number} {address.street_name} {address.street_suffix}"))
-	// Output: Markus Moen lives at 715 Garden mouth
+	// Output: Markus Moen lives at 599 Garden mouth
 }
 
 func BenchmarkGenerate(b *testing.B) {

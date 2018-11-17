@@ -64,7 +64,7 @@ var numerifyDictonary = []byte{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'}
 
 // randDigit will generate a random ASCII digit, returning its byte/rune value
 func (f *Faker) randDigit() byte {
-	return numerifyDictonary[f.Intn(9)]
+	return numerifyDictonary[f.Intn(10)]
 }
 
 // Numerify will replace # with random numerical values (0-9 digits)

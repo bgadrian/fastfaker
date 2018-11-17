@@ -35,7 +35,7 @@ func BenchmarkAddress(b *testing.B) {
 func ExampleFaker_Street() {
 	Global.Seed(11)
 	fmt.Println(Global.Street())
-	// Output: 872 East Rapidsborough
+	// Output: 364 East Rapidsborough
 }
 
 func BenchmarkStreet(b *testing.B) {
@@ -47,7 +47,7 @@ func BenchmarkStreet(b *testing.B) {
 func ExampleFaker_StreetNumber() {
 	Global.Seed(11)
 	fmt.Println(Global.StreetNumber())
-	// Output: 28727
+	// Output: 13645
 }
 
 func BenchmarkStreetNumber(b *testing.B) {
@@ -137,7 +137,7 @@ func BenchmarkStateAbr(b *testing.B) {
 func ExampleFaker_Zip() {
 	Global.Seed(11)
 	fmt.Println(Global.Zip())
-	// Output: 28727
+	// Output: 13645
 }
 
 func BenchmarkZip(b *testing.B) {

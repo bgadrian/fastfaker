@@ -21,7 +21,7 @@ func BenchmarkLetter(b *testing.B) {
 func ExampleFaker_Digit() {
 	Global.Seed(11)
 	fmt.Println(Global.Digit())
-	// Output: 3
+	// Output: 0
 }
 
 func BenchmarkDigit(b *testing.B) {

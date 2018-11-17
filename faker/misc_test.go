@@ -13,9 +13,9 @@ func TestReplaceWithNumbers(t *testing.T) {
 
 func TestReplaceWithNumbersUnicode(t *testing.T) {
 	for _, test := range []struct{ in, should string }{
-		{"#界#世#", "8界8世5"},
-		{"☺#☻☹#", "☺8☻☹8"},
-		{"\x80#¼#語", "\x808¼8語"},
+		{"#界#世#", "5界7世8"},
+		{"☺#☻☹#", "☺5☻☹7"},
+		{"\x80#¼#語", "\x805¼7語"},
 	} {
 		Global.Seed(42)
 		got := Global.replaceWithNumbers(test.in)
@@ -47,7 +47,7 @@ func BenchmarkReplaceWithNumbers(b *testing.B) {
 func ExampleFaker_Numerify() {
 	Global.Seed(11)
 	fmt.Println(Global.Numerify("###-###-####"))
-	// Output: 328-727-1570
+	// Output: 613-645-9948
 }
 
 func BenchmarkNumerify(b *testing.B) {

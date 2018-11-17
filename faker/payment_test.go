@@ -14,9 +14,9 @@ func ExampleFaker_CreditCard() {
 	fmt.Println(ccInfo.Exp)
 	fmt.Println(ccInfo.Cvv)
 	// Output: Visa
-	// 6587271570245748
+	// 6536459948995369
 	// 03/25
-	// 675
+	// 353
 }
 
 func BenchmarkCreditCard(b *testing.B) {
@@ -40,7 +40,7 @@ func BenchmarkCreditCardType(b *testing.B) {
 func ExampleFaker_CreditCardNumber() {
 	Global.Seed(11)
 	fmt.Println(Global.CreditCardNumber())
-	// Output: 4287271570245748
+	// Output: 4136459948995369
 }
 
 func BenchmarkCreditCardNumber(b *testing.B) {
@@ -52,7 +52,7 @@ func BenchmarkCreditCardNumber(b *testing.B) {
 func ExampleFaker_CreditCardNumberLuhn() {
 	Global.Seed(11)
 	fmt.Println(Global.CreditCardNumberLuhn())
-	// Output: 4007208855354357
+	// Output: 2720996615546177
 }
 
 func BenchmarkCreditCardNumberLuhn(b *testing.B) {
@@ -93,7 +93,7 @@ func BenchmarkCreditCardExp(b *testing.B) {
 func ExampleFaker_CreditCardCvv() {
 	Global.Seed(11)
 	fmt.Println(Global.CreditCardCvv())
-	// Output: 328
+	// Output: 513
 }
 
 func BenchmarkCreditCardCvv(b *testing.B) {
