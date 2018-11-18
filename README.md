@@ -1,4 +1,4 @@
-# Fast Faker [![Go Report Card](https://goreportcard.com/badge/github.com/bgadrian/fastfaker)](https://goreportcard.com/report/github.com/bgadrian/fastfaker) [![GoDoc](https://godoc.org/github.com/bgadrian/fastfaker?status.svg)](https://godoc.org/github.com/bgadrian/fastfaker/faker) [![Build Status](https://travis-ci.com/bgadrian/fastfaker.svg?branch=master)](https://travis-ci.com/bgadrian/fastfaker)
+# Fast Faker [![Go Report Card](https://goreportcard.com/badge/github.com/bgadrian/fastfaker)](https://goreportcard.com/report/github.com/bgadrian/fastfaker) [![GoDoc](https://godoc.org/github.com/bgadrian/fastfaker?status.svg)](https://godoc.org/github.com/bgadrian/fastfaker/faker) [![Build Status](https://travis-ci.com/bgadrian/fastfaker.svg?branch=master)](https://travis-ci.com/bgadrian/fastfaker) [![codecov](https://codecov.io/gh/bgadrian/fastfaker/branch/master/graph/badge.svg)](https://codecov.io/gh/bgadrian/fastfaker)
 
 FastFaker is a data generator written in go. It can generate over 50 data types and has 2 modes of operation: fast or (concurrent) safe.
 

@@ -4,3 +4,12 @@ codecov: true
 go:
   - "1.0"
   - master
+
+install:
+- make
+
+script:
+- go test -coverprofile=coverage.txt -covermode=atomic ./...
+
+after_success:
+- bash <(curl -s https://codecov.io/bash)
