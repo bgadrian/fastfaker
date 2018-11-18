@@ -1,15 +1,20 @@
 language: go
 codecov: true
 
-go:
-  - "1.0"
-  - master
+#we run the tests on multiple Go versions, but the coverage only on the latest
+matrix:
+  include:
+  - name: "Go 1.0"
+    go: "1.0"
+  - name: "Go latest"
+    go: master
+    env: COVERAGE=true
 
 install:
 - make
 
 script:
-- go test -coverprofile=coverage.txt -covermode=atomic github.com/bgadrian/fastfaker/faker github.com/bgadrian/fastfaker/data github.com/bgadrian/fastfaker/randomizer
+- ./travis.sh
 
 after_success:
 - bash <(curl -s https://codecov.io/bash)
