@@ -4,7 +4,9 @@ You can use it directly if you have your own selection criteria or a different r
 */
 package data
 
-import "github.com/pkg/errors"
+import (
+	"github.com/pkg/errors"
+)
 
 // NotFound is triggered when a category of Data is not found
 const NotFound = "not found"
@@ -34,6 +36,7 @@ var Data = map[string]map[string][]string{
 	"log_level": LogLevels,
 	"timezone":  TimeZone,
 	"vehicle":   Vehicle,
+	"":          {"": nil},
 }
 
 // IntData consists of the main set of fake information (integer only)
@@ -96,4 +99,37 @@ func Categories() map[string][]string {
 		types[category] = subCategories
 	}
 	return types
+}
+
+// DataListCache serve the same function as the global GetRandValue functionality
+// but internally keeps a reference to a specific Category/Subcategory list
+// improving consecutive calls performance (no more runtime.mapaccess1_faststr)
+type SetCache interface {
+	GetRandValue() string
+}
+
+// NewDataListCache creates a new reference to a Data category set
+// for faster access
+func NewDataListCache(f Intn, dataVal []string) (SetCache, error) {
+	if &f == nil || Check(dataVal) == false {
+		return nil, errors.New(NotFound)
+	}
+	res := &simpleList{}
+	res.randomizer = f
+	res.db = Data[dataVal[0]][dataVal[1]]
+
+	if len(res.db) == 0 {
+		return nil, errors.New("empty category list")
+	}
+
+	return res, nil
+}
+
+type simpleList struct {
+	randomizer Intn
+	db         []string
+}
+
+func (w *simpleList) GetRandValue() string {
+	return w.db[w.randomizer.Intn(len(w.db))]
 }

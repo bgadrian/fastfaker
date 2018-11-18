@@ -3,6 +3,8 @@ package faker
 import (
 	"fmt"
 	"testing"
+
+	"github.com/bgadrian/fastfaker/data"
 )
 
 func ExampleFaker_Word() {
@@ -79,4 +81,20 @@ func TestParagraph(t *testing.T) {
 			t.Errorf("result should be blank for %v input", count)
 		}
 	}
+}
+
+func TestFaker_SentenceSetCacheNil(t *testing.T) {
+	faker := NewFastFaker()
+	old := data.Data["lorem"]["word"]
+	data.Data["lorem"]["word"] = nil
+
+	if faker.Sentence(3) != "" {
+		t.Error("should return empty result with null randomizer")
+	}
+
+	if faker.Paragraph(3, 3, 3, "\n") != "" {
+		t.Error("should return empty result with null randomizer")
+	}
+
+	data.Data["lorem"]["word"] = old
 }

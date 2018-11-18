@@ -14,6 +14,7 @@ FastFaker is a data generator written in go. It can generate over 50 data types 
 - Performance
 - Idiomatic Go
 - predefined popular structures (Address, Person ...)
+- 200 unit tests and examples
 
 ### 130+ Functions!!!
 If there is something that is generic enough missing from this package [let me know!](./CONTRIBUTING.md)
@@ -113,7 +114,7 @@ The pseudo-data generator has its [own package](./randomizer) so it can be easil
 ## gofakeit
 This library started as a fork of [gofakeit](https://github.com/brianvoe/gofakeit/), but I had different requirements from such a library, in particular performance and extensibility and could not guarantee [backward compatibility](https://github.com/brianvoe/gofakeit/issues/32). Future sync **will** be performed between the projects.
 
-Differences between `gofakeit` and `fastfaker`
+Differences between `gofakeit` and `fastfaker` (more in the [changelog](./CHANGELOG.md))
 * import path, name
 * version `gofakeit` 3.x is `fastfaker` 1.x
 * different documentation, new examples and tests
@@ -122,6 +123,9 @@ Differences between `gofakeit` and `fastfaker`
 * versioning, `fastfaker` uses the semantic version, making it compatible with go modules
 * `fastfaker` generates Unicode strings (multi-byte runes)
 * `fastfaker` may return non-english data and non-US addresses
+
+## Change log
+I try to [keep it updated here](./CHANGELOG.md).
 
 ## Benchmarks
 For a quick overview see [BENCHMARKS.md](./BENCHMARKS.md).

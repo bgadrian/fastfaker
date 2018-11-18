@@ -80,3 +80,34 @@ func ExampleGetRandValue() {
 	fmt.Printf("My name is %s, %s expert.", name, abbr)
 	// Output: My name is Adriana, XSS expert.
 }
+
+func TestNewDataListCache(t *testing.T) {
+	random := rand.New(rand.NewSource(42))
+
+	set, err := NewDataListCache(random, []string{"X", "X"})
+	if set != nil || err == nil {
+		t.Error("should return error with invalid category")
+	}
+
+	set, err = NewDataListCache(random, []string{"", ""})
+	if set != nil || err == nil {
+		t.Error("should return error with empty category")
+	}
+}
+
+func ExampleNewDataListCache() {
+	//if you want to retrieve N random values
+	//from a single set, is more optimal to use a cache:
+
+	random := rand.New(rand.NewSource(233))
+	setCache, _ := NewDataListCache(random, []string{"person", "first"})
+
+	for i := 0; i < 3; i++ {
+		fmt.Println(setCache.GetRandValue())
+	}
+
+	// Output: Annabel
+	//Timothy
+	//Jenifer
+
+}

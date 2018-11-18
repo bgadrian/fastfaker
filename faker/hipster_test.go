@@ -3,6 +3,8 @@ package faker
 import (
 	"fmt"
 	"testing"
+
+	"github.com/bgadrian/fastfaker/data"
 )
 
 func ExampleFaker_HipsterWord() {
@@ -58,4 +60,20 @@ func BenchmarkHipsterParagraph(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		Global.HipsterParagraph(3, 5, 12, "\n")
 	}
+}
+
+func TestFaker_HipsterSetCacheNil(t *testing.T) {
+	faker := NewFastFaker()
+	old := data.Data["hipster"]["word"]
+	data.Data["hipster"]["word"] = nil
+
+	if faker.HipsterSentence(3) != "" {
+		t.Error("should return empty result with null randomizer")
+	}
+
+	if faker.HipsterParagraph(3, 3, 3, "\n") != "" {
+		t.Error("should return empty result with null randomizer")
+	}
+
+	data.Data["hipster"]["word"] = old
 }

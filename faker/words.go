@@ -3,6 +3,8 @@ package faker
 import (
 	"bytes"
 	"unicode"
+
+	"github.com/bgadrian/fastfaker/data"
 )
 
 type paragrapOptions struct {
@@ -14,9 +16,6 @@ type paragrapOptions struct {
 
 const bytesPerWordEstimation = 6
 
-type sentenceGenerator func(wordCount int) string
-type wordGenerator func() string
-
 // Word will generate a random word
 func (f *Faker) Word() string {
 	return f.getRandValue([]string{"lorem", "word"})
@@ -24,7 +23,11 @@ func (f *Faker) Word() string {
 
 // Sentence will generate a random sentence, similar with Lorem Lipsum.
 func (f *Faker) Sentence(wordCount int) string {
-	return f.sentence(wordCount, f.Word)
+	wordSetCache, err := data.NewDataListCache(f, []string{"lorem", "word"})
+	if err != nil {
+		return ""
+	}
+	return f.sentence(wordCount, wordSetCache, nil).String()
 }
 
 // SentenceAvg will generate a 18 word sentence, similar with Lorem Lipsum.
@@ -44,22 +47,27 @@ func (f *Faker) ParagraphAvg() string {
 // Set Word Count
 // Set Paragraph Separator
 func (f *Faker) Paragraph(paragraphCount int, sentenceCount int, wordCount int, separator string) string {
-	return f.paragraphGenerator(
-		paragrapOptions{paragraphCount, sentenceCount, wordCount, separator},
-		f.Sentence)
-}
-
-func (f *Faker) sentence(wordCount int, word wordGenerator) string {
-	if wordCount <= 0 {
+	wordSetCache, err := data.NewDataListCache(f, []string{"lorem", "word"})
+	if err != nil {
 		return ""
 	}
+	return f.paragraphGenerator(
+		paragrapOptions{paragraphCount, sentenceCount, wordCount, separator},
+		wordSetCache)
+}
 
-	wordSeparator := ' '
-	sentence := bytes.Buffer{}
-	sentence.Grow(wordCount * bytesPerWordEstimation)
+func (f *Faker) sentence(wordCount int, word data.SetCache, sentence *bytes.Buffer) *bytes.Buffer {
+	if wordCount <= 0 {
+		return &bytes.Buffer{}
+	}
+
+	if sentence == nil {
+		sentence = &bytes.Buffer{}
+		sentence.Grow(wordCount * bytesPerWordEstimation)
+	}
 
 	for i := 0; i < wordCount; i++ {
-		word := word()
+		word := word.GetRandValue()
 		if i == 0 {
 			runes := []rune(word)
 			runes[0] = unicode.ToTitle(runes[0])
@@ -67,27 +75,27 @@ func (f *Faker) sentence(wordCount int, word wordGenerator) string {
 		}
 		sentence.WriteString(word)
 		if i < wordCount-1 {
-			sentence.WriteRune(wordSeparator)
+			sentence.WriteRune(' ')
 		}
 	}
 	sentence.WriteRune('.')
-	return sentence.String()
+	return sentence
 }
 
-func (f *Faker) paragraphGenerator(opts paragrapOptions, sentecer sentenceGenerator) string {
+func (f *Faker) paragraphGenerator(opts paragrapOptions, word data.SetCache) string {
 	if opts.paragraphCount <= 0 || opts.sentenceCount <= 0 || opts.wordCount <= 0 {
 		return ""
 	}
 
 	//to avoid making Go 1.10 dependency, we cannot use strings.Builder
-	paragraphs := bytes.Buffer{}
+	paragraphs := &bytes.Buffer{}
 	//we presume the length
 	paragraphs.Grow(opts.paragraphCount * opts.sentenceCount * opts.wordCount * bytesPerWordEstimation)
 	wordSeparator := ' '
 
 	for i := 0; i < opts.paragraphCount; i++ {
 		for e := 0; e < opts.sentenceCount; e++ {
-			paragraphs.WriteString(sentecer(opts.wordCount))
+			f.sentence(opts.wordCount, word, paragraphs)
 			if e < opts.sentenceCount-1 {
 				paragraphs.WriteRune(wordSeparator)
 			}
