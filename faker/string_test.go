@@ -12,9 +12,9 @@ func ExampleFaker_Letter() {
 }
 
 func BenchmarkLetter(b *testing.B) {
-	Global.Seed(11)
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Letter()
+		fastFaker.Letter()
 	}
 }
 
@@ -25,9 +25,9 @@ func ExampleFaker_Digit() {
 }
 
 func BenchmarkDigit(b *testing.B) {
-	Global.Seed(11)
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Digit()
+		fastFaker.Digit()
 	}
 }
 
@@ -38,8 +38,9 @@ func ExampleFaker_Lexify() {
 }
 
 func BenchmarkLexify(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Lexify("??????")
+		fastFaker.Lexify("??????")
 	}
 }
 
@@ -52,9 +53,9 @@ func ExampleFaker_ShuffleStrings() {
 }
 
 func BenchmarkShuffleStrings(b *testing.B) {
-	Global.Seed(11)
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.ShuffleStrings([]string{"happy", "times", "for", "everyone", "have", "a", "good", "day"})
+		fastFaker.ShuffleStrings([]string{"happy", "times", "for", "everyone", "have", "a", "good", "day"})
 	}
 }
 
@@ -66,7 +67,7 @@ func TestRandString(t *testing.T) {
 		{[]string{}, ""},
 		{nil, ""},
 		{[]string{"a"}, "a"},
-		{[]string{"a", "b", "c", "d", "e", "f"}, "f"},
+		{[]string{"a", "b", "c", "d", "e", "variableFunc"}, "variableFunc"},
 	} {
 		Global.Seed(44)
 		got := Global.RandString(test.in)
@@ -84,7 +85,7 @@ func TestShuffleStrings(t *testing.T) {
 	Global.ShuffleStrings([]string{"a"})
 	Global.ShuffleStrings(nil)
 
-	a := []string{"a", "b", "c", "d", "e", "f", "g", "h"}
+	a := []string{"a", "b", "c", "d", "e", "variableFunc", "g", "h"}
 	b := make([]string, len(a))
 	copy(b, a)
 	Global.ShuffleStrings(a)

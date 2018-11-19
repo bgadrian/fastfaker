@@ -12,8 +12,9 @@ func ExampleFaker_SSN() {
 }
 
 func BenchmarkSSN(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.SSN()
+		fastFaker.SSN()
 	}
 }
 
@@ -24,8 +25,9 @@ func ExampleFaker_Gender() {
 }
 
 func BenchmarkGender(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Gender()
+		fastFaker.Gender()
 	}
 }
 
@@ -91,7 +93,8 @@ func ExampleFaker_Person() {
 }
 
 func BenchmarkPerson(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Person()
+		fastFaker.Person()
 	}
 }

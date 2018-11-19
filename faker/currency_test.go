@@ -13,8 +13,9 @@ func ExampleFaker_Currency() {
 }
 
 func BenchmarkCurrency(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Currency()
+		fastFaker.Currency()
 	}
 }
 
@@ -25,8 +26,9 @@ func ExampleFaker_CurrencyShort() {
 }
 
 func BenchmarkCurrencyShort(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.CurrencyShort()
+		fastFaker.CurrencyShort()
 	}
 }
 
@@ -37,8 +39,9 @@ func ExampleFaker_CurrencyLong() {
 }
 
 func BenchmarkCurrencyLong(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.CurrencyLong()
+		fastFaker.CurrencyLong()
 	}
 }
 
@@ -49,7 +52,8 @@ func ExampleFaker_Price() {
 }
 
 func BenchmarkPrice(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Price(0, 1000)
+		fastFaker.Price(0, 1000)
 	}
 }

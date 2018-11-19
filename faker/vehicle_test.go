@@ -1,6 +1,9 @@
 package faker
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
 func ExampleFaker_CarModel() {
 	Global.Seed(11)
@@ -48,4 +51,32 @@ func ExampleFaker_Vehicle() {
 	// Automatic
 	// Passenger car mini
 	// 1943
+}
+
+func BenchmarkFaker_CarMaker(b *testing.B) {
+	fastFaker := NewFastFaker()
+	for i := 0; i < b.N; i++ {
+		fastFaker.CarMaker()
+	}
+}
+
+func BenchmarkFaker_CarModel(b *testing.B) {
+	fastFaker := NewFastFaker()
+	for i := 0; i < b.N; i++ {
+		fastFaker.CarModel()
+	}
+}
+
+func BenchmarkFaker_Vehicle(b *testing.B) {
+	fastFaker := NewFastFaker()
+	for i := 0; i < b.N; i++ {
+		fastFaker.Vehicle()
+	}
+}
+
+func BenchmarkFaker_VehicleType(b *testing.B) {
+	fastFaker := NewFastFaker()
+	for i := 0; i < b.N; i++ {
+		fastFaker.VehicleType()
+	}
 }

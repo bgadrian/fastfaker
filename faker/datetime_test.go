@@ -18,8 +18,9 @@ func ExampleFaker_DateStr() {
 }
 
 func BenchmarkDate(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Date()
+		fastFaker.Date()
 	}
 }
 
@@ -35,8 +36,9 @@ func ExampleFaker_DateCurrentYearStr() {
 }
 
 func BenchmarkDateCurrentYear(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.DateCurrentYear()
+		fastFaker.DateCurrentYear()
 	}
 }
 
@@ -47,8 +49,9 @@ func ExampleFaker_DateRange() {
 }
 
 func BenchmarkDateRange(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.DateRange(time.Now().AddDate(-30, 0, 0), time.Now())
+		fastFaker.DateRange(time.Now().AddDate(-30, 0, 0), time.Now())
 	}
 }
 
@@ -65,8 +68,9 @@ func ExampleFaker_WeekDay() {
 }
 
 func BenchmarkMonth(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Month()
+		fastFaker.Month()
 	}
 }
 
@@ -77,14 +81,16 @@ func ExampleFaker_Day() {
 }
 
 func BenchmarkDay(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Day()
+		fastFaker.Day()
 	}
 }
 
 func BenchmarkWeekDay(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.WeekDay()
+		fastFaker.WeekDay()
 	}
 }
 
@@ -95,8 +101,9 @@ func ExampleFaker_Year() {
 }
 
 func BenchmarkYear(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Year()
+		fastFaker.Year()
 	}
 }
 
@@ -107,8 +114,9 @@ func ExampleFaker_Hour() {
 }
 
 func BenchmarkHour(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Hour()
+		fastFaker.Hour()
 	}
 }
 
@@ -119,8 +127,9 @@ func ExampleFaker_Minute() {
 }
 
 func BenchmarkMinute(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Minute()
+		fastFaker.Minute()
 	}
 }
 
@@ -131,8 +140,9 @@ func ExampleFaker_Second() {
 }
 
 func BenchmarkSecond(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Second()
+		fastFaker.Second()
 	}
 }
 
@@ -143,8 +153,9 @@ func ExampleFaker_NanoSecond() {
 }
 
 func BenchmarkNanoSecond(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.NanoSecond()
+		fastFaker.NanoSecond()
 	}
 }
 
@@ -155,8 +166,9 @@ func ExampleFaker_TimeZone() {
 }
 
 func BenchmarkTimeZone(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.TimeZone()
+		fastFaker.TimeZone()
 	}
 }
 
@@ -167,8 +179,9 @@ func ExampleFaker_TimeZoneFull() {
 }
 
 func BenchmarkTimeZoneFull(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.TimeZoneFull()
+		fastFaker.TimeZoneFull()
 	}
 }
 
@@ -179,8 +192,9 @@ func ExampleFaker_TimeZoneAbv() {
 }
 
 func BenchmarkTimeZoneAbv(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.TimeZoneAbv()
+		fastFaker.TimeZoneAbv()
 	}
 }
 
@@ -191,7 +205,8 @@ func ExampleFaker_TimeZoneOffset() {
 }
 
 func BenchmarkTimeZoneOffset(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.TimeZoneOffset()
+		fastFaker.TimeZoneOffset()
 	}
 }

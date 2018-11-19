@@ -1,2 +1,6 @@
 benchmarks
 coverage*
+
+*.test
+*.out
+*.gz

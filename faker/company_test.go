@@ -12,8 +12,9 @@ func ExampleFaker_Company() {
 }
 
 func BenchmarkCompany(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Company()
+		fastFaker.Company()
 	}
 }
 
@@ -30,8 +31,9 @@ func ExampleFaker_CompanySuffix() {
 }
 
 func BenchmarkCompanySuffix(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.CompanySuffix()
+		fastFaker.CompanySuffix()
 	}
 }
 
@@ -42,8 +44,9 @@ func ExampleFaker_BuzzWord() {
 }
 
 func BenchmarkBuzzWord(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.BuzzWord()
+		fastFaker.BuzzWord()
 	}
 }
 
@@ -54,7 +57,8 @@ func ExampleFaker_BS() {
 }
 
 func BenchmarkBS(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.BS()
+		fastFaker.BS()
 	}
 }

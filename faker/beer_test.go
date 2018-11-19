@@ -12,8 +12,9 @@ func ExampleFaker_BeerName() {
 }
 
 func BenchmarkBeerName(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.BeerName()
+		fastFaker.BeerName()
 	}
 }
 
@@ -24,8 +25,9 @@ func ExampleFaker_BeerStyle() {
 }
 
 func BenchmarkBeerStyle(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.BeerStyle()
+		fastFaker.BeerStyle()
 	}
 }
 
@@ -36,8 +38,9 @@ func ExampleFaker_BeerHop() {
 }
 
 func BenchmarkBeerHop(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.BeerHop()
+		fastFaker.BeerHop()
 	}
 }
 
@@ -48,8 +51,9 @@ func ExampleFaker_BeerYeast() {
 }
 
 func BenchmarkBeerYeast(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.BeerYeast()
+		fastFaker.BeerYeast()
 	}
 }
 
@@ -60,8 +64,9 @@ func ExampleFaker_BeerMalt() {
 }
 
 func BenchmarkBeerMalt(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.BeerMalt()
+		fastFaker.BeerMalt()
 	}
 }
 
@@ -72,8 +77,9 @@ func ExampleFaker_BeerIbu() {
 }
 
 func BenchmarkBeerIbu(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.BeerIbu()
+		fastFaker.BeerIbu()
 	}
 }
 
@@ -84,8 +90,9 @@ func ExampleFaker_BeerAlcohol() {
 }
 
 func BenchmarkBeerAlcohol(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.BeerAlcohol()
+		fastFaker.BeerAlcohol()
 	}
 }
 
@@ -96,7 +103,8 @@ func ExampleFaker_BeerBlg() {
 }
 
 func BenchmarkBeerBlg(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.BeerBlg()
+		fastFaker.BeerBlg()
 	}
 }

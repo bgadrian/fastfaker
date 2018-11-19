@@ -13,8 +13,9 @@ func ExampleFaker_DomainName() {
 }
 
 func BenchmarkDomainName(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.DomainName()
+		fastFaker.DomainName()
 	}
 }
 
@@ -25,8 +26,9 @@ func ExampleFaker_DomainSuffix() {
 }
 
 func BenchmarkDomainSuffix(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.DomainSuffix()
+		fastFaker.DomainSuffix()
 	}
 }
 func TestFaker_URL(t *testing.T) {
@@ -48,8 +50,9 @@ func ExampleFaker_URL() {
 }
 
 func BenchmarkURL(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.URL()
+		fastFaker.URL()
 	}
 }
 
@@ -60,8 +63,9 @@ func ExampleFaker_HTTPMethod() {
 }
 
 func BenchmarkHTTPMethod(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.HTTPMethod()
+		fastFaker.HTTPMethod()
 	}
 }
 
@@ -72,8 +76,9 @@ func ExampleFaker_IPv4Address() {
 }
 
 func BenchmarkIPv4Address(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.IPv4Address()
+		fastFaker.IPv4Address()
 	}
 }
 
@@ -84,8 +89,9 @@ func ExampleFaker_IPv6Address() {
 }
 
 func BenchmarkIPv6Address(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.IPv6Address()
+		fastFaker.IPv6Address()
 	}
 }
 
@@ -96,7 +102,8 @@ func ExampleFaker_Username() {
 }
 
 func BenchmarkUsername(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Username()
+		fastFaker.Username()
 	}
 }

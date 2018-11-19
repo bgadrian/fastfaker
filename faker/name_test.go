@@ -12,8 +12,9 @@ func ExampleFaker_Name() {
 }
 
 func BenchmarkName(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Name()
+		fastFaker.Name()
 	}
 }
 
@@ -24,8 +25,9 @@ func ExampleFaker_FirstName() {
 }
 
 func BenchmarkFirstName(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.FirstName()
+		fastFaker.FirstName()
 	}
 }
 
@@ -36,8 +38,9 @@ func ExampleFaker_LastName() {
 }
 
 func BenchmarkLastName(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.LastName()
+		fastFaker.LastName()
 	}
 }
 
@@ -48,8 +51,9 @@ func ExampleFaker_NamePrefix() {
 }
 
 func BenchmarkNamePrefix(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.NamePrefix()
+		fastFaker.NamePrefix()
 	}
 }
 
@@ -60,7 +64,8 @@ func ExampleFaker_NameSuffix() {
 }
 
 func BenchmarkNameSuffix(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.NameSuffix()
+		fastFaker.NameSuffix()
 	}
 }

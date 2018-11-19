@@ -12,8 +12,9 @@ func ExampleFaker_MimeType() {
 }
 
 func BenchmarkMimeType(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.MimeType()
+		fastFaker.MimeType()
 	}
 }
 
@@ -24,7 +25,8 @@ func ExampleFaker_Extension() {
 }
 
 func BenchmarkExtension(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Extension()
+		fastFaker.Extension()
 	}
 }

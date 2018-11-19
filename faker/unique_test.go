@@ -20,7 +20,8 @@ func ExampleFaker_UUID() {
 }
 
 func BenchmarkUUID(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.UUID()
+		fastFaker.UUID()
 	}
 }

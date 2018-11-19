@@ -14,8 +14,9 @@ func ExampleFaker_Word() {
 }
 
 func BenchmarkWord(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Word()
+		fastFaker.Word()
 	}
 }
 
@@ -26,8 +27,9 @@ func ExampleFaker_Sentence() {
 }
 
 func BenchmarkSentence(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Sentence(10)
+		fastFaker.Sentence(10)
 	}
 }
 
@@ -46,8 +48,9 @@ func ExampleFaker_Paragraph() {
 }
 
 func BenchmarkParagraph(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Paragraph(3, 5, 12, "\n")
+		fastFaker.Paragraph(3, 5, 12, "\n")
 	}
 }
 

@@ -20,8 +20,9 @@ func ExampleFaker_CreditCard() {
 }
 
 func BenchmarkCreditCard(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.CreditCard()
+		fastFaker.CreditCard()
 	}
 }
 
@@ -32,8 +33,9 @@ func ExampleFaker_CreditCardType() {
 }
 
 func BenchmarkCreditCardType(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.CreditCardType()
+		fastFaker.CreditCardType()
 	}
 }
 
@@ -44,8 +46,9 @@ func ExampleFaker_CreditCardNumber() {
 }
 
 func BenchmarkCreditCardNumber(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.CreditCardNumber()
+		fastFaker.CreditCardNumber()
 	}
 }
 
@@ -56,8 +59,9 @@ func ExampleFaker_CreditCardNumberLuhn() {
 }
 
 func BenchmarkCreditCardNumberLuhn(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.CreditCardNumberLuhn()
+		fastFaker.CreditCardNumberLuhn()
 	}
 }
 
@@ -85,8 +89,9 @@ func ExampleFaker_CreditCardExp() {
 }
 
 func BenchmarkCreditCardExp(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.CreditCardExp()
+		fastFaker.CreditCardExp()
 	}
 }
 
@@ -97,7 +102,8 @@ func ExampleFaker_CreditCardCvv() {
 }
 
 func BenchmarkCreditCardCvv(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.CreditCardCvv()
+		fastFaker.CreditCardCvv()
 	}
 }

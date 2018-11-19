@@ -4,7 +4,11 @@ import "strings"
 
 // HackerPhrase will return a random hacker sentence
 func (f *Faker) HackerPhrase() string {
-	words := strings.Split(f.Generate(f.getRandValue([]string{"hacker", "phrase"})), " ")
+	template := f.getRandValue([]string{"hacker", "phrase"})
+
+	//TODO improve these allocations (string > []string > string)
+	result, _ := f.TemplateCustom(template, "{", "}")
+	words := strings.Split(result, " ")
 	words[0] = strings.Title(words[0])
 	return strings.Join(words, " ")
 }

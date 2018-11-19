@@ -34,13 +34,9 @@ func TestReplaceWithLetters(t *testing.T) {
 }
 
 func BenchmarkReplaceWithNumbers(b *testing.B) {
-	b.StopTimer()
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Seed(42)
-
-		b.StartTimer()
-		Global.replaceWithNumbers("###☺#☻##☹##")
-		b.StopTimer()
+		fastFaker.replaceWithNumbers("###☺#☻##☹##")
 	}
 }
 
@@ -51,8 +47,9 @@ func ExampleFaker_Numerify() {
 }
 
 func BenchmarkNumerify(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Numerify("###-###-####")
+		fastFaker.Numerify("###-###-####")
 	}
 }
 

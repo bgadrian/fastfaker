@@ -14,8 +14,9 @@ func ExampleFaker_HipsterWord() {
 }
 
 func BenchmarkHipsterWord(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.HipsterWord()
+		fastFaker.HipsterWord()
 	}
 }
 
@@ -32,9 +33,9 @@ func ExampleFaker_HipsterSentence() {
 }
 
 func BenchmarkHipsterSentence(b *testing.B) {
-	Global.Seed(42)
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.HipsterSentence(10)
+		fastFaker.HipsterSentence(10)
 	}
 }
 
@@ -56,9 +57,9 @@ func ExampleFaker_HipsterParagraph() {
 }
 
 func BenchmarkHipsterParagraph(b *testing.B) {
-	Global.Seed(42)
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.HipsterParagraph(3, 5, 12, "\n")
+		fastFaker.HipsterParagraph(3, 5, 12, "\n")
 	}
 }
 

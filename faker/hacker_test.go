@@ -12,8 +12,9 @@ func ExampleFaker_HackerPhrase() {
 }
 
 func BenchmarkHackerPhrase(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.HackerPhrase()
+		fastFaker.HackerPhrase()
 	}
 }
 
@@ -24,8 +25,9 @@ func ExampleFaker_HackerAbbreviation() {
 }
 
 func BenchmarkHackerAbbreviation(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.HackerAbbreviation()
+		fastFaker.HackerAbbreviation()
 	}
 }
 
@@ -36,8 +38,9 @@ func ExampleFaker_HackerAdjective() {
 }
 
 func BenchmarkHackerAdjective(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.HackerAdjective()
+		fastFaker.HackerAdjective()
 	}
 }
 
@@ -48,8 +51,9 @@ func ExampleFaker_HackerNoun() {
 }
 
 func BenchmarkHackerNoun(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.HackerNoun()
+		fastFaker.HackerNoun()
 	}
 }
 

@@ -19,8 +19,9 @@ func ExampleFaker_Job() {
 }
 
 func BenchmarkJob(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Job()
+		fastFaker.Job()
 	}
 }
 
@@ -31,8 +32,9 @@ func ExampleFaker_JobTitle() {
 }
 
 func BenchmarkJobTitle(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.JobTitle()
+		fastFaker.JobTitle()
 	}
 }
 
@@ -43,8 +45,9 @@ func ExampleFaker_JobDescriptor() {
 }
 
 func BenchmarkJobDescriptor(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.JobDescriptor()
+		fastFaker.JobDescriptor()
 	}
 }
 
@@ -55,7 +58,8 @@ func ExampleFaker_JobLevel() {
 }
 
 func BenchmarkJobLevel(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.JobLevel()
+		fastFaker.JobLevel()
 	}
 }

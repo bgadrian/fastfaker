@@ -12,8 +12,9 @@ func ExampleFaker_Color() {
 }
 
 func BenchmarkColor(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Color()
+		fastFaker.Color()
 	}
 }
 
@@ -24,8 +25,9 @@ func ExampleFaker_SafeColor() {
 }
 
 func BenchmarkSafeColor(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.SafeColor()
+		fastFaker.SafeColor()
 	}
 }
 
@@ -36,8 +38,9 @@ func ExampleFaker_HexColor() {
 }
 
 func BenchmarkHexColor(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.HexColor()
+		fastFaker.HexColor()
 	}
 }
 
@@ -48,7 +51,8 @@ func ExampleFaker_RGBColor() {
 }
 
 func BenchmarkRGBColor(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.RGBColor()
+		fastFaker.RGBColor()
 	}
 }

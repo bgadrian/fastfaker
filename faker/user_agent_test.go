@@ -12,8 +12,9 @@ func ExampleFaker_UserAgent() {
 }
 
 func BenchmarkUserAgent(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.UserAgent()
+		fastFaker.UserAgent()
 	}
 }
 
@@ -30,8 +31,9 @@ func ExampleFaker_ChromeUserAgent() {
 }
 
 func BenchmarkChromeUserAgent(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.ChromeUserAgent()
+		fastFaker.ChromeUserAgent()
 	}
 }
 
@@ -42,8 +44,9 @@ func ExampleFaker_FirefoxUserAgent() {
 }
 
 func BenchmarkFirefoxUserAgent(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.FirefoxUserAgent()
+		fastFaker.FirefoxUserAgent()
 	}
 }
 
@@ -54,8 +57,9 @@ func ExampleFaker_SafariUserAgent() {
 }
 
 func BenchmarkSafariUserAgent(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.SafariUserAgent()
+		fastFaker.SafariUserAgent()
 	}
 }
 
@@ -66,7 +70,8 @@ func ExampleFaker_OperaUserAgent() {
 }
 
 func BenchmarkOperaUserAgent(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.OperaUserAgent()
+		fastFaker.OperaUserAgent()
 	}
 }

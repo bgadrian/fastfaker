@@ -2,6 +2,10 @@ package faker
 
 import "strconv"
 
+func (f *Faker) Browser() string {
+	return f.getRandValue([]string{"internet", "browser"})
+}
+
 // UserAgent will generate a random broswer user agent
 func (f *Faker) UserAgent() string {
 	randNum := f.Number(0, 4)

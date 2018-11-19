@@ -51,13 +51,12 @@ func (f *Faker) r(t reflect.Type, v reflect.Value, template string) {
 }
 
 func (f *Faker) rString(template string, v reflect.Value) {
-	if template != "" {
-		r := f.Generate(template)
-		v.SetString(r)
-	} else {
-		v.SetString(f.Generate("???????????????????"))
-		// we don't have a String(len int) string function!!
+
+	if template == "" {
+		template = "{word} {word} {word} {word}"
 	}
+	r := f.Template(template)
+	v.SetString(r)
 }
 
 func (f *Faker) rStruct(t reflect.Type, v reflect.Value) {

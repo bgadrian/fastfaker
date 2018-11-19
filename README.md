@@ -2,12 +2,13 @@
 
 FastFaker is a data generator written in go. It can generate over 50 data types and has 2 modes of operation: fast or (concurrent) safe.
 
-### Library Features
+### Features
 - Every function has an example and a benchmark,
 [see benchmarks](https://github.com/bgadrian/fastfaker/blob/master/BENCHMARKS.md)
 - Zero dependencies (no external calls, no vendor, dep or modules required)
 - Randomizes user defined structs
 - Over 130 functions for regular use
+- Templates with over 110 variables
 - Extensible
 - Concurrent safe
 - Go 1.x compatibility
@@ -19,11 +20,24 @@ FastFaker is a data generator written in go. It can generate over 50 data types 
 ### 130+ Functions!!!
 If there is something that is generic enough missing from this package [let me know!](./CONTRIBUTING.md)
 
-### As a service
-If you do not want to spend time implementing this library you can use the [Pseudoservice](https://github.com/bgadrian/pseudoservice) microservice. You can build it yourself or use the docker image
+## How to use
+#### Library 
+The package is meant to be used as a Go package, and imported in your own application, but it can be used as an app or service too:
+
+#### Utility
+A small example is provided as an example, and can be used as a binary standalone utility, after compilation:
+```bash
+$ go build -o fastfaker example/standalone-template/main.go
+$ ./fastfaker '{name}'
+$ Victoria Berge
+```
+#### Web service
+If you do not want to spend time importing this library in your project, or you are using a different programming language, you can use the [Pseudoservice](https://github.com/bgadrian/pseudoservice) microservice. It is a HTTP Web sever wrapper on the Templates functionality.
+
 ```bash
 docker run --name pseudoservice -p 8080:8080 -d -e APIKEY=MYSECRET bgadrian/pseudoservice
-curl "http://localhost:8080/users/1?token=MYSECRET&seed=42"
+curl "http://localhost:8080/custom/1?token=MYSECRET&template=~name~"
+{"results":["Jefferey Koch"],"seed":-4329827746951412836}
 ```
 
 ## Documentation
@@ -33,15 +47,6 @@ You can find more examples in the [Example](./example/) folder.
 
 ## Example
 ```go
-package main
-
-import (
-	"fmt"
-
-	"github.com/bgadrian/fastfaker/faker"
-)
-
-func main() {
 	faker.Global.Name()             // Markus Moen
 	faker.Global.Email()            // alaynawuckert@kozey.biz
 	faker.Global.Phone()            // (570)245-7485
@@ -58,15 +63,14 @@ func main() {
 
 	// Create structs with random injected data
 	type Foo struct {
-		Browser string `fake:"{internet.browser}"`
-		Name    string `fake:"{beer.name}"`
+		Browser string `fake:"{browser}"`
+		Name    string `fake:"{beername}"`
 		Int     int
 		Dice    uint8
 		Pointer *int
 		Skip    *string `fake:"skip"`
 	}
 	var f Foo
-	faker.Global.Seed(42)
 	faker.Global.Struct(&f)
 	fmt.Printf("%s\n", f.Browser)  //firefox
 	fmt.Printf("%s\n", f.Name)     //Samuel Smith’s Oatmeal Stout
@@ -74,8 +78,6 @@ func main() {
 	fmt.Printf("%d\n", f.Dice)     //62
 	fmt.Printf("%d\n", *f.Pointer) //-8819218091111228151
 	fmt.Printf("%v\n", f.Skip)     //<nil>
-}
-
 ```
 
 ## Faker types, concurrency and performance
@@ -105,11 +107,22 @@ BenchmarkNewSafeFaker_Parallel-4           50000             30893 ns/op        
 BenchmarkNewFastFaker_Parallel-4          300000              3829 ns/op               0 B/op          0 allocs/op
 ```
 
+## Templates
+Template is the most powerful FastFaker feature. It allows custom patterns/templates of text to be filled with over 110 random types of [data (variables)](./TEMPLATE_VARIABLES.md).
+
+It can be used directly (faker.Template* methods) or via the faker.Struct fill method and `fake:` tags. 
+
+```go
+fastFaker.Template("I'm {name}, call me at ###-###-####!") // I'm John, call me at 152-335-8761!
+```
+
+You can use any type of texts, formats, encoded or not (HTML, JSON, YAML, configs ...). For more details see the [TEMPLATES section](./TEMPLATES.md)
+
 ### /Data [![godoc](https://godoc.org/github.com/bgadrian/fastfaker?status.svg)](https://godoc.org/github.com/bgadrian/fastfaker/data)
-If you want to use the raw data that the Faker uses internally (like Names, Streets, Countries and Companies) you can import the [Data package](./data) directly,see its documentation.
+If you want to use the raw data that the Faker uses internally (like Names, Streets, Countries and Companies) you can import the [Data package](./data) directly, see its documentation.
 
 ### /Randomizer [![godoc](https://godoc.org/github.com/bgadrian/fastfaker?status.svg)](https://godoc.org/github.com/bgadrian/fastfaker/randomizer)
-The pseudo-data generator has its [own package](./randomizer) so it can be easily replaced. At its core it is a `rand.*` wrapper with more functions. 
+The pseudo-data generator has its [own package](./randomizer). At its core it is a `rand.*` wrapper with more functions. 
 
 ## gofakeit
 This library started as a fork of [gofakeit](https://github.com/brianvoe/gofakeit/), but I had different requirements from such a library, in particular performance and extensibility and could not guarantee [backward compatibility](https://github.com/brianvoe/gofakeit/issues/32). Future sync **will** be performed between the projects.
@@ -120,9 +133,7 @@ Differences between `gofakeit` and `fastfaker` (more in the [changelog](./CHANGE
 * different documentation, new examples and tests
 * non deterministic (using the same `Seed` on `fastfaker` may lead to different results, eg Name(), than the same seed with `gofakeit`)
 * usage, instead of `gofakeit.Name()` the calls are `faker.Global.Name()` or `faker.NewFastFaker().Name()`
-* versioning, `fastfaker` uses the semantic version, making it compatible with go modules
-* `fastfaker` generates Unicode strings (multi-byte runes)
-* `fastfaker` may return non-english data and non-US addresses
+* `fastfaker` uses the semantic version, making it compatible with go modules
 
 ## Change log
 I try to [keep it updated here](./CHANGELOG.md).

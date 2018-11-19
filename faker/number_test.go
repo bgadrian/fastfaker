@@ -14,8 +14,9 @@ func ExampleFaker_Number() {
 }
 
 func BenchmarkNumber(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Number(10, 999999)
+		fastFaker.Number(10, 999999)
 	}
 }
 
@@ -26,8 +27,9 @@ func ExampleFaker_Uint8() {
 }
 
 func BenchmarkUint8(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Uint8()
+		fastFaker.Uint8()
 	}
 }
 
@@ -38,8 +40,9 @@ func ExampleFaker_Uint16() {
 }
 
 func BenchmarkUint16(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Uint16()
+		fastFaker.Uint16()
 	}
 }
 
@@ -50,8 +53,9 @@ func ExampleFaker_Uint32() {
 }
 
 func BenchmarkUint32(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Uint32()
+		fastFaker.Uint32()
 	}
 }
 
@@ -62,8 +66,9 @@ func ExampleFaker_Uint64() {
 }
 
 func BenchmarkUint64(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Uint64()
+		fastFaker.Uint64()
 	}
 }
 
@@ -74,8 +79,9 @@ func ExampleFaker_Int8() {
 }
 
 func BenchmarkInt8(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Int8()
+		fastFaker.Int8()
 	}
 }
 
@@ -86,8 +92,9 @@ func ExampleFaker_Int16() {
 }
 
 func BenchmarkInt16(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Int16()
+		fastFaker.Int16()
 	}
 }
 
@@ -98,8 +105,9 @@ func ExampleFaker_Int32() {
 }
 
 func BenchmarkInt32(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Int32()
+		fastFaker.Int32()
 	}
 }
 
@@ -110,8 +118,9 @@ func ExampleFaker_Int64() {
 }
 
 func BenchmarkInt64(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Int64()
+		fastFaker.Int64()
 	}
 }
 
@@ -122,8 +131,9 @@ func ExampleFaker_Float32() {
 }
 
 func BenchmarkFloat32(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Float32()
+		fastFaker.Float32()
 	}
 }
 
@@ -134,8 +144,9 @@ func ExampleFaker_Float32Range() {
 }
 
 func BenchmarkFloat32Range(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Float32Range(0, 9999999)
+		fastFaker.Float32Range(0, 9999999)
 	}
 }
 
@@ -146,8 +157,9 @@ func ExampleFaker_Float64() {
 }
 
 func BenchmarkFloat64(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Float64()
+		fastFaker.Float64()
 	}
 }
 
@@ -158,8 +170,9 @@ func ExampleFaker_Float64Range() {
 }
 
 func BenchmarkFloat64Range(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Float64Range(0, 9999999)
+		fastFaker.Float64Range(0, 9999999)
 	}
 }
 
@@ -173,8 +186,9 @@ func ExampleFaker_ShuffleInts() {
 }
 
 func BenchmarkShuffleInts(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.ShuffleInts([]int{52, 854, 941, 74125, 8413, 777, 89416, 841657})
+		fastFaker.ShuffleInts([]int{52, 854, 941, 74125, 8413, 777, 89416, 841657})
 	}
 }
 
@@ -245,7 +259,7 @@ func TestFaker_Float32Range(t *testing.T) {
 		if v >= min && v < max {
 			continue
 		}
-		t.Errorf("out of range number [%f,%f): %f",
+		t.Errorf("out of range number [%variableFunc,%variableFunc): %variableFunc",
 			min, max, v)
 	}
 }
@@ -262,7 +276,7 @@ func TestFaker_Float64Range(t *testing.T) {
 		if v >= min && v < max {
 			continue
 		}
-		t.Errorf("out of range number [%f,%f): %f",
+		t.Errorf("out of range number [%variableFunc,%variableFunc): %variableFunc",
 			min, max, v)
 	}
 }

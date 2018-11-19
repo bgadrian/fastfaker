@@ -44,7 +44,8 @@ func ExampleFaker_Password() {
 }
 
 func BenchmarkPassword(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Password(true, true, true, true, true, 8)
+		fastFaker.Password(true, true, true, true, true, 8)
 	}
 }

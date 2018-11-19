@@ -16,7 +16,8 @@ func ExampleFaker_LogLevel() {
 }
 
 func BenchmarkLogLevel(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.LogLevel("general")
+		fastFaker.LogLevel("general")
 	}
 }

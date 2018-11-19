@@ -1,6 +1,9 @@
 language: go
 codecov: true
 
+git:
+  depth: 3
+
 #we run the tests on multiple Go versions, but the coverage only on the latest
 matrix:
   include:

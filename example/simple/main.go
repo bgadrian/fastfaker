@@ -22,9 +22,11 @@ func main() {
 	// 130+ more!!!
 
 	// Create structs with random injected data
+	//for all the variables available see:
+	//https://github.com/bgadrian/fastfaker/TEMPLATE_VARIABLES.md
 	type Foo struct {
-		Browser string `fake:"{internet.browser}"`
-		Name    string `fake:"{beer.name}"`
+		Browser string `fake:"{browser}"`
+		Name    string `fake:"{beername}"`
 		Int     int
 		Dice    uint8
 		Pointer *int

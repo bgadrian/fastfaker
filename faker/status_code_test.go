@@ -12,8 +12,9 @@ func ExampleFaker_SimpleStatusCode() {
 }
 
 func BenchmarkSimpleStatusCode(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.SimpleStatusCode()
+		fastFaker.SimpleStatusCode()
 	}
 }
 
@@ -24,7 +25,8 @@ func ExampleFaker_StatusCode() {
 }
 
 func BenchmarkStatusCode(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.StatusCode()
+		fastFaker.StatusCode()
 	}
 }

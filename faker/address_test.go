@@ -27,8 +27,9 @@ func ExampleFaker_Address() {
 }
 
 func BenchmarkAddress(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Address()
+		fastFaker.Address()
 	}
 }
 
@@ -39,8 +40,9 @@ func ExampleFaker_Street() {
 }
 
 func BenchmarkStreet(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Street()
+		fastFaker.Street()
 	}
 }
 
@@ -51,8 +53,9 @@ func ExampleFaker_StreetNumber() {
 }
 
 func BenchmarkStreetNumber(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.StreetNumber()
+		fastFaker.StreetNumber()
 	}
 }
 
@@ -63,8 +66,9 @@ func ExampleFaker_StreetPrefix() {
 }
 
 func BenchmarkStreetPrefix(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.StreetPrefix()
+		fastFaker.StreetPrefix()
 	}
 }
 
@@ -75,8 +79,9 @@ func ExampleFaker_StreetName() {
 }
 
 func BenchmarkStreetName(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.StreetName()
+		fastFaker.StreetName()
 	}
 }
 
@@ -87,8 +92,9 @@ func ExampleFaker_StreetSuffix() {
 }
 
 func BenchmarkStreetSuffix(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.StreetSuffix()
+		fastFaker.StreetSuffix()
 	}
 }
 
@@ -105,8 +111,9 @@ func TestCity(t *testing.T) {
 }
 
 func BenchmarkCity(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.City()
+		fastFaker.City()
 	}
 }
 
@@ -117,8 +124,9 @@ func ExampleFaker_State() {
 }
 
 func BenchmarkState(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.State()
+		fastFaker.State()
 	}
 }
 
@@ -129,8 +137,9 @@ func ExampleFaker_StateAbr() {
 }
 
 func BenchmarkStateAbr(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.StateAbr()
+		fastFaker.StateAbr()
 	}
 }
 
@@ -141,8 +150,9 @@ func ExampleFaker_Zip() {
 }
 
 func BenchmarkZip(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Zip()
+		fastFaker.Zip()
 	}
 }
 
@@ -153,8 +163,9 @@ func ExampleFaker_Country() {
 }
 
 func BenchmarkCountry(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Country()
+		fastFaker.Country()
 	}
 }
 
@@ -165,8 +176,9 @@ func ExampleFaker_CountryAbr() {
 }
 
 func BenchmarkCountryAbr(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.CountryAbr()
+		fastFaker.CountryAbr()
 	}
 }
 
@@ -177,8 +189,9 @@ func ExampleFaker_Latitude() {
 }
 
 func BenchmarkLatitude(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Latitude()
+		fastFaker.Latitude()
 	}
 }
 
@@ -189,8 +202,9 @@ func ExampleFaker_Longitude() {
 }
 
 func BenchmarkLongitude(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Longitude()
+		fastFaker.Longitude()
 	}
 }
 
@@ -224,8 +238,9 @@ func ExampleFaker_LatitudeInRange() {
 }
 
 func BenchmarkLatitudeInRange(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.LatitudeInRange(-90, 90)
+		fastFaker.LatitudeInRange(-90, 90)
 	}
 }
 
@@ -259,7 +274,8 @@ func ExampleFaker_LongitudeInRange() {
 }
 
 func BenchmarkLongitudeInRange(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.LongitudeInRange(-180, 180)
+		fastFaker.LongitudeInRange(-180, 180)
 	}
 }

@@ -15,8 +15,9 @@ func ExampleFaker_Contact() {
 }
 
 func BenchmarkContact(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Contact()
+		fastFaker.Contact()
 	}
 }
 
@@ -27,8 +28,9 @@ func ExampleFaker_Phone() {
 }
 
 func BenchmarkPhone(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Phone()
+		fastFaker.Phone()
 	}
 }
 
@@ -39,8 +41,9 @@ func ExampleFaker_PhoneFormatted() {
 }
 
 func BenchmarkPhoneFormatted(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.PhoneFormatted()
+		fastFaker.PhoneFormatted()
 	}
 }
 
@@ -51,7 +54,8 @@ func ExampleFaker_Email() {
 }
 
 func BenchmarkEmail(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.Email()
+		fastFaker.Email()
 	}
 }

@@ -11,6 +11,13 @@ func ExampleFaker_AvatarURL() {
 	// Output: http://pipsum.com/80x80.jpg
 }
 
+func BenchmarkAvatarURL(b *testing.B) {
+	fastFaker := NewFastFaker()
+	for i := 0; i < b.N; i++ {
+		fastFaker.AvatarURL()
+	}
+}
+
 func ExampleFaker_ImageURL() {
 	Global.Seed(11)
 	fmt.Println(Global.ImageURL(640, 480))
@@ -18,7 +25,8 @@ func ExampleFaker_ImageURL() {
 }
 
 func BenchmarkImageURL(b *testing.B) {
+	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		Global.ImageURL(640, 480)
+		fastFaker.ImageURL(640, 480)
 	}
 }
