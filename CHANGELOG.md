@@ -1,5 +1,9 @@
 # FastFaker change log
 
+### v2.0.1
+Fixes templates Regex cache parallel writes panic 
+Adds a more complex example: Analytics 
+
 ### v2.0.0
 Brand new template system. Unlike the old Generate() and Struct() methods that were limited to the /data and basic types, templates allows custom patterns to call all the Faker methods. 
 
