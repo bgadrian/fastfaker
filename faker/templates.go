@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"regexp"
 	"strings"
+	"sync"
 )
 
 // Template replaces all the found variables into the template with the actual
@@ -35,7 +36,9 @@ type keyPos struct {
 // in Custom Templates. Must be ASCII (1 byte size) and not interfere with the regex expressions.
 const TemplateAllowedDelimiters = "{}%#~<>-:@`"
 
+//TODO group these 2 to a struct
 var templateRegexCache = make(map[string]*regexp.Regexp)
+var templateRegexMutex = sync.RWMutex{}
 
 // TemplateCustom replaces all the found variables into the template with the actual
 // results from the Faker.*() function.
@@ -71,11 +74,19 @@ func (f *Faker) TemplateCustom(template, delimStart, delimEnd string) (string, e
 	//most likely all calls are using the same delimiters
 	var pattern *regexp.Regexp
 	cacheKey := delimStart + "///" + delimEnd
-	if val, exists := templateRegexCache[cacheKey]; exists {
-		pattern = val
+
+	templateRegexMutex.RLock()
+	cachedRegex, exists := templateRegexCache[cacheKey]
+	templateRegexMutex.RUnlock() //do not defer, we need it released ASAP
+
+	if exists {
+		pattern = cachedRegex
 	} else {
 		pattern = regexp.MustCompile(`(` + delimStart + `[a-zA-Z0-9_-]+` + delimEnd + `)`)
+
+		templateRegexMutex.Lock()
 		templateRegexCache[cacheKey] = pattern
+		templateRegexMutex.Unlock()
 	}
 
 	templateAsByte := []byte(template)
