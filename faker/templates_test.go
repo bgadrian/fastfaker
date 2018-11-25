@@ -3,6 +3,7 @@ package faker
 import (
 	"fmt"
 	"strings"
+	"sync"
 	"testing"
 )
 
@@ -246,5 +247,30 @@ func BenchmarkFaker_TemplateCustom(b *testing.B) {
 	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
 		fastFaker.TemplateCustom(template, "{", "}")
+	}
+}
+
+func BenchmarkFaker_TemplateCustomConcurrent1(b *testing.B) {
+	template1 := "😀o😀{name} {word} {uint8}"
+	template2 := "😀{name} {word} {city} {carmaker} {uint8} {firstname} {uint8}"
+	wg := sync.WaitGroup{}
+
+	f := func(temp string) {
+		fastFaker := NewFastFaker()
+		for i := 0; i < 50; i++ {
+			fastFaker.TemplateCustom(temp, "{", "}")
+		}
+		wg.Done()
+	}
+
+	for i := 0; i < b.N; i++ {
+		wg.Add(6)
+		go f(template1)
+		go f(template2)
+		go f(template1)
+		go f(template2)
+		go f(template1)
+		go f(template2)
+		wg.Wait()
 	}
 }

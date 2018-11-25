@@ -1,7 +1,11 @@
 # FastFaker change log
 
+### v2.0.2
+Improves TemplateCustom/Template performance, reduces the memory allocations by ~25% by reusing internal structures (object pooling).
+
 ### v2.0.1
-Fixes templates Regex cache parallel writes panic 
+Fixes templates Regex cache parallel writes panic
+ 
 Adds a more complex example: Analytics 
 
 ### v2.0.0
