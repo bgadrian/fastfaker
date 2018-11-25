@@ -36,9 +36,29 @@ type keyPos struct {
 // in Custom Templates. Must be ASCII (1 byte size) and not interfere with the regex expressions.
 const TemplateAllowedDelimiters = "{}%#~<>-:@`"
 
-//TODO group these 2 to a struct
-var templateRegexCache = make(map[string]*regexp.Regexp)
-var templateRegexMutex = sync.RWMutex{}
+//because regex creation is expensive we cache them
+//we presume that it will be a Read heavy usage, as in
+//the same delimiters `{}` will be used for many requests.
+type regexCache struct {
+	cache map[string]*regexp.Regexp
+	sync.RWMutex
+}
+
+var templateRegexMutex = regexCache{
+	cache: make(map[string]*regexp.Regexp),
+}
+
+var templateBuffersPool = sync.Pool{
+	New: func() interface{} {
+		return &bytes.Buffer{}
+	},
+}
+
+var templateKeyPosPool = sync.Pool{
+	New: func() interface{} {
+		return &keyPos{}
+	},
+}
 
 // TemplateCustom replaces all the found variables into the template with the actual
 // results from the Faker.*() function.
@@ -76,7 +96,7 @@ func (f *Faker) TemplateCustom(template, delimStart, delimEnd string) (string, e
 	cacheKey := delimStart + "///" + delimEnd
 
 	templateRegexMutex.RLock()
-	cachedRegex, exists := templateRegexCache[cacheKey]
+	cachedRegex, exists := templateRegexMutex.cache[cacheKey]
 	templateRegexMutex.RUnlock() //do not defer, we need it released ASAP
 
 	if exists {
@@ -85,7 +105,7 @@ func (f *Faker) TemplateCustom(template, delimStart, delimEnd string) (string, e
 		pattern = regexp.MustCompile(`(` + delimStart + `[a-zA-Z0-9_-]+` + delimEnd + `)`)
 
 		templateRegexMutex.Lock()
-		templateRegexCache[cacheKey] = pattern
+		templateRegexMutex.cache[cacheKey] = pattern
 		templateRegexMutex.Unlock()
 	}
 
@@ -94,32 +114,49 @@ func (f *Faker) TemplateCustom(template, delimStart, delimEnd string) (string, e
 
 	//filter templateVariables, we will find all the locations in the template
 	//of all variables.
-	var toReplace []keyPos
+	toReplace := make([]*keyPos, 0, len(indexes))
 	for _, match := range indexes {
-		start := match[0]
-		end := match[1]
+		pos := templateKeyPosPool.Get().(*keyPos)
+		pos.start = match[0]
+		pos.end = match[1]
 
-		variableWithDelim := string(templateAsByte[start:end])
+		variableWithDelim := string(templateAsByte[pos.start:pos.end])
 		sizeDelimStart := len(delimStart)
 		sizeDelimEnd := len(delimEnd)
 
 		//remove the delimiters, eg: {name} => name
 		variable := strings.ToLower(variableWithDelim[sizeDelimStart : len(variableWithDelim)-sizeDelimEnd])
 
-		variableFunc, exists := templateVariables[variable]
+		pos.variableFunc, exists = templateVariables[variable]
 		if exists == false {
 			//the variable does not exists
+			templateKeyPosPool.Put(pos)
 			continue
 		}
-		toReplace = append(toReplace, keyPos{start, end, variableFunc})
+
+		toReplace = append(toReplace, pos)
 	}
+
+	defer func() {
+		//return all keyPos to the pool
+		for _, pos := range toReplace {
+			templateKeyPosPool.Put(pos)
+		}
+		toReplace = nil
+	}()
 
 	if len(indexes) == 0 {
 		return template, nil
 	}
 
-	//cannot use strings.Builder to keep 1.0 compatibility
-	buff := bytes.Buffer{}
+	//cannot use strings.Builder to keep Go 1.0 compatibility
+	buff := templateBuffersPool.Get().(*bytes.Buffer)
+	buff.Reset()
+
+	//we reuse the buffer instances, and their inner slices
+	//shrink/grows without new allocations, if there is enough room
+	//we end up reusing the same slices over and over
+	//If the templates are very similar, the performance increases
 	buff.Grow(len(templateAsByte) + bytesPerWordEstimation*len(indexes)) //at least the input with some MagicNumber
 
 	var lastEnd int
@@ -130,5 +167,8 @@ func (f *Faker) TemplateCustom(template, delimStart, delimEnd string) (string, e
 		lastEnd = posToReplace.end
 	}
 	buff.Write(templateAsByte[lastEnd:])
-	return buff.String(), nil
+	result := buff.String()
+
+	templateBuffersPool.Put(buff)
+	return result, nil
 }
