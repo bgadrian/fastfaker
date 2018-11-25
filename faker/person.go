@@ -9,7 +9,7 @@ func (f *Faker) SSN() string {
 
 // Gender will generate a random gender string "male" or "female"
 func (f *Faker) Gender() string {
-	if f.Bool() == true {
+	if f.Bool() {
 		return "male"
 	}
 

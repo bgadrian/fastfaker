@@ -1,6 +1,7 @@
 package producer
 
-type EventGenerator func(count int) []Event
+// EventGenerator is a simple functions that generate n events
+type EventGenerator func(n int) []Event
 
 // Event identifies an Analytics Event
 type Event interface {

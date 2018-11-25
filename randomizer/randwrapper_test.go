@@ -154,7 +154,7 @@ func TestNewSafeFaker_Deadlocks(t *testing.T) {
 	safe := NewRandWrapper(true, nil)
 	wg.Add(threads)
 
-	for t := 0; t < threads; t++ {
+	for test := 0; test < threads; test++ {
 		go func() {
 			for i := 0; i < steps; i++ {
 				as64 := int64(i + 10000)
@@ -169,7 +169,10 @@ func TestNewSafeFaker_Deadlocks(t *testing.T) {
 				safe.Float64Range(-23.2, 452.2)
 				safe.ShuffleInts([]int{3, 2, 1})
 				safe.Intn(i + 102)
-				safe.Read([]byte{0, 0, 0})
+				_, err := safe.Read([]byte{0, 0, 0})
+				if err != nil {
+					t.Error(err)
+				}
 				safe.Float64Unary()
 			}
 			wg.Done()

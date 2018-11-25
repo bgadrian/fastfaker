@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"strconv"
 	"testing"
+
+	"github.com/bgadrian/fastfaker/data"
 )
 
 func ExampleFaker_CreditCard() {
@@ -106,4 +108,20 @@ func BenchmarkCreditCardCvv(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		fastFaker.CreditCardCvv()
 	}
+}
+
+func TestFaker_CreditCardInvalidDB(t *testing.T) {
+	tmp := data.Payment["number"]
+	data.Payment["number"] = []string{"XXX"}
+
+	fastFaker := NewFastFaker()
+	if fastFaker.CreditCardNumber() != 0 {
+		t.Error("at error CreditCardNumber should return 0")
+	}
+
+	if fastFaker.CreditCardNumberLuhn() != 0 {
+		t.Error("at error CreditCardNumberLuhn should return 0")
+	}
+
+	data.Payment["number"] = tmp
 }

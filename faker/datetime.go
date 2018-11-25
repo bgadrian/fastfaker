@@ -89,6 +89,10 @@ func (f *Faker) TimeZoneAbv() string {
 
 // TimeZoneOffset will select a random timezone offset
 func (f *Faker) TimeZoneOffset() float32 {
-	value, _ := strconv.ParseFloat(f.getRandValue([]string{"timezone", "offset"}), 32)
+	value, err := strconv.ParseFloat(f.getRandValue([]string{"timezone", "offset"}), 32)
+	if err != nil {
+		errorLogger.Printf("(TimeZoneOffset) %s\n", err)
+		return 0
+	}
 	return float32(value)
 }

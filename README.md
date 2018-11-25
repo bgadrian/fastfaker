@@ -103,16 +103,23 @@ go func(){
 
 For a heavy usage in a 4 CPU env, the performance benefits of the FastFaker can be up to 10x:
 ```
-BenchmarkNewSafeFaker_Parallel-4           50000             30893 ns/op               0 B/op          0 allocs/op
-BenchmarkNewFastFaker_Parallel-4          300000              3829 ns/op               0 B/op          0 allocs/op
+go test -benchmem  -bench=BenchmarkNew* github.com/bgadrian/fastfaker/faker
+goos: linux
+goarch: amd64
+pkg: github.com/bgadrian/fastfaker/faker
+BenchmarkNewSafeFaker_Parallel-4          500000              2668 ns/op               0 B/op          0 allocs/op
+BenchmarkNewFastFaker_Parallel-4        10000000               225 ns/op               0 B/op          0 allocs/op
 ```
 
 ## Templates
-Template is the most powerful FastFaker feature. It allows custom patterns/templates of text to be filled with over 110 random types of [data (variables)](./TEMPLATE_VARIABLES.md).
+Template is the most powerful FastFaker feature. It allows custom patterns/templates (JSON, YAML, HTML, ...) of text to be filled with over 110 random types of [data (variables)](./TEMPLATE_VARIABLES.md).
 
 It can be used directly (faker.Template* methods) or via the faker.Struct fill method and `fake:` tags. 
 
 ```go
+//instead of:
+fmt.Sprintf("I'm %s, call me at %s!", fastFaker.Name(), fastFaker.Numerify("###-###-####"))
+//you can do:
 fastFaker.Template("I'm {name}, call me at ###-###-####!") // I'm John, call me at 152-335-8761!
 ```
 
@@ -127,13 +134,18 @@ The pseudo-data generator has its [own package](./randomizer). At its core it is
 ## gofakeit
 This library started as a fork of [gofakeit](https://github.com/brianvoe/gofakeit/), but I had different requirements from such a library, in particular performance and extensibility and could not guarantee [backward compatibility](https://github.com/brianvoe/gofakeit/issues/32). Future sync **will** be performed between the projects.
 
-Differences between `gofakeit` and `fastfaker` (more in the [changelog](./CHANGELOG.md))
-* import path, name
-* version `gofakeit` 3.x is `fastfaker` 1.x
-* different documentation, new examples and tests
-* non deterministic (using the same `Seed` on `fastfaker` may lead to different results, eg Name(), than the same seed with `gofakeit`)
+How is FastFaker different?
+* performance (up to 10x improvement)
+* code quality (fixed over 50 gometalinter warnings)
+* Templates
+* error logger (stdErr) instead of silent fails
+* new functions
+* more documentation, new examples and tests
 * usage, instead of `gofakeit.Name()` the calls are `faker.Global.Name()` or `faker.NewFastFaker().Name()`
 * `fastfaker` uses the semantic version, making it compatible with go modules
+* split /data and /randomizer into their own packages
+* version `gofakeit` 3.x is `fastfaker` 1.x
+* more in the [changelog](./CHANGELOG.md)
 
 ## Change log
 I try to [keep it updated here](./CHANGELOG.md).

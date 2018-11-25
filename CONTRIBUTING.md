@@ -12,10 +12,13 @@ Fixes #issueID
 ## Requirements
 * Go (preferable the latest version)
 * bash-like environment with `make`
-* activate the `go fmt` and `go imports` file watchers
-* keep the 100% test coverage
+
+## All PRs must:
+* maintain the 100% test coverage
+* pass gometalinter without warnings
+* code must be proper formatted with `go fmt` and `go imports`
 * each Public method must examples or tests, and a benchmark
-* keep the Go 1.0 compatibility
+* maintain the Go 1.0 compatibility
 
 ## Caveats
 The templates system is built on top of generated code. Make sure you run 

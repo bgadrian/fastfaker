@@ -62,3 +62,13 @@ func TestClampInt(t *testing.T) {
 		t.Errorf("failed for 1, 10, 20")
 	}
 }
+
+func TestGeRandErrors(t *testing.T) {
+	fastFaker := NewFastFaker()
+	if fastFaker.getRandIntValue([]string{"XXX", "XXX"}) != 0 {
+		t.Error("should return 0 when category not found")
+	}
+	if fastFaker.getRandValue([]string{"XXX", "XXX"}) != "" {
+		t.Error("should return '' when category not found")
+	}
+}

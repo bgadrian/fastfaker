@@ -1,13 +1,15 @@
-# Fast Faker Templates
-Template is the most powerful FastFaker feature. It allows custom patterns/templates of text to be filled with over 110 random types of [data (variables)](./TEMPLATE_VARIABLES.md).
+# FastFaker Templates
 
-```go
-	fmt.Println(fastFaker.Template("Hello {name}!"))
-
-	//Hello Jeromy Schmeler!
-```
+Template is the most powerful FastFaker feature. It allows custom patterns/templates (JSON, YAML, HTML, ...) of text to be filled with over 110 random types of [data (variables)](./TEMPLATE_VARIABLES.md).
 
 It can be used directly (faker.Template* methods) or via the faker.Struct fill method and `fake:` tags. 
+
+```go
+//instead of:
+fmt.Sprintf("I'm %s, call me at %s!", fastFaker.Name(), fastFaker.Numerify("###-###-####"))
+//you can do:
+fastFaker.Template("I'm {name}, call me at ###-###-####!") // I'm John, call me at 152-335-8761!
+```
 
 ### Faker.Template()
 

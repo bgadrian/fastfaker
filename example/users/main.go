@@ -33,7 +33,7 @@ func main() {
 		newUser := &User{}
 		faker.Global.Struct(newUser)
 
-		asJson, _ := json.Marshal(newUser)
-		fmt.Println(string(asJson))
+		asJSON, _ := json.Marshal(newUser)
+		fmt.Println(string(asJSON))
 	}
 }

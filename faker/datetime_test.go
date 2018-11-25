@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"testing"
 	"time"
+
+	"github.com/bgadrian/fastfaker/data"
 )
 
 func ExampleFaker_Date() {
@@ -209,4 +211,17 @@ func BenchmarkTimeZoneOffset(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		fastFaker.TimeZoneOffset()
 	}
+}
+
+func TestFaker_TimeZoneOffset(t *testing.T) {
+	tmp := data.TimeZone["offset"]
+	data.TimeZone["offset"] = []string{"XXX"}
+
+	fastFaker := NewFastFaker()
+	if fastFaker.TimeZoneOffset() != 0 {
+		t.Error("at error should return 0")
+	}
+
+	data.TimeZone["offset"] = tmp
+
 }

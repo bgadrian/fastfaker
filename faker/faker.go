@@ -1,9 +1,15 @@
 package faker
 
-import "github.com/bgadrian/fastfaker/randomizer"
+import (
+	"log"
+	"os"
+
+	"github.com/bgadrian/fastfaker/randomizer"
+)
 
 // Global is a singleton, safe for concurrency instance of a Faker.
 var Global *Faker
+var errorLogger = log.New(os.Stderr, "[faker] ", log.LstdFlags)
 
 // Faker is the main strut that encapsulate all the package functionality.
 type Faker struct {

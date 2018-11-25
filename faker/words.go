@@ -25,6 +25,7 @@ func (f *Faker) Word() string {
 func (f *Faker) Sentence(wordCount int) string {
 	wordSetCache, err := data.NewDataListCache(f, []string{"lorem", "word"})
 	if err != nil {
+		errorLogger.Printf("(Sentence) %s\n", err)
 		return ""
 	}
 	return f.sentence(wordCount, wordSetCache, nil).String()
@@ -49,6 +50,7 @@ func (f *Faker) ParagraphAvg() string {
 func (f *Faker) Paragraph(paragraphCount int, sentenceCount int, wordCount int, separator string) string {
 	wordSetCache, err := data.NewDataListCache(f, []string{"lorem", "word"})
 	if err != nil {
+		errorLogger.Printf("(Paragraph) %s\n", err)
 		return ""
 	}
 	return f.paragraphGenerator(
@@ -73,11 +75,14 @@ func (f *Faker) sentence(wordCount int, word data.SetCache, sentence *bytes.Buff
 			runes[0] = unicode.ToTitle(runes[0])
 			word = string(runes)
 		}
+		//nolint buffer always return nil error
 		sentence.WriteString(word)
 		if i < wordCount-1 {
+			//nolint buffer always return nil error
 			sentence.WriteRune(' ')
 		}
 	}
+	//nolint buffer always return nil error
 	sentence.WriteRune('.')
 	return sentence
 }
@@ -97,11 +102,13 @@ func (f *Faker) paragraphGenerator(opts paragrapOptions, word data.SetCache) str
 		for e := 0; e < opts.sentenceCount; e++ {
 			f.sentence(opts.wordCount, word, paragraphs)
 			if e < opts.sentenceCount-1 {
+				//nolint buffer always return nil error
 				paragraphs.WriteRune(wordSeparator)
 			}
 		}
 
 		if i < opts.paragraphCount-1 {
+			//nolint buffer always return nil error
 			paragraphs.WriteString(opts.separator)
 		}
 	}

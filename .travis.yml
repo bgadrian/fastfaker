@@ -14,6 +14,8 @@ matrix:
     env: COVERAGE=true
 
 install:
+- go get github.com/alecthomas/gometalinter
+- gometalinter --install --vendored-linters
 - make
 
 script:

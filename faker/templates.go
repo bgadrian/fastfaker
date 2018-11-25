@@ -23,6 +23,7 @@ func (f *Faker) Template(pattern string) string {
 	pattern = f.Numerify(pattern)
 	pattern = f.Lexify(pattern)
 
+	//nolint template cannot fail with {}, see tests
 	result, _ := f.TemplateCustom(pattern, "{", "}")
 	return result
 }
@@ -82,7 +83,7 @@ func (f *Faker) TemplateCustom(template, delimStart, delimEnd string) (string, e
 	}
 
 	for _, r := range delimStart + delimEnd {
-		if strings.ContainsRune(TemplateAllowedDelimiters, r) == false {
+		if !strings.ContainsRune(TemplateAllowedDelimiters, r) {
 			return template, fmt.Errorf("delimiters error, supported ones are: '%s'", TemplateAllowedDelimiters)
 		}
 	}
@@ -128,7 +129,7 @@ func (f *Faker) TemplateCustom(template, delimStart, delimEnd string) (string, e
 		variable := strings.ToLower(variableWithDelim[sizeDelimStart : len(variableWithDelim)-sizeDelimEnd])
 
 		pos.variableFunc, exists = templateVariables[variable]
-		if exists == false {
+		if !exists {
 			//the variable does not exists
 			templateKeyPosPool.Put(pos)
 			continue
@@ -162,10 +163,13 @@ func (f *Faker) TemplateCustom(template, delimStart, delimEnd string) (string, e
 	var lastEnd int
 	//we go trough each byte and replace the variable with a value
 	for _, posToReplace := range toReplace {
+		//nolint buffer never returns error
 		buff.Write(templateAsByte[lastEnd:posToReplace.start])
 		buff.WriteString(posToReplace.variableFunc(f))
+		//nolint buffer never returns error
 		lastEnd = posToReplace.end
 	}
+	//nolint buffer never returns error
 	buff.Write(templateAsByte[lastEnd:])
 	result := buff.String()
 

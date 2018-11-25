@@ -10,6 +10,8 @@ func (f *Faker) UUID() string {
 	version := byte(4)
 	uuid := make([]byte, 16)
 
+	//nolint it always return a nil error
+	//noinspection GoUnhandledErrorResult
 	f.Read(uuid)
 
 	// Set version

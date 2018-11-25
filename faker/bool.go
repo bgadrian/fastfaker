@@ -2,11 +2,7 @@ package faker
 
 // Bool will generate a random boolean value
 func (f *Faker) Bool() bool {
-	if f.Intn(2) == 1 {
-		return true
-	}
-
-	return false
+	return f.Intn(2) == 1
 }
 
 // BoolText will generate a random boolean value as text, "true" or "false".

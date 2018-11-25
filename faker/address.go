@@ -5,6 +5,9 @@ import (
 	"strings"
 )
 
+// ErrRangeInvalid signals a bad input
+var ErrRangeInvalid = errors.New("input range is invalid")
+
 // AddressInfo is a struct full of address information
 type AddressInfo struct {
 	Address   string
@@ -115,7 +118,7 @@ func (f *Faker) Latitude() float64 {
 // LatitudeInRange will generate a random latitude within the input range
 func (f *Faker) LatitudeInRange(min, max float64) (float64, error) {
 	if min > max || min < -90 || min > 90 || max < -90 || max > 90 {
-		return 0, errors.New("input range is invalid")
+		return 0, ErrRangeInvalid
 	}
 	return f.Float64Range(min, max), nil
 }
@@ -128,7 +131,7 @@ func (f *Faker) Longitude() float64 {
 // LongitudeInRange will generate a random longitude within the input range
 func (f *Faker) LongitudeInRange(min, max float64) (float64, error) {
 	if min > max || min < -180 || min > 180 || max < -180 || max > 180 {
-		return 0, errors.New("input range is invalid")
+		return 0, ErrRangeInvalid
 	}
 	return f.Float64Range(min, max), nil
 }

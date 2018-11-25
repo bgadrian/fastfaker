@@ -63,14 +63,14 @@ func ExampleFaker_ParagraphAvg() {
 	//Id unde et porro est repudiandae omnis beatae iusto pariatur quia sed laboriosam voluptate earum dolores facilis aspernatur. Quam aperiam et nihil explicabo voluptates officia ad porro animi officiis et quam in voluptatem eveniet temporibus fuga.
 }
 
-func TestSentence(t *testing.T) {
+func TestFaker_Sentence(t *testing.T) {
 	for _, count := range []int{-100, -1, 0} {
 		if Global.Sentence(count) != "" {
 			t.Errorf("result should be blank for %d words", count)
 		}
 	}
 }
-func TestParagraph(t *testing.T) {
+func TestFaker_Paragraph(t *testing.T) {
 	for _, count := range []struct{ parag, sent, words int }{
 		{1, 1, 0},
 		{1, 0, 1},

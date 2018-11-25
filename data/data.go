@@ -8,8 +8,8 @@ import (
 	"github.com/pkg/errors"
 )
 
-// NotFound is triggered when a category of Data is not found
-const NotFound = "not found"
+// ErrNotFound is triggered when a category of Data is not found
+var ErrNotFound = errors.New("not found")
 
 // Intn is a part of the randomizer package. It is used to select an item from the database.
 type Intn interface {
@@ -75,7 +75,7 @@ func intDataCheck(dataVal []string) bool {
 // GetRandValue from a [category, subcategory]. Returns error if not found.
 func GetRandValue(f Intn, dataVal []string) (string, error) {
 	if !Check(dataVal) {
-		return "", errors.New(NotFound)
+		return "", ErrNotFound
 	}
 	return Data[dataVal[0]][dataVal[1]][f.Intn(len(Data[dataVal[0]][dataVal[1]]))], nil
 }
@@ -83,7 +83,7 @@ func GetRandValue(f Intn, dataVal []string) (string, error) {
 // GetRandIntValue Value from a [category, subcategory]. Returns error if not found.
 func GetRandIntValue(f Intn, dataVal []string) (int, error) {
 	if !intDataCheck(dataVal) {
-		return 0, errors.New(NotFound)
+		return 0, ErrNotFound
 	}
 	return IntData[dataVal[0]][dataVal[1]][f.Intn(len(IntData[dataVal[0]][dataVal[1]]))], nil
 }
@@ -101,7 +101,7 @@ func Categories() map[string][]string {
 	return types
 }
 
-// DataListCache serve the same function as the global GetRandValue functionality
+// SetCache serve the same function as the global GetRandValue functionality
 // but internally keeps a reference to a specific Category/Subcategory list
 // improving consecutive calls performance (no more runtime.mapaccess1_faststr)
 type SetCache interface {
@@ -111,8 +111,8 @@ type SetCache interface {
 // NewDataListCache creates a new reference to a Data category set
 // for faster access
 func NewDataListCache(f Intn, dataVal []string) (SetCache, error) {
-	if &f == nil || Check(dataVal) == false {
-		return nil, errors.New(NotFound)
+	if &f == nil || !Check(dataVal) {
+		return nil, ErrNotFound
 	}
 	res := &simpleList{}
 	res.randomizer = f

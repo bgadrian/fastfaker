@@ -30,7 +30,11 @@ func (f *Faker) CreditCardType() string {
 
 // CreditCardNumber will generate a random credit card number int
 func (f *Faker) CreditCardNumber() int {
-	integer, _ := strconv.Atoi(f.replaceWithNumbers(f.getRandValue([]string{"payment", "number"})))
+	integer, err := strconv.Atoi(f.replaceWithNumbers(f.getRandValue([]string{"payment", "number"})))
+	if err != nil {
+		errorLogger.Printf("(CreditCardNumber) %s\n", err)
+		return 0
+	}
 	return integer
 }
 
@@ -43,7 +47,11 @@ func (f *Faker) CreditCardNumberLuhn() int {
 			break
 		}
 	}
-	integer, _ := strconv.Atoi(cc)
+	integer, err := strconv.Atoi(cc)
+	if err != nil {
+		errorLogger.Printf("(CreditCardNumberLuhn) %s\n", err)
+		return 0
+	}
 	return integer
 }
 

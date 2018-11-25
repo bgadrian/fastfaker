@@ -33,12 +33,12 @@ func BenchmarkDomainSuffix(b *testing.B) {
 }
 func TestFaker_URL(t *testing.T) {
 	Global.Seed(13)
-	if strings.Contains(Global.URL(), "https") == false {
+	if !strings.Contains(Global.URL(), "https") {
 		t.Errorf("some URLs must be https too")
 	}
 
 	Global.Seed(12)
-	if strings.Contains(Global.URL(), "http") == false {
+	if !strings.Contains(Global.URL(), "http") {
 		t.Errorf("some URLs must be http too")
 	}
 }

@@ -41,9 +41,8 @@ func NewSimpleUser(eventsPerMin int, evg EventGenerator, out chan<- Event,
 		ticker := time.NewTicker(time.Millisecond * time.Duration(ms))
 
 		for {
-			//TODO randomize the value of each interval,
 			//simulating lag/network issues
-			if u.running == false {
+			if !u.running {
 				break //do not make an extra tick if it was stopped
 			}
 			//blocking, no 2 ticks overlap

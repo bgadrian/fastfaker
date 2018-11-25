@@ -42,10 +42,12 @@ func NewRandomEventGenerator(templateEvents []Event) *RandomEventGenerator {
 	return gen
 }
 
+// RandomEventGenerator creates random fake events
 type RandomEventGenerator struct {
 	templateEvents []Event
 }
 
+// NewEvents creates new fake events
 func (g *RandomEventGenerator) NewEvents(count int) []Event {
 	//for now we keep our logic simple, with no correlation between the events
 	//we just select them at random

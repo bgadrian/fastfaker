@@ -21,17 +21,25 @@ func (f *Faker) URL() string {
 	buffer := bytes.Buffer{}
 	buffer.Grow(70)
 	if f.Bool() {
+		//nolint buffer never returns error
 		buffer.WriteString("http")
 	} else {
+		//nolint buffer never returns error
 		buffer.WriteString("https")
 	}
+
+	//nolint buffer never returns error
 	buffer.WriteString("://www.")
+
+	//nolint buffer never returns error
 	buffer.WriteString(f.DomainName())
 
 	// Slugs
 	num := f.Number(1, 4)
 	for i := 0; i < num; i++ {
+		//nolint buffer never returns error
 		buffer.WriteRune('/')
+		//nolint buffer never returns error
 		buffer.WriteString(strings.ToLower(f.BS()))
 	}
 

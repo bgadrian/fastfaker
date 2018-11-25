@@ -9,15 +9,19 @@ const questionmark = '?'
 
 // Get Random Value
 func (f *Faker) getRandValue(dataVal []string) string {
-	//TODO treat the notfound case
-	val, _ := data.GetRandValue(f, dataVal)
+	val, err := data.GetRandValue(f, dataVal)
+	if err != nil {
+		return ""
+	}
 	return val
 }
 
 // Get Random Integer Value
 func (f *Faker) getRandIntValue(dataVal []string) int {
-	//TODO treat the notfound case
-	val, _ := data.GetRandIntValue(f, dataVal)
+	val, err := data.GetRandIntValue(f, dataVal)
+	if err != nil {
+		return 0
+	}
 	return val
 }
 

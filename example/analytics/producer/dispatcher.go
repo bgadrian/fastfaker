@@ -38,7 +38,7 @@ func (d *Dispatcher) Start(intervalSize time.Duration) {
 	go func() {
 	exit:
 		for range ticker.C {
-			if d.running == false {
+			if !d.running {
 				break exit
 			}
 			//must block to avoid concurrent d.online updates
@@ -69,8 +69,8 @@ func (d *Dispatcher) tick() {
 		for i := 0; i < diff; i++ {
 			user := d.usersQueen()
 			d.online = append(d.online, user)
-			userId, _ := user.Property(KeyUserID)
-			fmt.Printf("new user: %s\n", userId)
+			userID, _ := user.Property(KeyUserID)
+			fmt.Printf("new user: %s\n", userID)
 		}
 		return
 	}
@@ -78,8 +78,8 @@ func (d *Dispatcher) tick() {
 	//remove random users
 	for len(d.online) > usersShould {
 		killIndex := rand.Intn(len(d.online))
-		userId, _ := d.online[killIndex].Property(KeyUserID)
+		userID, _ := d.online[killIndex].Property(KeyUserID)
 		d.online = append(d.online[:killIndex], d.online[killIndex+1:]...)
-		fmt.Printf("kill user: %s\n", userId)
+		fmt.Printf("kill user: %s\n", userID)
 	}
 }

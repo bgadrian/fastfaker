@@ -3,7 +3,6 @@ package faker
 import (
 	"fmt"
 	"strings"
-	"sync"
 	"testing"
 )
 
@@ -157,7 +156,7 @@ func ExampleFaker_Template() {
 	//Hello Kim Steuber!
 }
 
-func ExampleFaker_TemplateJSON() {
+func ExampleFaker_Template_json() {
 	template := `{name:"{name}", age: {digit}, confirmed: {booltext}}`
 
 	fastFaker := NewFastFaker() // not concurrent safe, see NewSafeFaker()
@@ -167,7 +166,7 @@ func ExampleFaker_TemplateJSON() {
 	// Output:{name:"Jeromy Schmeler", age: 8, confirmed: false}
 }
 
-func ExampleFaker_TemplateHTML() {
+func ExampleFaker_Template_html() {
 	template := `<ul class="person">
 	<li>Name: {name}</li>
 	<li>Age: ##</li>
@@ -186,7 +185,7 @@ func ExampleFaker_TemplateHTML() {
 	//	<li>Address: 21542 North Clubview, Schimmelborough Mozambique</li>
 	//</ul>
 }
-func ExampleFaker_TemplateYAML() {
+func ExampleFaker_Template_yaml() {
 	template := `
 invoice: ######
 date: {year}-{month}-{day}
@@ -223,7 +222,7 @@ total: {uint16}.##`
 	//total: 49128.82
 }
 
-func TestFaker_TemplateVariables(t *testing.T) {
+func TestFaker_Template_variables(t *testing.T) {
 	fastFaker := NewFastFaker() // not concurrent safe, see NewSafeFaker()
 
 	for variable := range templateVariables {
@@ -246,31 +245,31 @@ func BenchmarkFaker_TemplateCustom(b *testing.B) {
 	template := "😀o😀{name} {word} {uint8}"
 	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		fastFaker.TemplateCustom(template, "{", "}")
+		_, err := fastFaker.TemplateCustom(template, "{", "}")
+		if err != nil {
+			b.Error(err)
+		}
 	}
 }
 
-func BenchmarkFaker_TemplateCustomConcurrent1(b *testing.B) {
-	template1 := "😀o😀{name} {word} {uint8}"
-	template2 := "😀{name} {word} {city} {carmaker} {uint8} {firstname} {uint8}"
-	wg := sync.WaitGroup{}
+func BenchmarkFaker_TemplateCustomConcurrent(b *testing.B) {
+	templates := []string{"😀o😀{name} {word} {uint8}",
+		"😀{name} {word} {city} {carmaker} {uint8} {firstname} {uint8}"}
+	var err error
 
-	f := func(temp string) {
-		fastFaker := NewFastFaker()
-		for i := 0; i < 50; i++ {
-			fastFaker.TemplateCustom(temp, "{", "}")
+	b.RunParallel(func(pb *testing.PB) {
+		//each thread has its own faker
+		fast := NewFastFaker()
+
+		for pb.Next() {
+			_, err = fast.TemplateCustom(templates[0], "{", "}")
+			if err != nil {
+				b.Error(err)
+			}
+			_, err = fast.TemplateCustom(templates[1], "{", "}")
+			if err != nil {
+				b.Error(err)
+			}
 		}
-		wg.Done()
-	}
-
-	for i := 0; i < b.N; i++ {
-		wg.Add(6)
-		go f(template1)
-		go f(template2)
-		go f(template1)
-		go f(template2)
-		go f(template1)
-		go f(template2)
-		wg.Wait()
-	}
+	})
 }

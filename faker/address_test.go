@@ -240,7 +240,10 @@ func ExampleFaker_LatitudeInRange() {
 func BenchmarkLatitudeInRange(b *testing.B) {
 	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		fastFaker.LatitudeInRange(-90, 90)
+		_, err := fastFaker.LatitudeInRange(-90, 90)
+		if err != nil {
+			b.Error(err)
+		}
 	}
 }
 
@@ -276,6 +279,9 @@ func ExampleFaker_LongitudeInRange() {
 func BenchmarkLongitudeInRange(b *testing.B) {
 	fastFaker := NewFastFaker()
 	for i := 0; i < b.N; i++ {
-		fastFaker.LongitudeInRange(-180, 180)
+		_, err := fastFaker.LongitudeInRange(-180, 180)
+		if err != nil {
+			b.Error(err)
+		}
 	}
 }

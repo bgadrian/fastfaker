@@ -24,10 +24,10 @@ func main() {
 
 	for ev := range collector {
 		props := ev.Properties()
-		userId := props[producer.KeyUserID]
+		userID := props[producer.KeyUserID]
 		delete(props, producer.KeyUserID)
 		delete(props, "event")
-		fmt.Printf("user %s: [%s]='%s'\n", userId, ev.Name(), props)
+		fmt.Printf("user %s: [%s]='%s'\n", userID, ev.Name(), props)
 	}
 }
 

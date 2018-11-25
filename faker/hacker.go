@@ -7,6 +7,7 @@ func (f *Faker) HackerPhrase() string {
 	template := f.getRandValue([]string{"hacker", "phrase"})
 
 	//TODO improve these allocations (string > []string > string)
+	//nolint template cannot fail with {}, see tests
 	result, _ := f.TemplateCustom(template, "{", "}")
 	words := strings.Split(result, " ")
 	words[0] = strings.Title(words[0])
