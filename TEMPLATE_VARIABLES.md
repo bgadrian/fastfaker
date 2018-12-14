@@ -42,8 +42,8 @@ For more info see [TEMPLATES](./TEMPLATES.md).
 | **&#123;creditcardtype&#125;** | Discover |
 | **&#123;currencylong&#125;** | Georgia Lari |
 | **&#123;currencyshort&#125;** | MUR |
-| **&#123;datecurrentyearstr&#125;** | 2018-08-30 19:15:01.857757656 &#43;0000 UTC |
-| **&#123;datestr&#125;** | 1907-12-09 22:56:18.246794801 &#43;0000 UTC |
+| **&#123;datecurrentyearstr&#125;** | 2018-08-30 19:15:01.857757656 +0000 UTC |
+| **&#123;datestr&#125;** | 1907-12-09 22:56:18.246794801 +0000 UTC |
 | **&#123;day&#125;** | 5 |
 | **&#123;digit&#125;** | 9 |
 | **&#123;domainname&#125;** | dynamicvortals.net |
@@ -52,8 +52,8 @@ For more info see [TEMPLATES](./TEMPLATES.md).
 | **&#123;extension&#125;** | dmp |
 | **&#123;firefoxuseragent&#125;** | Mozilla/5.0 (X11; Linux x86_64; rv:7.0) Gecko/1934-22-09 Firefox/37.0 |
 | **&#123;firstname&#125;** | Maureen |
-| **&#123;float32&#125;** | 3.8818993e&#43;37 |
-| **&#123;float64&#125;** | 1.0212889603727035e&#43;308 |
+| **&#123;float32&#125;** | 3.8818993e+37 |
+| **&#123;float64&#125;** | 1.0212889603727035e+308 |
 | **&#123;float64unary&#125;** | 0.05966110191321585 |
 | **&#123;fueltype&#125;** | Methanol |
 | **&#123;gender&#125;** | male |
@@ -64,7 +64,7 @@ For more info see [TEMPLATES](./TEMPLATES.md).
 | **&#123;hackerphrase&#125;** | If we override the alarm, we can get to the RSS panel through the neural RSS pixel! |
 | **&#123;hackerverb&#125;** | compress |
 | **&#123;hexcolor&#125;** | #252o5w |
-| **&#123;hipsterparagraphavg&#125;** | Disrupt plaid bitters bicycle rights brooklyn keffiyeh meh bicycle rights flannel wayfarers brooklyn franzen hoodie skateboard mumblecore viral flannel etsy. Pork belly cardigan pinterest asymmetrical 8-bit DIY helvetica readymade pabst cold-pressed flexitarian tousled knausgaard fashion axe cray gastropub you probably haven&#39;t heard of them lomo. Heirloom vegan try-hard austin kickstarter gluten-free you probably haven&#39;t heard of them lo-fi viral cred tote bag echo mustache leggings kickstarter sustainable viral tilde. Semiotics cold-pressed selfies health celiac polaroid franzen chicharrones keffiyeh 90&#39;s occupy carry chicharrones lomo twee chicharrones fixie blog. Neutra iPhone schlitz tacos brunch semiotics before they sold out whatever listicle paleo kickstarter williamsburg poutine meh cornhole scenester plaid seitan. Fixie migas dreamcatcher kombucha tofu biodiesel blue bottle pork belly whatever VHS before they sold out fashion axe shabby chic vegan leggings distillery gentrify loko. Chillwave swag keffiyeh salvia photo booth hella cliche jean shorts portland paleo forage food truck narwhal vice salvia five dollar toast cornhole beard. Put a bird on it VHS gluten-free polaroid five dollar toast paleo cornhole hoodie retro sartorial trust fund flannel ennui tumblr pop-up next level banh mi migas. |
+| **&#123;hipsterparagraphavg&#125;** | Disrupt plaid bitters bicycle rights brooklyn keffiyeh meh bicycle rights flannel wayfarers brooklyn franzen hoodie skateboard mumblecore viral flannel etsy. Pork belly cardigan pinterest asymmetrical 8-bit DIY helvetica readymade pabst cold-pressed flexitarian tousled knausgaard fashion axe cray gastropub you probably haven't heard of them lomo. Heirloom vegan try-hard austin kickstarter gluten-free you probably haven't heard of them lo-fi viral cred tote bag echo mustache leggings kickstarter sustainable viral tilde. Semiotics cold-pressed selfies health celiac polaroid franzen chicharrones keffiyeh 90's occupy carry chicharrones lomo twee chicharrones fixie blog. Neutra iPhone schlitz tacos brunch semiotics before they sold out whatever listicle paleo kickstarter williamsburg poutine meh cornhole scenester plaid seitan. Fixie migas dreamcatcher kombucha tofu biodiesel blue bottle pork belly whatever VHS before they sold out fashion axe shabby chic vegan leggings distillery gentrify loko. Chillwave swag keffiyeh salvia photo booth hella cliche jean shorts portland paleo forage food truck narwhal vice salvia five dollar toast cornhole beard. Put a bird on it VHS gluten-free polaroid five dollar toast paleo cornhole hoodie retro sartorial trust fund flannel ennui tumblr pop-up next level banh mi migas. |
 | **&#123;hipstersentenceavg&#125;** | Kogi vinyl swag franzen kombucha paleo pickled tofu Wes Anderson XOXO typewriter mixtape tousled put a bird on it farm-to-table photo booth beard cleanse. |
 | **&#123;hipsterword&#125;** | brunch |
 | **&#123;hour&#125;** | 9 |
@@ -111,7 +111,7 @@ For more info see [TEMPLATES](./TEMPLATES.md).
 | **&#123;streetsuffix&#125;** | mouth |
 | **&#123;timezone&#125;** | Kamchatka Standard Time |
 | **&#123;timezoneabv&#125;** | CAST |
-| **&#123;timezonefull&#125;** | (UTC&#43;07:00) Bangkok, Hanoi, Jakarta |
+| **&#123;timezonefull&#125;** | (UTC+07:00) Bangkok, Hanoi, Jakarta |
 | **&#123;timezoneoffset&#125;** | 5.5 |
 | **&#123;transmissiongeartype&#125;** | Manual |
 | **&#123;uint16&#125;** | 38397 |

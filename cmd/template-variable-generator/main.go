@@ -7,13 +7,13 @@ package main
 
 import (
 	"fmt"
-	"html/template"
 	"log"
 	"os"
 	"reflect"
 	"sort"
 	"strconv"
 	"strings"
+	"text/template"
 
 	"github.com/bgadrian/fastfaker/faker"
 )
