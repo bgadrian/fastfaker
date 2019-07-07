@@ -1,5 +1,10 @@
 # FastFaker change log
 
+### v2.0.3
+fixed timed based tests (current year)
+removed Numerify first digit to be non-zero limit
+new methods: SHA256 and MD5
+
 ### v2.0.2
 Improves TemplateCustom/Template performance, reduces the memory allocations by ~25% by reusing internal structures (object pooling).
 
