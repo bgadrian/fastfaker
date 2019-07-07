@@ -33,100 +33,102 @@ For more info see [TEMPLATES](./TEMPLATES.md).
 | **&#123;color&#125;** | SteelBlue |
 | **&#123;company&#125;** | Bauch-Koepp |
 | **&#123;companysuffix&#125;** | Group |
-| **&#123;country&#125;** | Portugal |
-| **&#123;countryabr&#125;** | NC |
-| **&#123;creditcardcvv&#125;** | 638 |
-| **&#123;creditcardexp&#125;** | 11/27 |
-| **&#123;creditcardnumber&#125;** | 6573105628485882 |
-| **&#123;creditcardnumberluhn&#125;** | 4120163995833970 |
-| **&#123;creditcardtype&#125;** | Discover |
-| **&#123;currencylong&#125;** | Georgia Lari |
-| **&#123;currencyshort&#125;** | MUR |
-| **&#123;datecurrentyearstr&#125;** | 2018-08-30 19:15:01.857757656 +0000 UTC |
-| **&#123;datestr&#125;** | 1907-12-09 22:56:18.246794801 +0000 UTC |
-| **&#123;day&#125;** | 5 |
-| **&#123;digit&#125;** | 9 |
-| **&#123;domainname&#125;** | dynamicvortals.net |
-| **&#123;domainsuffix&#125;** | name |
-| **&#123;email&#125;** | elodygraham@cummings.com |
-| **&#123;extension&#125;** | dmp |
-| **&#123;firefoxuseragent&#125;** | Mozilla/5.0 (X11; Linux x86_64; rv:7.0) Gecko/1934-22-09 Firefox/37.0 |
-| **&#123;firstname&#125;** | Maureen |
-| **&#123;float32&#125;** | 3.8818993e+37 |
-| **&#123;float64&#125;** | 1.0212889603727035e+308 |
-| **&#123;float64unary&#125;** | 0.05966110191321585 |
-| **&#123;fueltype&#125;** | Methanol |
-| **&#123;gender&#125;** | male |
-| **&#123;hackerabbreviation&#125;** | ADP |
+| **&#123;country&#125;** | Palau |
+| **&#123;countryabr&#125;** | CA |
+| **&#123;creditcardcvv&#125;** | 369 |
+| **&#123;creditcardexp&#125;** | 12/23 |
+| **&#123;creditcardnumber&#125;** | 6564563828173105 |
+| **&#123;creditcardnumberluhn&#125;** | 2221005338120163 |
+| **&#123;creditcardtype&#125;** | MasterCard |
+| **&#123;currencylong&#125;** | Malaysia Ringgit |
+| **&#123;currencyshort&#125;** | BWP |
+| **&#123;datecurrentyearstr&#125;** | 2019-10-02 21:33:26.12022322 +0000 UTC |
+| **&#123;datestr&#125;** | 1977-05-25 20:37:07.645099301 +0000 UTC |
+| **&#123;day&#125;** | 26 |
+| **&#123;digit&#125;** | 1 |
+| **&#123;domainname&#125;** | dynamicdistributed.info |
+| **&#123;domainsuffix&#125;** | net |
+| **&#123;email&#125;** | dantevandervort@borer.biz |
+| **&#123;extension&#125;** | jar |
+| **&#123;firefoxuseragent&#125;** | Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5 rv:7.0) Gecko/1930-10-10 Firefox/37.0 |
+| **&#123;firstname&#125;** | Micah |
+| **&#123;float32&#125;** | 8.799216e+37 |
+| **&#123;float64&#125;** | 7.024500304461049e+306 |
+| **&#123;float64unary&#125;** | 0.23227607590065746 |
+| **&#123;fueltype&#125;** | LPG |
+| **&#123;gender&#125;** | female |
+| **&#123;hackerabbreviation&#125;** | FTP |
 | **&#123;hackeradjective&#125;** | 1080p |
-| **&#123;hackeringverb&#125;** | copying |
-| **&#123;hackernoun&#125;** | interface |
-| **&#123;hackerphrase&#125;** | If we override the alarm, we can get to the RSS panel through the neural RSS pixel! |
-| **&#123;hackerverb&#125;** | compress |
-| **&#123;hexcolor&#125;** | #252o5w |
-| **&#123;hipsterparagraphavg&#125;** | Disrupt plaid bitters bicycle rights brooklyn keffiyeh meh bicycle rights flannel wayfarers brooklyn franzen hoodie skateboard mumblecore viral flannel etsy. Pork belly cardigan pinterest asymmetrical 8-bit DIY helvetica readymade pabst cold-pressed flexitarian tousled knausgaard fashion axe cray gastropub you probably haven't heard of them lomo. Heirloom vegan try-hard austin kickstarter gluten-free you probably haven't heard of them lo-fi viral cred tote bag echo mustache leggings kickstarter sustainable viral tilde. Semiotics cold-pressed selfies health celiac polaroid franzen chicharrones keffiyeh 90's occupy carry chicharrones lomo twee chicharrones fixie blog. Neutra iPhone schlitz tacos brunch semiotics before they sold out whatever listicle paleo kickstarter williamsburg poutine meh cornhole scenester plaid seitan. Fixie migas dreamcatcher kombucha tofu biodiesel blue bottle pork belly whatever VHS before they sold out fashion axe shabby chic vegan leggings distillery gentrify loko. Chillwave swag keffiyeh salvia photo booth hella cliche jean shorts portland paleo forage food truck narwhal vice salvia five dollar toast cornhole beard. Put a bird on it VHS gluten-free polaroid five dollar toast paleo cornhole hoodie retro sartorial trust fund flannel ennui tumblr pop-up next level banh mi migas. |
-| **&#123;hipstersentenceavg&#125;** | Kogi vinyl swag franzen kombucha paleo pickled tofu Wes Anderson XOXO typewriter mixtape tousled put a bird on it farm-to-table photo booth beard cleanse. |
-| **&#123;hipsterword&#125;** | brunch |
-| **&#123;hour&#125;** | 9 |
-| **&#123;httpmethod&#125;** | GET |
-| **&#123;int16&#125;** | -17451 |
-| **&#123;int32&#125;** | -620577306 |
-| **&#123;int64&#125;** | -1002424676547334720 |
-| **&#123;int64positive&#125;** | 8992553915671475604 |
-| **&#123;int8&#125;** | 8 |
-| **&#123;ipv4address&#125;** | 53.244.179.248 |
-| **&#123;ipv6address&#125;** | 2001:cafe:97bf:e486:5fb4:a76d:374:dab4 |
-| **&#123;jobdescriptor&#125;** | Human |
-| **&#123;joblevel&#125;** | Research |
-| **&#123;jobtitle&#125;** | Assistant |
-| **&#123;lastname&#125;** | Sawayn |
-| **&#123;latitude&#125;** | -50.6167776685567 |
-| **&#123;letter&#125;** | w |
-| **&#123;longitude&#125;** | 157.6689725184914 |
-| **&#123;mimetype&#125;** | application/x-troff-me |
-| **&#123;minute&#125;** | 16 |
-| **&#123;month&#125;** | July |
-| **&#123;name&#125;** | Garry Grimes |
-| **&#123;nameprefix&#125;** | Ms. |
-| **&#123;namesuffix&#125;** | Jr. |
-| **&#123;nanosecond&#125;** | 469716624 |
-| **&#123;operauseragent&#125;** | Opera/8.32 (Windows 98; en-US) Presto/2.8.289 Version/12.00 |
-| **&#123;paragraphavg&#125;** | Eveniet et eos eos voluptate inventore aliquam ut non consequatur exercitationem ut optio quis ratione quia quos ullam. Fugiat omnis nulla ut sed non et assumenda est ut quidem minima ea ex dolores enim maiores error. Rerum eum sint mollitia at ratione et ut et dolorum error magni autem dolorem deserunt molestiae voluptates excepturi. Quod voluptas eligendi ipsam nihil a quo maiores autem exercitationem nihil illum ipsum autem dolorum est modi architecto. Qui repellendus perferendis rem natus placeat corporis est explicabo asperiores consequatur doloribus error in sint sed nisi quis. Cumque omnis a impedit reiciendis tempore unde dolores distinctio et odit qui et cupiditate odio corrupti et maiores. Placeat ratione dolor necessitatibus voluptatem enim pariatur occaecati perferendis doloremque qui voluptatem qui reprehenderit et molestiae aperiam animi. Non et reiciendis non molestias officiis aut ab molestias incidunt ullam qui impedit quidem corrupti culpa suscipit ut. |
-| **&#123;passwordfull&#125;** | st2*$t9QJ$mx |
-| **&#123;phone&#125;** | 8736568472 |
-| **&#123;phoneformatted&#125;** | 546-901-6786 |
-| **&#123;safariuseragent&#125;** | Mozilla/5.0 (Macintosh; PPC Mac OS X 10_5_10 rv:6.0; en-US) AppleWebKit/534.51.7 (KHTML, like Gecko) Version/5.2 Safari/534.51.7 |
-| **&#123;safecolor&#125;** | black |
-| **&#123;second&#125;** | 4 |
-| **&#123;sentenceavg&#125;** | Repellat qui rerum accusamus voluptatem autem molestias delectus incidunt assumenda dolor hic omnis dolores iusto non aliquid quo. |
-| **&#123;simplestatuscode&#125;** | 301 |
-| **&#123;ssn&#125;** | 276845821 |
-| **&#123;state&#125;** | Montana |
-| **&#123;stateabr&#125;** | HI |
-| **&#123;statuscode&#125;** | 406 |
-| **&#123;street&#125;** | 2669 Causewaychester |
-| **&#123;streetname&#125;** | Street |
-| **&#123;streetnumber&#125;** | 68904 |
-| **&#123;streetprefix&#125;** | New |
-| **&#123;streetsuffix&#125;** | mouth |
-| **&#123;timezone&#125;** | Kamchatka Standard Time |
-| **&#123;timezoneabv&#125;** | CAST |
-| **&#123;timezonefull&#125;** | (UTC+07:00) Bangkok, Hanoi, Jakarta |
-| **&#123;timezoneoffset&#125;** | 5.5 |
-| **&#123;transmissiongeartype&#125;** | Manual |
-| **&#123;uint16&#125;** | 38397 |
-| **&#123;uint32&#125;** | 50909631 |
-| **&#123;uint64&#125;** | 6153500303096584387 |
-| **&#123;uint8&#125;** | 198 |
-| **&#123;url&#125;** | http://www.futureplug-and-play.io/supply-chains/b2b/experiences/real-time |
-| **&#123;useragent&#125;** | Opera/8.55 (Windows NT 5.2; en-US) Presto/2.13.219 Version/13.00 |
-| **&#123;username&#125;** | Keebler2185 |
-| **&#123;uuid&#125;** | 54df69cc-20e9-4f87-8969-326d01e80246 |
-| **&#123;vehicletype&#125;** | Passenger car medium |
-| **&#123;weekday&#125;** | Monday |
-| **&#123;word&#125;** | autem |
-| **&#123;year&#125;** | 1964 |
-| **&#123;zip&#125;** | 81431 |
+| **&#123;hackeringverb&#125;** | backing up |
+| **&#123;hackernoun&#125;** | panel |
+| **&#123;hackerphrase&#125;** | I'Ll synthesize the neural HTTP transmitter, that should connect the USB program! |
+| **&#123;hackerverb&#125;** | generate |
+| **&#123;hexcolor&#125;** | #v08d8x |
+| **&#123;hipsterparagraphavg&#125;** | Beard typewriter goth taxidermy pinterest umami gluten-free narwhal freegan disrupt plaid bitters bicycle rights brooklyn keffiyeh meh bicycle rights flannel. Wayfarers brooklyn franzen hoodie skateboard mumblecore viral flannel etsy pork belly cardigan pinterest asymmetrical 8-bit DIY helvetica readymade pabst. Cold-pressed flexitarian tousled knausgaard fashion axe cray gastropub you probably haven't heard of them lomo heirloom vegan try-hard austin kickstarter gluten-free you probably haven't heard of them lo-fi viral. Cred tote bag echo mustache leggings kickstarter sustainable viral tilde semiotics cold-pressed selfies health celiac polaroid franzen chicharrones keffiyeh. 90's occupy carry chicharrones lomo twee chicharrones fixie blog neutra iPhone schlitz tacos brunch semiotics before they sold out whatever listicle. Paleo kickstarter williamsburg poutine meh cornhole scenester plaid seitan fixie migas dreamcatcher kombucha tofu biodiesel blue bottle pork belly whatever. VHS before they sold out fashion axe shabby chic vegan leggings distillery gentrify loko chillwave swag keffiyeh salvia photo booth hella cliche jean shorts portland. Paleo forage food truck narwhal vice salvia five dollar toast cornhole beard put a bird on it VHS gluten-free polaroid five dollar toast paleo cornhole hoodie retro. |
+| **&#123;hipstersentenceavg&#125;** | Sartorial trust fund flannel ennui tumblr pop-up next level banh mi migas kogi vinyl swag franzen kombucha paleo pickled tofu Wes Anderson. |
+| **&#123;hipsterword&#125;** | XOXO |
+| **&#123;hour&#125;** | 12 |
+| **&#123;httpmethod&#125;** | HEAD |
+| **&#123;int16&#125;** | 11736 |
+| **&#123;int32&#125;** | 600870614 |
+| **&#123;int64&#125;** | -2060699869677000463 |
+| **&#123;int64positive&#125;** | 8343085160255639013 |
+| **&#123;int8&#125;** | 6 |
+| **&#123;ipv4address&#125;** | 89.187.57.100 |
+| **&#123;ipv6address&#125;** | 2001:cafe:8794:e9d4:69af:b33a:e471:4055 |
+| **&#123;jobdescriptor&#125;** | Direct |
+| **&#123;joblevel&#125;** | Implementation |
+| **&#123;jobtitle&#125;** | Supervisor |
+| **&#123;lastname&#125;** | Hartmann |
+| **&#123;latitude&#125;** | 85.03619042973045 |
+| **&#123;letter&#125;** | h |
+| **&#123;longitude&#125;** | 2.728196828969317 |
+| **&#123;md5&#125;** | 509138621c92d7b390ef48625c87f5b9 |
+| **&#123;mimetype&#125;** | application/macbinary |
+| **&#123;minute&#125;** | 36 |
+| **&#123;month&#125;** | January |
+| **&#123;name&#125;** | Monte Bashirian |
+| **&#123;nameprefix&#125;** | Mr. |
+| **&#123;namesuffix&#125;** | V |
+| **&#123;nanosecond&#125;** | 208956050 |
+| **&#123;operauseragent&#125;** | Opera/8.75 (Windows NT 5.1; en-US) Presto/2.13.193 Version/13.00 |
+| **&#123;paragraphavg&#125;** | Et explicabo sed nulla exercitationem eveniet et eos eos voluptate inventore aliquam ut non consequatur exercitationem ut optio. Quis ratione quia quos ullam fugiat omnis nulla ut sed non et assumenda est ut quidem minima ea. Ex dolores enim maiores error rerum eum sint mollitia at ratione et ut et dolorum error magni autem. Dolorem deserunt molestiae voluptates excepturi quod voluptas eligendi ipsam nihil a quo maiores autem exercitationem nihil illum ipsum. Autem dolorum est modi architecto qui repellendus perferendis rem natus placeat corporis est explicabo asperiores consequatur doloribus error. In sint sed nisi quis cumque omnis a impedit reiciendis tempore unde dolores distinctio et odit qui et. Cupiditate odio corrupti et maiores placeat ratione dolor necessitatibus voluptatem enim pariatur occaecati perferendis doloremque qui voluptatem qui. Reprehenderit et molestiae aperiam animi non et reiciendis non molestias officiis aut ab molestias incidunt ullam qui impedit. |
+| **&#123;passwordfull&#125;** | m$=4*@SQ?W&v |
+| **&#123;phone&#125;** | 7962016519 |
+| **&#123;phoneformatted&#125;** | 789.501.3948 |
+| **&#123;safariuseragent&#125;** | Mozilla/5.0 (Windows; U; Windows NT 6.1) AppleWebKit/531.2.8 (KHTML, like Gecko) Version/4.1 Safari/531.2.8 |
+| **&#123;safecolor&#125;** | yellow |
+| **&#123;second&#125;** | 2 |
+| **&#123;sentenceavg&#125;** | Enim laborum asperiores consectetur non nemo recusandae et explicabo accusamus et dolor enim et aut et repellat qui. |
+| **&#123;sha256&#125;** | ff5bdebbbfc2abd2744a01c0501004bee94b00888e0f57feacbeb4e14cb2c649 |
+| **&#123;simplestatuscode&#125;** | 200 |
+| **&#123;ssn&#125;** | 840343837 |
+| **&#123;state&#125;** | Virginia |
+| **&#123;stateabr&#125;** | UT |
+| **&#123;statuscode&#125;** | 404 |
+| **&#123;street&#125;** | 15553 East Stravenuetown |
+| **&#123;streetname&#125;** | Loaf |
+| **&#123;streetnumber&#125;** | 55619 |
+| **&#123;streetprefix&#125;** | North |
+| **&#123;streetsuffix&#125;** | side |
+| **&#123;timezone&#125;** | Mauritius Standard Time |
+| **&#123;timezoneabv&#125;** | MST |
+| **&#123;timezonefull&#125;** | (UTC+12:00) Fiji |
+| **&#123;timezoneoffset&#125;** | 8 |
+| **&#123;transmissiongeartype&#125;** | Automatic |
+| **&#123;uint16&#125;** | 32253 |
+| **&#123;uint32&#125;** | 1697838639 |
+| **&#123;uint64&#125;** | 5681518370095422064 |
+| **&#123;uint8&#125;** | 23 |
+| **&#123;url&#125;** | http://www.leadmindshare.io/next-generation/granular/end-to-end/aggregate |
+| **&#123;useragent&#125;** | Mozilla/5.0 (Windows NT 4.0) AppleWebKit/5361 (KHTML, like Gecko) Chrome/39.0.894.0 Mobile Safari/5361 |
+| **&#123;username&#125;** | Crona6487 |
+| **&#123;uuid&#125;** | c88804f6-e54f-476a-af4a-7f2360ab7333 |
+| **&#123;vehicletype&#125;** | Van |
+| **&#123;weekday&#125;** | Saturday |
+| **&#123;word&#125;** | fugiat |
+| **&#123;year&#125;** | 1975 |
+| **&#123;zip&#125;** | 21859 |
 
 
 

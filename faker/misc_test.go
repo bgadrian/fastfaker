@@ -43,7 +43,7 @@ func BenchmarkReplaceWithNumbers(b *testing.B) {
 func ExampleFaker_Numerify() {
 	Global.Seed(11)
 	fmt.Println(Global.Numerify("###-###-####"))
-	// Output: 613-645-9948
+	// Output: 013-645-9948
 }
 
 func BenchmarkNumerify(b *testing.B) {

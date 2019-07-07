@@ -36,9 +36,6 @@ func (f *Faker) replaceWithNumbers(str string) string {
 			bytestr[i] = f.randDigit()
 		}
 	}
-	if bytestr[0] == '0' {
-		bytestr[0] += byte(f.Intn(8) + 1)
-	}
 
 	return string(bytestr)
 }

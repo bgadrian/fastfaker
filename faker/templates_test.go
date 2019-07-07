@@ -181,8 +181,8 @@ func ExampleFaker_Template_html() {
 	// Output: <ul class="person">
 	//	<li>Name: Kim Steuber</li>
 	//	<li>Age: 57</li>
-	//	<li>Number: 3576839758</li>
-	//	<li>Address: 21542 North Clubview, Schimmelborough Mozambique</li>
+	//	<li>Number: 9788453650</li>
+	//	<li>Address: 68397 Rueshire, Port Adams Central African Republic</li>
 	//</ul>
 }
 func ExampleFaker_Template_yaml() {
@@ -207,19 +207,19 @@ total: {uint16}.##`
 
 	fmt.Printf("%s\n", fastFaker.Template(template))
 	// Output: invoice: 578035
-	//date: 1910-September-2
+	//date: 1995-September-2
 	//bill-to: Little4541
 	//	given: Lilly McClure
 	//	city: Pacochaport
 	//	state: Arizona
-	//	postal: 59847
+	//	postal: 09847
 	//product:
 	//	-	sku: vu768n
-	//		quantity: 27
-	//		description: hic
-	//		price: 235.39
-	//tax: 96.75
-	//total: 49128.82
+	//		quantity: 28
+	//		description: non
+	//		price: 75.39
+	//tax: 235.75
+	//total: 61792.82
 }
 
 func TestFaker_Template_variables(t *testing.T) {

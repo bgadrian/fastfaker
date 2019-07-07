@@ -25,17 +25,17 @@ func Example() {
 	// Output:
 	// Name: Markus Moen
 	//Email: alaynawuckert@kozey.biz
-	//Phone: 9948995369
-	//Address: 35300 South Roadshaven, Hilllville, Montana 30232
-	//BS: e-enable
-	//Beer Name: Weihenstephaner Hefeweissbier
-	//Color: MidnightBlue
-	//Company: Heaney-Tromp
-	//Credit Card: 2720997148008899
-	//Hacker Phrase: Use the wireless SQL sensor, then you can compress the open-source array!
-	//Job Title: Producer
-	//Password: Hozsav7LgAa -Q$qSu  L*2 ?Jivzjn2
-	//Currency: DJF - Djibouti Franc
+	//Phone: 7625013191
+	//Address: 8995 Wellport, North Denesik, Indiana 30042
+	//BS: networks
+	//Beer Name: Arrogant Bastard Ale
+	//Color: Black
+	//Company: Pagac, Ratke and Stracke
+	//Credit Card: 6502027613217148
+	//Hacker Phrase: Use the open-source JSON system, then you can bypass the optical microchip!
+	//Job Title: Strategist
+	//Password: SvH*aQzqA *snbo2?z-O=zJn1L# iu u
+	//Currency: ZAR - South Africa Rand
 }
 
 func TestSeed(t *testing.T) {

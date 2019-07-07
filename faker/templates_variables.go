@@ -88,6 +88,7 @@ func getTemplateVars() map[string]fakerer {
 	vars["latitude"] = func(f *Faker) string { return strconv.FormatFloat(f.Latitude(), 103, -1, 64) }
 	vars["letter"] = func(f *Faker) string { return f.Letter() }
 	vars["longitude"] = func(f *Faker) string { return strconv.FormatFloat(f.Longitude(), 103, -1, 64) }
+	vars["md5"] = func(f *Faker) string { return f.MD5() }
 	vars["mimetype"] = func(f *Faker) string { return f.MimeType() }
 	vars["minute"] = func(f *Faker) string { return strconv.Itoa(f.Minute()) }
 	vars["month"] = func(f *Faker) string { return f.Month() }
@@ -104,6 +105,7 @@ func getTemplateVars() map[string]fakerer {
 	vars["safecolor"] = func(f *Faker) string { return f.SafeColor() }
 	vars["second"] = func(f *Faker) string { return strconv.Itoa(f.Second()) }
 	vars["sentenceavg"] = func(f *Faker) string { return f.SentenceAvg() }
+	vars["sha256"] = func(f *Faker) string { return f.SHA256() }
 	vars["simplestatuscode"] = func(f *Faker) string { return strconv.Itoa(f.SimpleStatusCode()) }
 	vars["ssn"] = func(f *Faker) string { return f.SSN() }
 	vars["state"] = func(f *Faker) string { return f.State() }

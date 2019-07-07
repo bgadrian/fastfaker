@@ -1,6 +1,7 @@
 package faker
 
 import (
+	"strconv"
 	"strings"
 )
 
@@ -18,9 +19,9 @@ func (f *Faker) Contact() *ContactInfo {
 	}
 }
 
-// Phone will generate a random phone number string
+// Phone will generate a 10 digit random phone number string
 func (f *Faker) Phone() string {
-	return f.replaceWithNumbers("##########")
+	return strconv.FormatInt(f.Int64Range(1000000000, 9999999999), 10)
 }
 
 // PhoneFormatted will generate a random phone number string

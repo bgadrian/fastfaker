@@ -84,12 +84,12 @@ func ExampleFaker_Person() {
 	//Burkina Faso
 	//-6.662594491850811
 	//23.921575244414612
-	//3023202027
-	//lamarkoelpin@heaney.biz
-	//Discover
-	//4148008899822720
-	//09/28
-	//932
+	//9676941592
+	//christyratke@stracke.org
+	//Visa
+	//4027613217148008
+	//11/29
+	//982
 }
 
 func BenchmarkPerson(b *testing.B) {

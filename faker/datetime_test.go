@@ -11,12 +11,12 @@ import (
 func ExampleFaker_Date() {
 	Global.Seed(11)
 	fmt.Println(Global.Date().String())
-	// Output: 1989-01-07 04:14:25.685339029 +0000 UTC
+	// Output: 1900-01-07 04:14:25.685339029 +0000 UTC
 }
 func ExampleFaker_DateStr() {
 	Global.Seed(11)
 	fmt.Println(Global.DateStr())
-	// Output: 1989-01-07 04:14:25.685339029 +0000 UTC
+	// Output: 1900-01-07 04:14:25.685339029 +0000 UTC
 }
 
 func BenchmarkDate(b *testing.B) {
@@ -29,12 +29,12 @@ func BenchmarkDate(b *testing.B) {
 func ExampleFaker_DateCurrentYear() {
 	Global.Seed(11)
 	fmt.Println(Global.DateCurrentYear().String())
-	// Output: 2018-06-25 05:16:14.244961305 +0000 UTC
+	// Output: 2019-06-25 05:16:14.244961305 +0000 UTC
 }
 func ExampleFaker_DateCurrentYearStr() {
 	Global.Seed(11)
 	fmt.Println(Global.DateCurrentYearStr())
-	// Output: 2018-06-25 05:16:14.244961305 +0000 UTC
+	// Output: 2019-06-25 05:16:14.244961305 +0000 UTC
 }
 
 func BenchmarkDateCurrentYear(b *testing.B) {
@@ -97,9 +97,9 @@ func BenchmarkWeekDay(b *testing.B) {
 }
 
 func ExampleFaker_Year() {
-	Global.Seed(11)
+	Global.Seed(13)
 	fmt.Println(Global.Year())
-	// Output: 1989
+	// Output: 2012
 }
 
 func BenchmarkYear(b *testing.B) {

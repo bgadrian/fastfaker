@@ -10,8 +10,8 @@ func ExampleFaker_Contact() {
 	contact := Global.Contact()
 	fmt.Println(contact.Phone)
 	fmt.Println(contact.Email)
-	// Output: 6136459948
-	// carolecarroll@bosco.com
+	// Output: 7787046119
+	// marcelpagac@wuckert.biz
 }
 
 func BenchmarkContact(b *testing.B) {
@@ -24,7 +24,7 @@ func BenchmarkContact(b *testing.B) {
 func ExampleFaker_Phone() {
 	Global.Seed(11)
 	fmt.Println(Global.Phone())
-	// Output: 6136459948
+	// Output: 7787046119
 }
 
 func BenchmarkPhone(b *testing.B) {
