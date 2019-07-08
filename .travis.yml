@@ -7,15 +7,15 @@ git:
 #we run the tests on multiple Go versions, but the coverage only on the latest
 matrix:
   include:
-  - name: "Go 1.0"
-    go: "1.4"
+  - name: "Go 1.11"
+    go: "1.11"
   - name: "Go latest"
     go: master
     env: COVERAGE=true
 
 install:
-- go get github.com/alecthomas/gometalinter
-- gometalinter --install --vendored-linters
+- curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s v1.17.1
+- golangci-lint run
 - make
 
 script:

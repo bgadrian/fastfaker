@@ -111,7 +111,7 @@ type SetCache interface {
 // NewDataListCache creates a new reference to a Data category set
 // for faster access
 func NewDataListCache(f Intn, dataVal []string) (SetCache, error) {
-	if &f == nil || !Check(dataVal) {
+	if f == nil || !Check(dataVal) {
 		return nil, ErrNotFound
 	}
 	res := &simpleList{}

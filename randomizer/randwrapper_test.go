@@ -37,9 +37,7 @@ func Example() {
 }
 
 func TestRandWrapperImplementsRandomizer(t *testing.T) {
-	if Randomizer(&RandWrapper{}) == nil {
-		t.Error("cannot cast to interface")
-	}
+	var _ Randomizer = (*RandWrapper)(nil)
 }
 
 func TestRandWrapper_Intn(t *testing.T) {
