@@ -1,5 +1,7 @@
 package faker
 
+import "strings"
+
 // Color will generate a random color string
 func (f *Faker) Color() string {
 	return f.getRandValue([]string{"color", "full"})
@@ -12,28 +14,13 @@ func (f *Faker) SafeColor() string {
 
 // HexColor will generate a random hexadecimal color string
 func (f *Faker) HexColor() string {
-	color := make([]byte, 6)
-	hashQuestion := []byte("?#")
+	b := strings.Builder{}
+	b.Grow(7)
+	b.WriteRune('#')
 	for i := 0; i < 6; i++ {
-		color[i] = hashQuestion[f.Intn(2)]
+		b.WriteByte(f.randHex())
 	}
-
-	return "#" + f.replaceWithLetters(f.replaceWithNumbers(string(color)))
-
-	// color := ""
-	// for i := 1; i <= 6; i++ {
-	// 	color += RandString([]string{"?", "#"})
-	// }
-
-	// // Replace # with number
-	// color = replaceWithNumbers(color)
-
-	// // Replace ? with letter
-	// for strings.Count(color, "?") > 0 {
-	// 	color = strings.Replace(color, "?", RandString(letters), 1)
-	// }
-
-	// return "#" + color
+	return b.String()
 }
 
 // RGBColor will generate a random int slice color

@@ -101,3 +101,29 @@ func TestFaker_SentenceSetCacheNil(t *testing.T) {
 
 	data.Data["lorem"]["word"] = old
 }
+
+func ExampleQuestion() {
+	Global.Seed(11)
+	fmt.Println(Global.Question())
+	// Output: Roof chia echo?
+}
+
+func BenchmarkQuestion(b *testing.B) {
+	faker := NewFastFaker()
+	for i := 0; i < b.N; i++ {
+		faker.Question()
+	}
+}
+
+func ExampleQuote() {
+	Global.Seed(11)
+	fmt.Println(Global.Quote())
+	// Output: "Roof chia echo." - Lura Lockman
+}
+
+func BenchmarkQuote(b *testing.B) {
+	faker := NewFastFaker()
+	for i := 0; i < b.N; i++ {
+		faker.Quote()
+	}
+}

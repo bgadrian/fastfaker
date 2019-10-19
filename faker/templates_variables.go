@@ -84,10 +84,13 @@ func getTemplateVars() map[string]fakerer {
 	vars["jobdescriptor"] = func(f *Faker) string { return f.JobDescriptor() }
 	vars["joblevel"] = func(f *Faker) string { return f.JobLevel() }
 	vars["jobtitle"] = func(f *Faker) string { return f.JobTitle() }
+	vars["language"] = func(f *Faker) string { return f.Language() }
+	vars["languageabbreviation"] = func(f *Faker) string { return f.LanguageAbbreviation() }
 	vars["lastname"] = func(f *Faker) string { return f.LastName() }
 	vars["latitude"] = func(f *Faker) string { return strconv.FormatFloat(f.Latitude(), 103, -1, 64) }
 	vars["letter"] = func(f *Faker) string { return f.Letter() }
 	vars["longitude"] = func(f *Faker) string { return strconv.FormatFloat(f.Longitude(), 103, -1, 64) }
+	vars["macaddress"] = func(f *Faker) string { return f.MacAddress() }
 	vars["md5"] = func(f *Faker) string { return f.MD5() }
 	vars["mimetype"] = func(f *Faker) string { return f.MimeType() }
 	vars["minute"] = func(f *Faker) string { return strconv.Itoa(f.Minute()) }
@@ -101,6 +104,9 @@ func getTemplateVars() map[string]fakerer {
 	vars["passwordfull"] = func(f *Faker) string { return f.PasswordFull() }
 	vars["phone"] = func(f *Faker) string { return f.Phone() }
 	vars["phoneformatted"] = func(f *Faker) string { return f.PhoneFormatted() }
+	vars["programminglanguage"] = func(f *Faker) string { return f.ProgrammingLanguage() }
+	vars["question"] = func(f *Faker) string { return f.Question() }
+	vars["quote"] = func(f *Faker) string { return f.Quote() }
 	vars["safariuseragent"] = func(f *Faker) string { return f.SafariUserAgent() }
 	vars["safecolor"] = func(f *Faker) string { return f.SafeColor() }
 	vars["second"] = func(f *Faker) string { return strconv.Itoa(f.Second()) }

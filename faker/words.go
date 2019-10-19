@@ -2,6 +2,7 @@ package faker
 
 import (
 	"bytes"
+	"strings"
 	"unicode"
 
 	"github.com/bgadrian/fastfaker/data"
@@ -114,4 +115,14 @@ func (f *Faker) paragraphGenerator(opts paragrapOptions, word data.SetCache) str
 	}
 
 	return paragraphs.String()
+}
+
+// Question will return a random question
+func (f *Faker) Question() string {
+	return strings.Replace(f.HipsterSentence(f.Number(3, 10)), ".", "?", 1)
+}
+
+// Quote will return a random quote from a random person
+func (f *Faker) Quote() string {
+	return `"` + f.HipsterSentence(f.Number(3, 10)) + `" - ` + f.FirstName() + " " + f.LastName()
 }
