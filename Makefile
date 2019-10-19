@@ -1,6 +1,7 @@
 # Makefile
 
 pre:
+	go clean -testcache
 	go get -t -v ./...
 	go test -p 1 -race ./...
 	#TODO test for compilation errors examples/*/*

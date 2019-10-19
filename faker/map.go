@@ -2,7 +2,7 @@ package faker
 
 var (
 	mapRandStrings = []string{"{word}", "{bs}", "{jobtitle}", "{name}", "{street}, {city}, {state} {zip}"}
-	mapRandTypes   = []string{"string", "int", "float", "slice", "map"}
+	mapRandTypes   = []string{"string", "int", "float", "slice"}
 )
 
 // Map will generate a random set of map data
@@ -19,7 +19,7 @@ func (f *Faker) Map() map[string]interface{} {
 		case "slice":
 			m[f.Word()] = f.SliceStrings()
 		default:
-			m[f.Word()] = f.Template(f.getRandValue(mapRandStrings))
+			m[f.Word()] = f.Template(f.RandString(mapRandStrings))
 		}
 	}
 
