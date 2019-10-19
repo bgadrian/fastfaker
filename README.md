@@ -145,10 +145,11 @@ How is FastFaker different?
 * `fastfaker` uses the semantic version, making it compatible with go modules
 * split /data and /randomizer into their own packages
 * version `gofakeit` 3.x is `fastfaker` 1.x
+* version `gofakeit` features are brought in `fastfaker` 2.1
 * more in the [changelog](./CHANGELOG.md)
 
 ## Change log
-I try to [keep it updated here](./CHANGELOG.md).
+All the [major changes are found in the CHANGELOG](./CHANGELOG.md).
 
 ## Benchmarks
 For a quick overview see [BENCHMARKS.md](./BENCHMARKS.md).

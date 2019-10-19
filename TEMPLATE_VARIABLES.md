@@ -63,72 +63,78 @@ For more info see [TEMPLATES](./TEMPLATES.md).
 | **&#123;hackernoun&#125;** | panel |
 | **&#123;hackerphrase&#125;** | I'Ll synthesize the neural HTTP transmitter, that should connect the USB program! |
 | **&#123;hackerverb&#125;** | generate |
-| **&#123;hexcolor&#125;** | #v08d8x |
-| **&#123;hipsterparagraphavg&#125;** | Beard typewriter goth taxidermy pinterest umami gluten-free narwhal freegan disrupt plaid bitters bicycle rights brooklyn keffiyeh meh bicycle rights flannel. Wayfarers brooklyn franzen hoodie skateboard mumblecore viral flannel etsy pork belly cardigan pinterest asymmetrical 8-bit DIY helvetica readymade pabst. Cold-pressed flexitarian tousled knausgaard fashion axe cray gastropub you probably haven't heard of them lomo heirloom vegan try-hard austin kickstarter gluten-free you probably haven't heard of them lo-fi viral. Cred tote bag echo mustache leggings kickstarter sustainable viral tilde semiotics cold-pressed selfies health celiac polaroid franzen chicharrones keffiyeh. 90's occupy carry chicharrones lomo twee chicharrones fixie blog neutra iPhone schlitz tacos brunch semiotics before they sold out whatever listicle. Paleo kickstarter williamsburg poutine meh cornhole scenester plaid seitan fixie migas dreamcatcher kombucha tofu biodiesel blue bottle pork belly whatever. VHS before they sold out fashion axe shabby chic vegan leggings distillery gentrify loko chillwave swag keffiyeh salvia photo booth hella cliche jean shorts portland. Paleo forage food truck narwhal vice salvia five dollar toast cornhole beard put a bird on it VHS gluten-free polaroid five dollar toast paleo cornhole hoodie retro. |
-| **&#123;hipstersentenceavg&#125;** | Sartorial trust fund flannel ennui tumblr pop-up next level banh mi migas kogi vinyl swag franzen kombucha paleo pickled tofu Wes Anderson. |
-| **&#123;hipsterword&#125;** | XOXO |
+| **&#123;hexcolor&#125;** | #8d7cb0 |
+| **&#123;hipsterparagraphavg&#125;** | Locavore polaroid swag waistcoat aesthetic pitchfork beard typewriter goth taxidermy pinterest umami gluten-free narwhal freegan disrupt plaid bitters. Bicycle rights brooklyn keffiyeh meh bicycle rights flannel wayfarers brooklyn franzen hoodie skateboard mumblecore viral flannel etsy pork belly cardigan pinterest. Asymmetrical 8-bit DIY helvetica readymade pabst cold-pressed flexitarian tousled knausgaard fashion axe cray gastropub you probably haven't heard of them lomo heirloom vegan try-hard. Austin kickstarter gluten-free you probably haven't heard of them lo-fi viral cred tote bag echo mustache leggings kickstarter sustainable viral tilde semiotics cold-pressed selfies. Health celiac polaroid franzen chicharrones keffiyeh 90's occupy carry chicharrones lomo twee chicharrones fixie blog neutra iPhone schlitz. Tacos brunch semiotics before they sold out whatever listicle paleo kickstarter williamsburg poutine meh cornhole scenester plaid seitan fixie migas dreamcatcher. Kombucha tofu biodiesel blue bottle pork belly whatever VHS before they sold out fashion axe shabby chic vegan leggings distillery gentrify loko chillwave swag keffiyeh. Salvia photo booth hella cliche jean shorts portland paleo forage food truck narwhal vice salvia five dollar toast cornhole beard put a bird on it VHS gluten-free. |
+| **&#123;hipstersentenceavg&#125;** | Polaroid five dollar toast paleo cornhole hoodie retro sartorial trust fund flannel ennui tumblr pop-up next level banh mi migas kogi vinyl swag. |
+| **&#123;hipsterword&#125;** | franzen |
 | **&#123;hour&#125;** | 12 |
 | **&#123;httpmethod&#125;** | HEAD |
-| **&#123;int16&#125;** | 11736 |
-| **&#123;int32&#125;** | 600870614 |
-| **&#123;int64&#125;** | -2060699869677000463 |
-| **&#123;int64positive&#125;** | 8343085160255639013 |
-| **&#123;int8&#125;** | 6 |
-| **&#123;ipv4address&#125;** | 89.187.57.100 |
-| **&#123;ipv6address&#125;** | 2001:cafe:8794:e9d4:69af:b33a:e471:4055 |
-| **&#123;jobdescriptor&#125;** | Direct |
-| **&#123;joblevel&#125;** | Implementation |
-| **&#123;jobtitle&#125;** | Supervisor |
-| **&#123;lastname&#125;** | Hartmann |
-| **&#123;latitude&#125;** | 85.03619042973045 |
-| **&#123;letter&#125;** | h |
-| **&#123;longitude&#125;** | 2.728196828969317 |
-| **&#123;md5&#125;** | 509138621c92d7b390ef48625c87f5b9 |
-| **&#123;mimetype&#125;** | application/macbinary |
-| **&#123;minute&#125;** | 36 |
-| **&#123;month&#125;** | January |
-| **&#123;name&#125;** | Monte Bashirian |
+| **&#123;int16&#125;** | 1940 |
+| **&#123;int32&#125;** | 1201764533 |
+| **&#123;int64&#125;** | -7031973140882749355 |
+| **&#123;int64positive&#125;** | 2287462722726645208 |
+| **&#123;int8&#125;** | -15 |
+| **&#123;ipv4address&#125;** | 63.44.164.128 |
+| **&#123;ipv6address&#125;** | 2001:cafe:8fa2:41ec:e411:a8e7:2ffb:63d6 |
+| **&#123;jobdescriptor&#125;** | Global |
+| **&#123;joblevel&#125;** | Accountability |
+| **&#123;jobtitle&#125;** | Specialist |
+| **&#123;language&#125;** | Pali |
+| **&#123;languageabbreviation&#125;** | kg |
+| **&#123;lastname&#125;** | Connelly |
+| **&#123;latitude&#125;** | 70.4370417828174 |
+| **&#123;letter&#125;** | y |
+| **&#123;longitude&#125;** | -100.10945887879839 |
+| **&#123;macaddress&#125;** | 0a:24:4c:6b:a5:54 |
+| **&#123;md5&#125;** | 26481ce629f5a7348686c9f306d40168 |
+| **&#123;mimetype&#125;** | audio/x-gsm |
+| **&#123;minute&#125;** | 59 |
+| **&#123;month&#125;** | June |
+| **&#123;name&#125;** | Mertie Pagac |
 | **&#123;nameprefix&#125;** | Mr. |
-| **&#123;namesuffix&#125;** | V |
-| **&#123;nanosecond&#125;** | 208956050 |
-| **&#123;operauseragent&#125;** | Opera/8.75 (Windows NT 5.1; en-US) Presto/2.13.193 Version/13.00 |
-| **&#123;paragraphavg&#125;** | Et explicabo sed nulla exercitationem eveniet et eos eos voluptate inventore aliquam ut non consequatur exercitationem ut optio. Quis ratione quia quos ullam fugiat omnis nulla ut sed non et assumenda est ut quidem minima ea. Ex dolores enim maiores error rerum eum sint mollitia at ratione et ut et dolorum error magni autem. Dolorem deserunt molestiae voluptates excepturi quod voluptas eligendi ipsam nihil a quo maiores autem exercitationem nihil illum ipsum. Autem dolorum est modi architecto qui repellendus perferendis rem natus placeat corporis est explicabo asperiores consequatur doloribus error. In sint sed nisi quis cumque omnis a impedit reiciendis tempore unde dolores distinctio et odit qui et. Cupiditate odio corrupti et maiores placeat ratione dolor necessitatibus voluptatem enim pariatur occaecati perferendis doloremque qui voluptatem qui. Reprehenderit et molestiae aperiam animi non et reiciendis non molestias officiis aut ab molestias incidunt ullam qui impedit. |
-| **&#123;passwordfull&#125;** | m$=4*@SQ?W&v |
-| **&#123;phone&#125;** | 7962016519 |
-| **&#123;phoneformatted&#125;** | 789.501.3948 |
-| **&#123;safariuseragent&#125;** | Mozilla/5.0 (Windows; U; Windows NT 6.1) AppleWebKit/531.2.8 (KHTML, like Gecko) Version/4.1 Safari/531.2.8 |
-| **&#123;safecolor&#125;** | yellow |
-| **&#123;second&#125;** | 2 |
-| **&#123;sentenceavg&#125;** | Enim laborum asperiores consectetur non nemo recusandae et explicabo accusamus et dolor enim et aut et repellat qui. |
-| **&#123;sha256&#125;** | ff5bdebbbfc2abd2744a01c0501004bee94b00888e0f57feacbeb4e14cb2c649 |
-| **&#123;simplestatuscode&#125;** | 200 |
-| **&#123;ssn&#125;** | 840343837 |
-| **&#123;state&#125;** | Virginia |
-| **&#123;stateabr&#125;** | UT |
-| **&#123;statuscode&#125;** | 404 |
-| **&#123;street&#125;** | 15553 East Stravenuetown |
-| **&#123;streetname&#125;** | Loaf |
-| **&#123;streetnumber&#125;** | 55619 |
+| **&#123;namesuffix&#125;** | Jr. |
+| **&#123;nanosecond&#125;** | 749087077 |
+| **&#123;operauseragent&#125;** | Opera/8.67 (Macintosh; U; PPC Mac OS X 10_7_2; en-US) Presto/2.9.253 Version/11.00 |
+| **&#123;paragraphavg&#125;** | Non consequatur exercitationem ut optio quis ratione quia quos ullam fugiat omnis nulla ut sed non et assumenda. Est ut quidem minima ea ex dolores enim maiores error rerum eum sint mollitia at ratione et ut. Et dolorum error magni autem dolorem deserunt molestiae voluptates excepturi quod voluptas eligendi ipsam nihil a quo maiores. Autem exercitationem nihil illum ipsum autem dolorum est modi architecto qui repellendus perferendis rem natus placeat corporis est. Explicabo asperiores consequatur doloribus error in sint sed nisi quis cumque omnis a impedit reiciendis tempore unde dolores. Distinctio et odit qui et cupiditate odio corrupti et maiores placeat ratione dolor necessitatibus voluptatem enim pariatur occaecati. Perferendis doloremque qui voluptatem qui reprehenderit et molestiae aperiam animi non et reiciendis non molestias officiis aut ab. Molestias incidunt ullam qui impedit quidem corrupti culpa suscipit ut aut neque accusamus dolorem dolorum minima dolor et. |
+| **&#123;passwordfull&#125;** | 3ag1IK3@W9Yu |
+| **&#123;phone&#125;** | 5898917183 |
+| **&#123;phoneformatted&#125;** | 1-736-568-4722 |
+| **&#123;programminglanguage&#125;** | ACT-III |
+| **&#123;question&#125;** | Cold-pressed fingerstache trust fund? |
+| **&#123;quote&#125;** | "Pinterest pour-over direct trade crucifix slow-carb 3 wolf moon." - Brad Wunsch |
+| **&#123;safariuseragent&#125;** | Mozilla/5.0 (Windows; U; Windows NT 6.0) AppleWebKit/535.38.3 (KHTML, like Gecko) Version/4.1 Safari/535.38.3 |
+| **&#123;safecolor&#125;** | teal |
+| **&#123;second&#125;** | 51 |
+| **&#123;sentenceavg&#125;** | Assumenda dolor hic omnis dolores iusto non aliquid quo voluptatibus aliquid voluptatem dignissimos aut dolorem eum at rerum. |
+| **&#123;sha256&#125;** | c0a93914554b42e19ad22c348d9f47d96e0772d2c81f5d1745a2d423d32c6b52 |
+| **&#123;simplestatuscode&#125;** | 400 |
+| **&#123;ssn&#125;** | 112043252 |
+| **&#123;state&#125;** | Wyoming |
+| **&#123;stateabr&#125;** | NV |
+| **&#123;statuscode&#125;** | 403 |
+| **&#123;street&#125;** | 38732 Port Knollmouth |
+| **&#123;streetname&#125;** | Parkway |
+| **&#123;streetnumber&#125;** | 8432 |
 | **&#123;streetprefix&#125;** | North |
-| **&#123;streetsuffix&#125;** | side |
-| **&#123;timezone&#125;** | Mauritius Standard Time |
-| **&#123;timezoneabv&#125;** | MST |
-| **&#123;timezonefull&#125;** | (UTC+12:00) Fiji |
-| **&#123;timezoneoffset&#125;** | 8 |
-| **&#123;transmissiongeartype&#125;** | Automatic |
-| **&#123;uint16&#125;** | 32253 |
-| **&#123;uint32&#125;** | 1697838639 |
-| **&#123;uint64&#125;** | 5681518370095422064 |
-| **&#123;uint8&#125;** | 23 |
-| **&#123;url&#125;** | http://www.leadmindshare.io/next-generation/granular/end-to-end/aggregate |
-| **&#123;useragent&#125;** | Mozilla/5.0 (Windows NT 4.0) AppleWebKit/5361 (KHTML, like Gecko) Chrome/39.0.894.0 Mobile Safari/5361 |
-| **&#123;username&#125;** | Crona6487 |
-| **&#123;uuid&#125;** | c88804f6-e54f-476a-af4a-7f2360ab7333 |
+| **&#123;streetsuffix&#125;** | view |
+| **&#123;timezone&#125;** | British Summer Time |
+| **&#123;timezoneabv&#125;** | IST |
+| **&#123;timezonefull&#125;** | (UTC+02:00) Athens, Bucharest |
+| **&#123;timezoneoffset&#125;** | 9 |
+| **&#123;transmissiongeartype&#125;** | Manual |
+| **&#123;uint16&#125;** | 52337 |
+| **&#123;uint32&#125;** | 1865567344 |
+| **&#123;uint64&#125;** | 6162679829796920209 |
+| **&#123;uint8&#125;** | 4 |
+| **&#123;url&#125;** | https://www.internationale-enable.biz/deploy/cutting-edge/convergence/platforms |
+| **&#123;useragent&#125;** | Mozilla/5.0 (X11; Linux i686) AppleWebKit/5340 (KHTML, like Gecko) Chrome/37.0.855.0 Mobile Safari/5340 |
+| **&#123;username&#125;** | Prohaska8143 |
+| **&#123;uuid&#125;** | d003cc02-1eb7-401c-969f-df9e54b057cd |
 | **&#123;vehicletype&#125;** | Van |
-| **&#123;weekday&#125;** | Saturday |
-| **&#123;word&#125;** | fugiat |
-| **&#123;year&#125;** | 1975 |
-| **&#123;zip&#125;** | 21859 |
+| **&#123;weekday&#125;** | Wednesday |
+| **&#123;word&#125;** | doloremque |
+| **&#123;year&#125;** | 1906 |
+| **&#123;zip&#125;** | 69612 |
 
 
 

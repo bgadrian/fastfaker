@@ -95,6 +95,17 @@ func BenchmarkIPv6Address(b *testing.B) {
 	}
 }
 
+func ExampleMacAddress() {
+	Global.Seed(11)
+	fmt.Println(Global.MacAddress())
+	// Output: e1:74:cb:01:77:91
+}
+
+func BenchmarkMacAddress(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		Global.MacAddress()
+	}
+}
 func ExampleFaker_Username() {
 	Global.Seed(11)
 	fmt.Println(Global.Username())

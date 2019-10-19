@@ -53,6 +53,19 @@ func BenchmarkNumerify(b *testing.B) {
 	}
 }
 
+func ExampleFaker_Hexify() {
+	Global.Seed(42)
+	fmt.Println(Global.Hexify("secret:hhhh-hhh"))
+	// Output: secret:1b4e-f15
+}
+
+func BenchmarkHexify(b *testing.B) {
+	fastFaker := NewFastFaker()
+	for i := 0; i < b.N; i++ {
+		fastFaker.Hexify("hhh-hhh")
+	}
+}
+
 func TestClampInt(t *testing.T) {
 	if clampInt(1, 10, 20) != 10 {
 		t.Errorf("failed for 1, 10, 20")

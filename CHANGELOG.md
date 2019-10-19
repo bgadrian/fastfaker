@@ -1,5 +1,16 @@
 # FastFaker change log
 
+### v2.1
+
+Major updates, most of them got from gofakeit v4:
+ * new: Languages (2 letter codes and long names)
+ * new: Programming Languages
+ * new: MacAddress
+ * new: Map  with empty interface, with random 4 types
+ * new: Hexify replaces specific placeholder with Hex ASCII characters
+ * new: Question and Quote (sentence variations)
+ * fixed and improved: HexColor
+ 
 ### v2.0.3
 
 * fixed timed based tests (current year)

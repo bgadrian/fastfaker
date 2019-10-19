@@ -63,6 +63,12 @@ func (f *Faker) IPv6Address() string {
 	return fmt.Sprintf("2001:cafe:%x:%x:%x:%x:%x:%x", f.Intn(num), f.Intn(num), f.Intn(num), f.Intn(num), f.Intn(num), f.Intn(num))
 }
 
+// MacAddress will generate a random mac address
+func (f *Faker) MacAddress() string {
+	num := 255
+	return fmt.Sprintf("%02x:%02x:%02x:%02x:%02x:%02x", f.Intn(num), f.Intn(num), f.Intn(num), f.Intn(num), f.Intn(num), f.Intn(num))
+}
+
 // Username will genrate a random username based upon picking a random lastname and random numbers at the end
 func (f *Faker) Username() string {
 	return f.getRandValue([]string{"person", "last"}) + f.replaceWithNumbers("####")
